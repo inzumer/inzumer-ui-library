@@ -1,0 +1,16 @@
+name: Duplicated code
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  duplication:
+    uses: inzumer/inzumer-ci/.github/workflows/duplication.yml@v1
+    with:
+      paths: packages/ui/src
+      ignore: '**/*.json,**/*.md,**/__tests__/**,**/*.stories.tsx'

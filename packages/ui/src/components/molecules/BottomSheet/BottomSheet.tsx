@@ -1,13 +1,7 @@
 import { RichText } from '@components';
-import {
-  useDelayedUnmount,
-  useDismissableLayer,
-  useFocusTrap,
-  useMergedRef,
-  useScrollLock,
-} from '@hooks';
+import { useDialogLayer } from '@hooks';
 import { cn } from '@utils';
-import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
   bottomSheetFooterStyles,
   bottomSheetHandleStyles,
@@ -31,15 +25,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     { open, onClose, title, footer, closeOnBackdropClick = true, className, children, ...props },
     ref,
   ) => {
-    const panelRef = useRef<HTMLDivElement | null>(null);
-    const setPanelRef = useMergedRef(ref, panelRef);
-    const titleId = useId();
-    const { mounted, visible } = useDelayedUnmount(open, EXIT_DURATION_MS);
-
-    useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick);
-    // The panel mounts one render after `open` flips, so the trap starts once it exists.
-    useFocusTrap(open && mounted, panelRef);
-    useScrollLock(open);
+    const { mounted, visible, titleId, dialogProps } = useDialogLayer({
+      open,
+      onClose,
+      ref,
+      exitDurationMs: EXIT_DURATION_MS,
+      closeOnBackdropClick,
+    });
 
     if (!mounted) {
       return null;
@@ -48,11 +40,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     return (
       <div className={bottomSheetOverlayStyles({ visible })}>
         <div
-          ref={setPanelRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={title ? titleId : undefined}
-          tabIndex={-1}
+          {...dialogProps(Boolean(title))}
           className={cn(bottomSheetPanelStyles({ visible }), className)}
           {...props}
         >

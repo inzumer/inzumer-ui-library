@@ -4,6 +4,8 @@ export default defineConfig({
   entry: {
     index: 'src/index.ts',
     'components/atoms/Button/index': 'src/components/atoms/Button/index.ts',
+    'components/atoms/Chevron/index': 'src/components/atoms/Chevron/index.ts',
+    'components/atoms/Field/index': 'src/components/atoms/Field/index.ts',
     'components/atoms/Icon/index': 'src/components/atoms/Icon/index.ts',
     'components/atoms/Image/index': 'src/components/atoms/Image/index.ts',
     'components/atoms/Input/index': 'src/components/atoms/Input/index.ts',
@@ -27,6 +29,7 @@ export default defineConfig({
     'components/molecules/Timeline/index': 'src/components/molecules/Timeline/index.ts',
     'components/organisms/CookieConsent/index': 'src/components/organisms/CookieConsent/index.ts',
     'hooks/useDelayedUnmount/index': 'src/hooks/useDelayedUnmount/index.ts',
+    'hooks/useDialogLayer/index': 'src/hooks/useDialogLayer/index.ts',
     'hooks/useDismissableLayer/index': 'src/hooks/useDismissableLayer/index.ts',
     'hooks/useFocusTrap/index': 'src/hooks/useFocusTrap/index.ts',
     'hooks/useMediaQuery/index': 'src/hooks/useMediaQuery/index.ts',
