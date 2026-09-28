@@ -1,5 +1,12 @@
+import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { RichText } from '@components';
-import { useDelayedUnmount, useDismissableLayer, useMergedRef } from '@hooks';
+import {
+  useDelayedUnmount,
+  useDismissableLayer,
+  useFocusTrap,
+  useMergedRef,
+  useScrollLock,
+} from '@hooks';
 import { cn } from '@utils';
 import { forwardRef, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
@@ -27,9 +34,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
   ) => {
     const panelRef = useRef<HTMLDivElement | null>(null);
     const setPanelRef = useMergedRef(ref, panelRef);
+    const titleId = useId();
     const { mounted, visible } = useDelayedUnmount(open, EXIT_DURATION_MS);
 
     useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick);
+    // The panel mounts one render after `open` flips, so the trap starts once it exists.
+    useFocusTrap(open && mounted, panelRef);
+    useScrollLock(open);
 
     if (!mounted) {
       return null;
@@ -41,18 +52,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
           ref={setPanelRef}
           role="dialog"
           aria-modal="true"
-          aria-labelledby={title ? 'bottom-sheet-title' : undefined}
+          aria-labelledby={title ? titleId : undefined}
+          tabIndex={-1}
           className={cn(bottomSheetPanelStyles({ visible }), className)}
           {...props}
         >
           <div aria-hidden className={bottomSheetHandleStyles} />
           {title && (
-            <RichText
-              as="h2"
-              id="bottom-sheet-title"
-              variant="s1"
-              className={bottomSheetTitleStyles}
-            >
+            <RichText as="h2" id={titleId} variant="s1" className={bottomSheetTitleStyles}>
               {title}
             </RichText>
           )}

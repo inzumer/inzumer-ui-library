@@ -4,4 +4,6 @@ export * from './Image';
 export * from './Input';
 export * from './Link';
 export * from './RichText';
+export * from './Select';
 export * from './Switch';
+export * from './Textarea';

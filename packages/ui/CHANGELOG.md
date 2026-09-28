@@ -1,5 +1,34 @@
 # @inzumer/ui-library
 
+## 1.5.0
+
+### Minor Changes
+
+- 0ce2dbc: Add `Dropdown`: a themed select (WAI-ARIA select-only combobox) whose option list follows the tokens on every device, with keyboard support, hint/error and form submission through a hidden input.
+
+## 1.4.0
+
+### Minor Changes
+
+- 1ef1e81: Add `CookieBanner` (accept / reject / customize consent bar) and `CookiePreferences` (per-category
+  choices in a `Modal`, with always-on required categories).
+
+## 1.3.0
+
+### Minor Changes
+
+- 696efcb: Add the `Accordion` component (native `<details>`/`<summary>`) and the `Table` component family
+  (`Table`, `TableHead`, `TableBody`, `TableRow`, `TableHeaderCell`, `TableCell`) with a horizontal
+  scroll container for small screens.
+
+## 1.2.0
+
+### Minor Changes
+
+- f79f613: Add `Select`, `Textarea` and `Drawer` components and the `useFocusTrap` and `useScrollLock` hooks.
+  `Modal` and `BottomSheet` now trap focus while open (returning it to the trigger on close), lock the
+  page scroll behind them and use a unique id for their title, so several can coexist on a page.
+
 ## 1.1.0
 
 ### Minor Changes

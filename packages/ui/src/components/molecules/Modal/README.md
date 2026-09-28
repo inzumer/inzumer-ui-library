@@ -45,3 +45,6 @@ const [open, setOpen] = useState(false);
   (`useDelayedUnmount`) before actually unmounting, and closes on `Escape`/outside click via
   `useDismissableLayer`. See [Hooks](/docs/documentation-hooks--docs) if you're building something
   similar and want the same behavior.
+- Accessible by default: focus moves into the panel and stays there while it's open
+  (`useFocusTrap`), returns to whatever opened it on close, and the page behind doesn't scroll
+  (`useScrollLock`). The title gets a unique id, so several can be on the same page.

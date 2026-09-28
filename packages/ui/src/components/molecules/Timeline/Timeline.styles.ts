@@ -11,3 +11,9 @@ export const timelineTitleStyles = 'text-base font-bold text-[var(--text-primary
 export const timelineDescriptionListStyles = 'mt-1 flex flex-col gap-1';
 
 export const timelineDescriptionStyles = 'text-sm text-[var(--text-secondary)]';
+
+/** Photo of a step (e.g. a recipe step): under the text, rounded, 4:3. */
+export const timelineMediaStyles =
+  'mt-3 w-full max-w-md overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--surface-secondary)]';
+
+export const timelineImageStyles = 'aspect-[4/3] w-full';

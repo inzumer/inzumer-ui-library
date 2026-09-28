@@ -24,8 +24,10 @@ import { Timeline } from '@inzumer/ui-library';
 
 ## Props
 
-- `items` — `{ title, description, id? }[]`; `title` is a single `ReactNode`, `description` is an
-  array of `ReactNode`s rendered as separate lines under the title
+- `items` — `{ title, description, id?, image?, media? }[]`; `title` is a single `ReactNode`,
+  `description` is an array of `ReactNode`s rendered as separate lines under the title
+- `image` — `{ src, alt }`: a photo under the entry's text (4:3, rounded, lazy loaded), e.g. each
+  step of a recipe; `media` — your own element instead (an optimized `<picture>`, a video…)
 
 ## Notes
 

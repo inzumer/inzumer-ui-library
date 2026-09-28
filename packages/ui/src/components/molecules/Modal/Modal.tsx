@@ -1,5 +1,12 @@
+import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { RichText } from '@components';
-import { useDelayedUnmount, useDismissableLayer, useMergedRef } from '@hooks';
+import {
+  useDelayedUnmount,
+  useDismissableLayer,
+  useFocusTrap,
+  useMergedRef,
+  useScrollLock,
+} from '@hooks';
 import { cn } from '@utils';
 import { forwardRef, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
@@ -26,9 +33,13 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ) => {
     const panelRef = useRef<HTMLDivElement | null>(null);
     const setPanelRef = useMergedRef(ref, panelRef);
+    const titleId = useId();
     const { mounted, visible } = useDelayedUnmount(open, EXIT_DURATION_MS);
 
     useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick);
+    // The panel mounts one render after `open` flips, so the trap starts once it exists.
+    useFocusTrap(open && mounted, panelRef);
+    useScrollLock(open);
 
     if (!mounted) {
       return null;
@@ -40,12 +51,13 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           ref={setPanelRef}
           role="dialog"
           aria-modal="true"
-          aria-labelledby={title ? 'modal-title' : undefined}
+          aria-labelledby={title ? titleId : undefined}
+          tabIndex={-1}
           className={cn(modalPanelStyles({ visible }), className)}
           {...props}
         >
           {title && (
-            <RichText as="h2" id="modal-title" variant="s1" className={modalTitleStyles}>
+            <RichText as="h2" id={titleId} variant="s1" className={modalTitleStyles}>
               {title}
             </RichText>
           )}

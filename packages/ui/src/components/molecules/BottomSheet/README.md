@@ -37,3 +37,6 @@ center.
 
 - Shares `useDelayedUnmount`/`useDismissableLayer` with `Modal` for the same enter/exit-animation
   and dismissal behavior — see [Hooks](/docs/documentation-hooks--docs).
+- Accessible by default: focus moves into the panel and stays there while it's open
+  (`useFocusTrap`), returns to whatever opened it on close, and the page behind doesn't scroll
+  (`useScrollLock`). The title gets a unique id, so several can be on the same page.

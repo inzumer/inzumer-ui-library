@@ -1,6 +1,6 @@
 {
   "name": "@inzumer/ui-library",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "private": false,
   "description": "React UI component library for the Inzumer design system",
   "license": "MIT",
@@ -56,9 +56,21 @@
       "types": "./dist/components/atoms/RichText/index.d.ts",
       "import": "./dist/components/atoms/RichText/index.js"
     },
+    "./select": {
+      "types": "./dist/components/atoms/Select/index.d.ts",
+      "import": "./dist/components/atoms/Select/index.js"
+    },
     "./switch": {
       "types": "./dist/components/atoms/Switch/index.d.ts",
       "import": "./dist/components/atoms/Switch/index.js"
+    },
+    "./textarea": {
+      "types": "./dist/components/atoms/Textarea/index.d.ts",
+      "import": "./dist/components/atoms/Textarea/index.js"
+    },
+    "./accordion": {
+      "types": "./dist/components/molecules/Accordion/index.d.ts",
+      "import": "./dist/components/molecules/Accordion/index.js"
     },
     "./bottom-sheet": {
       "types": "./dist/components/molecules/BottomSheet/index.d.ts",
@@ -72,9 +84,33 @@
       "types": "./dist/components/molecules/Card/index.d.ts",
       "import": "./dist/components/molecules/Card/index.js"
     },
+    "./carousel": {
+      "types": "./dist/components/molecules/Carousel/index.d.ts",
+      "import": "./dist/components/molecules/Carousel/index.js"
+    },
+    "./cookie-banner": {
+      "types": "./dist/components/molecules/CookieBanner/index.d.ts",
+      "import": "./dist/components/molecules/CookieBanner/index.js"
+    },
+    "./cookie-preferences": {
+      "types": "./dist/components/molecules/CookiePreferences/index.d.ts",
+      "import": "./dist/components/molecules/CookiePreferences/index.js"
+    },
+    "./drawer": {
+      "types": "./dist/components/molecules/Drawer/index.d.ts",
+      "import": "./dist/components/molecules/Drawer/index.js"
+    },
+    "./dropdown": {
+      "types": "./dist/components/molecules/Dropdown/index.d.ts",
+      "import": "./dist/components/molecules/Dropdown/index.js"
+    },
     "./language": {
       "types": "./dist/components/molecules/Language/index.d.ts",
       "import": "./dist/components/molecules/Language/index.js"
+    },
+    "./media-card": {
+      "types": "./dist/components/molecules/MediaCard/index.d.ts",
+      "import": "./dist/components/molecules/MediaCard/index.js"
     },
     "./modal": {
       "types": "./dist/components/molecules/Modal/index.d.ts",
@@ -83,6 +119,10 @@
     "./snackbar": {
       "types": "./dist/components/molecules/Snackbar/index.d.ts",
       "import": "./dist/components/molecules/Snackbar/index.js"
+    },
+    "./table": {
+      "types": "./dist/components/molecules/Table/index.d.ts",
+      "import": "./dist/components/molecules/Table/index.js"
     },
     "./timeline": {
       "types": "./dist/components/molecules/Timeline/index.d.ts",
@@ -96,6 +136,10 @@
       "types": "./dist/hooks/useDismissableLayer/index.d.ts",
       "import": "./dist/hooks/useDismissableLayer/index.js"
     },
+    "./use-focus-trap": {
+      "types": "./dist/hooks/useFocusTrap/index.d.ts",
+      "import": "./dist/hooks/useFocusTrap/index.js"
+    },
     "./use-media-query": {
       "types": "./dist/hooks/useMediaQuery/index.d.ts",
       "import": "./dist/hooks/useMediaQuery/index.js"
@@ -103,6 +147,10 @@
     "./use-merged-ref": {
       "types": "./dist/hooks/useMergedRef/index.d.ts",
       "import": "./dist/hooks/useMergedRef/index.js"
+    },
+    "./use-scroll-lock": {
+      "types": "./dist/hooks/useScrollLock/index.d.ts",
+      "import": "./dist/hooks/useScrollLock/index.js"
     },
     "./cn": {
       "types": "./dist/utils/cn/index.d.ts",

@@ -49,8 +49,14 @@ export in `package.json` (`./use-media-query`, `./use-delayed-unmount`, ...) and
     `opacity-100`/`scale-100`, etc.) and must keep `exitDurationMs` equal to the CSS `duration-*`
     class they use, or the unmount will race the transition.
 - **`useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick?)`** — Wires up `Escape` and
-  outside-`pointerdown` dismissal for an overlay. Used by `Modal` and `BottomSheet`. `Snackbar`
+  outside-`pointerdown` dismissal for an overlay. Used by `Modal`, `BottomSheet` and `Drawer`. `Snackbar`
   doesn't use it — it dismisses itself via its own `duration` timer instead.
+- **`useFocusTrap(active, containerRef)`** — While `active`, moves focus into `containerRef`, keeps
+  `Tab`/`Shift+Tab` inside it and returns focus to the previously focused element when it
+  deactivates (the WAI-ARIA dialog pattern). Used by `Modal`, `BottomSheet` and `Drawer`, which pass
+  `open && mounted` because their panel only exists one render after `open` flips.
+- **`useScrollLock(active)`** — Sets `overflow: hidden` on `<body>` while `active` and restores the
+  previous value afterwards, so the page behind an overlay doesn't scroll. Used by the same overlays.
 - **`useMergedRef(...refs)`** — Combines a forwarded ref with a local one into a single ref
   callback, for components that need to both expose a ref to consumers and read the DOM node
   internally (e.g. `Modal`'s panel, for outside-click detection).
