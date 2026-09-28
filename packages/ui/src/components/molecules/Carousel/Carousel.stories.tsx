@@ -34,6 +34,8 @@ export const Recipes: Story = {
     label: 'Featured recipes',
     previousLabel: 'Previous recipes',
     nextLabel: 'Next recipes',
+    indicatorsLabel: 'Choose a recipe',
+    goToLabel: (index, total) => `Recipe ${index + 1} of ${total}`,
     header: <h2 style={{ fontSize: '2rem', fontWeight: 700 }}>Featured recipes</h2>,
     children: recipes.map(([title, subtitle, from, to]) => (
       <MediaCard
@@ -50,6 +52,10 @@ export const Recipes: Story = {
     const canvas = within(canvasElement);
     await expect(canvas.getByRole('button', { name: 'Previous recipes' })).toBeDisabled();
     await expect(canvas.getAllByRole('group', { name: /\/ 5$/ })).toHaveLength(5);
+    await expect(canvas.getByRole('button', { name: 'Recipe 1 of 5' })).toHaveAttribute(
+      'aria-current',
+      'true',
+    );
     await userEvent.click(canvas.getByRole('button', { name: 'Next recipes' }));
   },
 };
