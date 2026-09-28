@@ -1,5 +1,19 @@
 # @inzumer/ui-library
 
+## 2.0.0
+
+### Major Changes
+
+- 5e104ab: New `CookieConsent` organism: cookie consent in a single component with three modes — `banner` (bar at the bottom with accept, reject and customize, which opens the preferences), `modal` (only the preferences dialog, opened from outside) and `inline` (the categories with switches inside a page, saved on every change). Controlled with one `value` (`Record<string, boolean>` or `null` while unanswered) and one `onChange`; `getId` gives stable ids for analytics.
+
+  BREAKING CHANGE: `CookieBanner` and `CookiePreferences` (and their `./cookie-banner` / `./cookie-preferences` entry points) are removed. Use `CookieConsent` with `mode="banner"` or `mode="modal"` (`./cookie-consent` entry point); `CookieCategory` is still exported.
+
+### Minor Changes
+
+- d5b9ee5: New `Carousel` (horizontal row with scroll snap and, under the cards, previous/next buttons around indicators that mark the current card and jump to any of them; theme tokens, no autoplay, reduced motion aware, WAI-ARIA carousel pattern) and `MediaCard` (full-bleed photo with a dark gradient for the title and subtitle, optional badge and floating actions, the whole card as a link). Entry points `./carousel` and `./media-card`.
+- 914f1b2: `Modal` sizes are aligned: 90% of the viewport width up to 768px, as tall as the content up to 80% of the viewport height (new `maxHeight="tall"` allows 90%). Title and footer stay in place and the content scrolls inside; the footer wraps its buttons on narrow screens. `CookieConsent`'s preferences follow the same size.
+- 4a9ff65: `Timeline` entries accept an optional photo (`image: { src, alt }`, lazy loaded, 4:3 and rounded, under the entry's text) or any `media` element, e.g. for the steps of a recipe.
+
 ## 1.5.0
 
 ### Minor Changes
