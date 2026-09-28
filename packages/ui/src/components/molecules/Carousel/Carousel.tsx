@@ -12,15 +12,21 @@ import {
   type ReactNode,
 } from 'react';
 import {
+  carouselButtonStyles,
+  carouselChevronStyles,
   carouselControlsStyles,
   carouselDotStyles,
   carouselIndicatorsStyles,
   carouselIndicatorStyles,
   carouselSlideStyles,
   carouselSlideWidthStyles,
+  carouselSlotStyles,
   carouselStyles,
   carouselTrackStyles,
 } from './Carousel.styles';
+
+/** Where a control sits under the cards. */
+export type CarouselControlPosition = 'start' | 'center' | 'end';
 
 export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   /** Accessible name of the carousel, e.g. "Featured recipes". */
@@ -35,8 +41,14 @@ export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   goToLabel?: (index: number, total: number) => string;
   /** Accessible name of the indicators group, e.g. "Choose a recipe". */
   indicatorsLabel?: string;
-  /** Show the indicators between the buttons (default `true`). */
+  /** Show the indicators (default `true`). */
   indicators?: boolean;
+  /** Side of the indicators (default `center`); next to the buttons when both share a side. */
+  indicatorsPosition?: CarouselControlPosition;
+  /** Show the previous/next buttons (default `true`); scrolling and indicators still work without them. */
+  buttons?: boolean;
+  /** Side of the buttons (default `center`, around the indicators). */
+  buttonsPosition?: CarouselControlPosition;
   /** Optional visible heading or "See all" link above the cards. */
   header?: ReactNode;
   /** Width classes for each slide (defaults: 80% mobile, 45% tablet, 31% desktop). */
@@ -47,12 +59,7 @@ export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
 
 const EDGE_TOLERANCE_PX = 4;
 
-/**
- * Horizontal carousel of cards: native scroll with snap (touch and trackpad drag work as usual),
- * and below the cards previous/next buttons around indicators that show the current card and jump
- * to any of them. Tabbing to a card scrolls it into view. No autoplay; the smooth scroll is turned
- * off when the person prefers reduced motion.
- */
+/** Carousel of cards with native snap scroll; optional buttons and indicators on any side. */
 export const Carousel = forwardRef<HTMLElement, CarouselProps>(
   (
     {
@@ -64,6 +71,9 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
       goToLabel = (index) => `Go to slide ${index + 1}`,
       indicatorsLabel,
       indicators = true,
+      indicatorsPosition = 'center',
+      buttons = true,
+      buttonsPosition = 'center',
       header,
       slideClassName,
       buttonIds = {},
@@ -127,6 +137,52 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
       trackRef.current?.scrollTo({ left: offsetOf(index), behavior });
     };
 
+    const showIndicators = indicators && slides.length > 1;
+    const together = buttons && showIndicators && buttonsPosition === indicatorsPosition;
+
+    const button = (direction: 1 | -1) => (
+      <Button
+        id={direction < 0 ? buttonIds.previous : buttonIds.next}
+        type="button"
+        variant="primary"
+        size="icon"
+        className={carouselButtonStyles}
+        aria-label={direction < 0 ? previousLabel : nextLabel}
+        disabled={direction < 0 ? edges.start : edges.end}
+        onClick={() => scrollByPage(direction)}
+      >
+        <svg
+          aria-hidden
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={carouselChevronStyles}
+        >
+          <path d={direction < 0 ? 'm15 18-6-6 6-6' : 'm9 18 6-6-6-6'} />
+        </svg>
+      </Button>
+    );
+
+    const dots = (
+      <div role="group" aria-label={indicatorsLabel} className={carouselIndicatorsStyles}>
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            aria-label={goToLabel(index, slides.length)}
+            aria-current={index === active ? 'true' : undefined}
+            className={carouselIndicatorStyles}
+            onClick={() => goTo(index)}
+          >
+            <span aria-hidden="true" className={carouselDotStyles({ active: index === active })} />
+          </button>
+        ))}
+      </div>
+    );
+
     return (
       <section
         ref={ref}
@@ -157,49 +213,29 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
             </div>
           ))}
         </div>
-        <div className={carouselControlsStyles}>
-          <Button
-            id={buttonIds.previous}
-            type="button"
-            variant="secondary"
-            size="icon"
-            aria-label={previousLabel}
-            disabled={edges.start}
-            onClick={() => scrollByPage(-1)}
-          >
-            <span aria-hidden="true">‹</span>
-          </Button>
-          {indicators && slides.length > 1 && (
-            <div role="group" aria-label={indicatorsLabel} className={carouselIndicatorsStyles}>
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={goToLabel(index, slides.length)}
-                  aria-current={index === active ? 'true' : undefined}
-                  className={carouselIndicatorStyles}
-                  onClick={() => goTo(index)}
-                >
-                  <span
-                    aria-hidden="true"
-                    className={carouselDotStyles({ active: index === active })}
-                  />
-                </button>
-              ))}
-            </div>
-          )}
-          <Button
-            id={buttonIds.next}
-            type="button"
-            variant="secondary"
-            size="icon"
-            aria-label={nextLabel}
-            disabled={edges.end}
-            onClick={() => scrollByPage(1)}
-          >
-            <span aria-hidden="true">›</span>
-          </Button>
-        </div>
+        {(buttons || showIndicators) && (
+          <div className={carouselControlsStyles}>
+            {together ? (
+              <div className={carouselSlotStyles({ position: buttonsPosition })}>
+                {button(-1)}
+                {dots}
+                {button(1)}
+              </div>
+            ) : (
+              <>
+                {buttons && (
+                  <div className={carouselSlotStyles({ position: buttonsPosition })}>
+                    {button(-1)}
+                    {button(1)}
+                  </div>
+                )}
+                {showIndicators && (
+                  <div className={carouselSlotStyles({ position: indicatorsPosition })}>{dots}</div>
+                )}
+              </>
+            )}
+          </div>
+        )}
       </section>
     );
   },

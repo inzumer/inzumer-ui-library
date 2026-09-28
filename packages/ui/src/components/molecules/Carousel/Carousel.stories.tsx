@@ -24,6 +24,10 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    indicatorsPosition: { control: 'inline-radio', options: ['start', 'center', 'end'] },
+    buttonsPosition: { control: 'inline-radio', options: ['start', 'center', 'end'] },
+  },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -58,4 +62,20 @@ export const Recipes: Story = {
     );
     await userEvent.click(canvas.getByRole('button', { name: 'Next recipes' }));
   },
+};
+
+export const IndicatorsOnly: Story = {
+  args: { ...Recipes.args, buttons: false },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.queryByRole('button', { name: 'Next recipes' })).toBeNull();
+  },
+};
+
+export const ButtonsRightIndicatorsLeft: Story = {
+  args: { ...Recipes.args, buttonsPosition: 'end', indicatorsPosition: 'start' },
+};
+
+export const TogetherOnTheRight: Story = {
+  args: { ...Recipes.args, buttonsPosition: 'end', indicatorsPosition: 'end' },
 };

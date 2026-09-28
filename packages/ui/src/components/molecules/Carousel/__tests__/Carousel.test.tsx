@@ -142,4 +142,33 @@ describe('Carousel', () => {
     setup({ header: <h2>Recipes</h2> });
     expect(screen.getByRole('heading', { name: 'Recipes' })).toBeInTheDocument();
   });
+
+  it('can hide the buttons and keep only the indicators', () => {
+    setup({ buttons: false });
+    expect(screen.queryByRole('button', { name: 'Next' })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to slide 1' })).toBeInTheDocument();
+  });
+
+  it('groups buttons and indicators when they share a side', () => {
+    setup({ buttonsPosition: 'end', indicatorsPosition: 'end' });
+    const slot = screen.getByRole('button', { name: 'Next' }).parentElement;
+    expect(slot).toHaveClass('col-start-3', 'justify-end');
+    expect(slot).toContainElement(screen.getByRole('button', { name: 'Go to slide 2' }));
+  });
+
+  it('places buttons and indicators on different sides of the same row', () => {
+    setup({ buttonsPosition: 'end', indicatorsPosition: 'start' });
+    expect(screen.getByRole('button', { name: 'Previous' }).parentElement).toHaveClass(
+      'col-start-3',
+      'row-start-1',
+    );
+    expect(
+      screen.getByRole('button', { name: 'Go to slide 1' }).closest('[class*="col-start"]'),
+    ).toHaveClass('col-start-1', 'row-start-1');
+  });
+
+  it('renders no controls when both are off', () => {
+    setup({ buttons: false, indicators: false });
+    expect(screen.queryAllByRole('button')).toHaveLength(0);
+  });
 });
