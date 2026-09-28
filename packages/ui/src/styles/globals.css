@@ -1,7 +1,7 @@
-@import '../../../tokens/src/css/reset.css';
-@import '../../../tokens/src/css/variables.css';
-@import '../../../tokens/src/css/typography.css';
-@import '../../../tokens/src/css/scrollbar.css';
+@import '@inzumer/tokens/css/reset';
+@import '@inzumer/tokens/css/variables';
+@import '@inzumer/tokens/css/typography';
+@import '@inzumer/tokens/css/scrollbar';
 
 @tailwind base;
 @tailwind components;

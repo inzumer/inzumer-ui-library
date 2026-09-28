@@ -116,15 +116,15 @@ styles beat every stylesheet rule regardless of specificity — including the
 If you need a semantic override to differ between light and dark, swap the `theme` prop's value
 yourself when `colorScheme` changes — the provider does not do this automatically.
 
-See `packages/tokens/src/provider/InzumerProvider.tsx` and `packages/tokens/src/utils/inject-css-vars.ts`
+See `inzumer-tokens/src/provider/InzumerProvider.tsx` and `inzumer-tokens/src/utils/inject-css-vars.ts`
 (`buildCssVars`, `buildSemanticCssVars`) for the implementation.
 
 ## Built-in themes
 
-`DefaultTheme` and `DarkTheme` (`packages/tokens/src/themes/`) are the two `ResolvedTheme` objects
+`DefaultTheme` and `DarkTheme` (`inzumer-tokens/src/themes/`) are the two `ResolvedTheme` objects
 (`{ base, semantic }`) used as the provider's defaults — `DefaultTheme` pairs `baseTokens` with
 `lightSemanticTokens`, `DarkTheme` pairs the same `baseTokens` with `darkSemanticTokens`.
-`createTheme(override)` (in `packages/tokens/src/utils/create-theme.ts`) always resolves **against the
+`createTheme(override)` (in `inzumer-tokens/src/utils/create-theme.ts`) always resolves **against the
 light theme** as its merge base — dark mode is applied separately, at the CSS layer described above,
 not by `createTheme`.
 

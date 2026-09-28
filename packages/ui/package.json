@@ -5,13 +5,13 @@
   "description": "React UI component library for the Inzumer design system",
   "license": "MIT",
   "author": "Nahuel Zamuner <inzumer@gmail.com>",
-  "homepage": "https://github.com/inzumer/ui-library/tree/main/packages/ui#readme",
+  "homepage": "https://github.com/inzumer/inzumer-ui-library/tree/main/packages/ui#readme",
   "bugs": {
-    "url": "https://github.com/inzumer/ui-library/issues"
+    "url": "https://github.com/inzumer/inzumer-ui-library/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/inzumer/ui-library.git",
+    "url": "https://github.com/inzumer/inzumer-ui-library.git",
     "directory": "packages/ui"
   },
   "keywords": [
@@ -171,7 +171,7 @@
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
   },
   "dependencies": {
-    "@inzumer/tokens": "workspace:*"
+    "@inzumer/tokens": "^1.1.0"
   },
   "peerDependencies": {
     "class-variance-authority": ">=0.7.0",
@@ -181,8 +181,6 @@
     "tailwind-merge": ">=2.0.0"
   },
   "devDependencies": {
-    "@inzumer/eslint-config": "workspace:*",
-    "@inzumer/tsconfig": "workspace:*",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",

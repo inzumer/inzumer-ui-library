@@ -47,7 +47,9 @@ This is a **pnpm + Turborepo monorepo** with two published packages:
     </tr>
     <tr>
       <td>
-        <code>packages/tokens</code>
+        <a href="https://github.com/inzumer/inzumer-tokens">
+          <code>inzumer-tokens</code>
+        </a>
       </td>
       <td>
         <code>@inzumer/tokens</code>
@@ -57,8 +59,11 @@ This is a **pnpm + Turborepo monorepo** with two published packages:
   </tbody>
 </table>
 
-Everything else (`packages/eslint-config`, `packages/prettier-config`, `packages/tsconfig`) is internal
-tooling shared across both — not meant to be consumed by other projects.
+The tokens and the shared tooling live in their own repositories, one per package
+(`inzumer-<name>` → `@inzumer/<name>`): [`inzumer-tokens`](https://github.com/inzumer/inzumer-tokens),
+[`inzumer-eslint`](https://github.com/inzumer/inzumer-eslint),
+[`inzumer-prettier`](https://github.com/inzumer/inzumer-prettier) and
+[`inzumer-tsconfig`](https://github.com/inzumer/inzumer-tsconfig).
 
 ## Where to go next
 

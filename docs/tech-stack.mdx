@@ -66,7 +66,7 @@ import { Meta } from '@storybook/blocks';
       </td>
       <td>
         <code>strict: true</code>, <code>noUncheckedIndexedAccess</code>,{' '}
-        <code>exactOptionalPropertyTypes</code> — see <code>packages/tsconfig</code>.
+        <code>exactOptionalPropertyTypes</code> — see <code>inzumer-tsconfig</code>.
       </td>
     </tr>
     <tr>
@@ -207,7 +207,7 @@ import { Meta } from '@storybook/blocks';
         <strong>ESLint 9</strong> (flat config)
       </td>
       <td>
-        <code>@inzumer/eslint-config</code> — <code>@typescript-eslint</code>,{' '}
+        <code>@inzumer/eslint</code> — <code>@typescript-eslint</code>,{' '}
         <code>eslint-plugin-react</code>, <code>eslint-plugin-react-hooks</code>,{' '}
         <code>eslint-plugin-jsx-a11y</code>, <code>@vitest/eslint-plugin</code>. Enforces{' '}
         <code>semi</code>, <code>curly</code>, unused-import removal, and more.
@@ -218,10 +218,9 @@ import { Meta } from '@storybook/blocks';
         <strong>Prettier</strong>
       </td>
       <td>
-        <code>@inzumer/prettier-config</code> — <code>@ianvs/prettier-plugin-sort-imports</code>{' '}
-        keeps import groups ordered: builtins → third-party → <code>@inzumer/*</code> workspace
-        packages → local aliases (<code>@components</code>, <code>@utils</code>, ...) → relative
-        imports.
+        <code>@inzumer/prettier</code> — <code>@ianvs/prettier-plugin-sort-imports</code> keeps
+        import groups ordered: builtins → third-party → <code>@inzumer/*</code> workspace packages →
+        local aliases (<code>@components</code>, <code>@utils</code>, ...) → relative imports.
       </td>
     </tr>
   </tbody>

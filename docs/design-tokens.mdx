@@ -4,11 +4,13 @@ import { Meta } from '@storybook/blocks';
 
 # Design Tokens
 
-All visual values (colors, spacing, radius, typography) live in `@inzumer/tokens`, in three layers
+All visual values (colors, spacing, radius, typography) live in `@inzumer/tokens` (its own
+repository, [`inzumer-tokens`](https://github.com/inzumer/inzumer-tokens); the paths below are
+relative to it), in three layers
 that build on each other. Components never see layer 1 or 2 directly — they only ever consume layer 3
 (CSS custom properties).
 
-## 1. Base tokens (`packages/tokens/src/tokens/base/`)
+## 1. Base tokens (`src/tokens/base/`)
 
 Plain TypeScript objects — the raw scale, with no semantic meaning attached yet:
 
@@ -17,14 +19,14 @@ Plain TypeScript objects — the raw scale, with no semantic meaning attached ye
 - **`spacing.ts`**, **`radius.ts`**, **`typography.ts`** — scales for spacing, border-radius, and
   font family/size/weight/line-height/letter-spacing.
 
-## 2. Semantic tokens (`packages/tokens/src/tokens/semantic/`)
+## 2. Semantic tokens (`src/tokens/semantic/`)
 
 Map base colors to **roles** — `lightSemanticTokens` and `darkSemanticTokens`, both shaped as
 `SemanticTokens`: `surface`, `text`, `border`, `button` (per variant: `primary`/`secondary`/`ghost`/
 `destructive`), `input`. This is the layer that changes between light and dark mode — the roles stay
 the same, the underlying color reference changes.
 
-## 3. CSS custom properties (`packages/tokens/src/css/variables.css`)
+## 3. CSS custom properties (`src/css/variables.css`)
 
 The base and semantic tokens above are hand-mirrored into plain CSS custom properties — this is the
 **only** layer components actually read from from (`Button.tsx` uses
@@ -53,10 +55,10 @@ Why a hand-maintained CSS file instead of generating it from the TS tokens at bu
 there are few enough tokens that keeping both in sync by hand is low-effort, and it avoids a codegen
 step in the build. If the token set grows significantly, generating `variables.css` from
 `baseTokens`/`lightSemanticTokens`/`darkSemanticTokens` would be a reasonable follow-up (see
-`packages/tokens/src/utils/inject-css-vars.ts`'s `buildCssVars`/`buildSemanticCssVars`, which already
+`src/utils/inject-css-vars.ts`'s `buildCssVars`/`buildSemanticCssVars`, which already
 do this flattening — just for runtime injection rather than the static file).
 
-## The Tailwind preset (`packages/tokens/src/tailwind/preset.ts`)
+## The Tailwind preset (`src/tailwind/preset.ts`)
 
 `DefaultPreset` (exported from `@inzumer/tokens/tailwind`) generates Tailwind color/font/spacing/
 radius utilities that resolve to the CSS variables above — e.g. `bg-primary-500` compiles to

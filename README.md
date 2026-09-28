@@ -12,15 +12,25 @@ Production-grade React component library monorepo for web applications and mobil
 
 ## Monorepo layout
 
-| Package                                                                               | Description                                                |
-| ------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [`packages/ui`](./packages/ui) → `@inzumer/ui-library`                                | The published component library (Button, Input, Card).     |
-| [`packages/tokens`](./packages/tokens) → `@inzumer/tokens`                            | Design tokens, theming, CSS variables and Tailwind preset. |
-| [`packages/eslint-config`](./packages/eslint-config) → `@inzumer/eslint-config`       | Shared ESLint flat config.                                 |
-| [`packages/prettier-config`](./packages/prettier-config) → `@inzumer/prettier-config` | Shared Prettier config.                                    |
-| [`packages/tsconfig`](./packages/tsconfig) → `@inzumer/tsconfig`                      | Shared TypeScript base configs.                            |
+| Package                                                | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ |
+| [`packages/ui`](./packages/ui) → `@inzumer/ui-library` | The published component library (Button, Input, Card). |
 
 Managed with **pnpm workspaces** + **Turborepo**.
+
+The design tokens and the shared tooling live in their own repositories, one per package
+(`inzumer-<name>` → `@inzumer/<name>`):
+
+| Repository                                                        | Package             | What it is                                              |
+| ----------------------------------------------------------------- | ------------------- | ------------------------------------------------------- |
+| [`inzumer-tokens`](https://github.com/inzumer/inzumer-tokens)     | `@inzumer/tokens`   | Design tokens, theming, CSS variables, Tailwind preset. |
+| [`inzumer-eslint`](https://github.com/inzumer/inzumer-eslint)     | `@inzumer/eslint`   | Shared ESLint flat config.                              |
+| [`inzumer-prettier`](https://github.com/inzumer/inzumer-prettier) | `@inzumer/prettier` | Shared Prettier config.                                 |
+| [`inzumer-tsconfig`](https://github.com/inzumer/inzumer-tsconfig) | `@inzumer/tsconfig` | Shared TypeScript base configs.                         |
+| [`inzumer-ci`](https://github.com/inzumer/inzumer-ci)             | —                   | Shared GitHub Actions workflows.                        |
+
+`@inzumer/tokens` comes from npm. The configs are pinned to a commit of their repository
+(`github:inzumer/inzumer-<name>#<sha>`) until they are published; then they move to npm versions.
 
 ---
 
@@ -115,7 +125,7 @@ export function App() {
 }
 ```
 
-Consumers also need the design tokens (Tailwind preset + base CSS variables) from `@inzumer/tokens` — see that package's README/exports for the Tailwind preset and CSS entry points.
+Consumers also need the design tokens (Tailwind preset + base CSS variables) from `@inzumer/tokens` — see the [`inzumer-tokens` README](https://github.com/inzumer/inzumer-tokens#readme) for the Tailwind preset and CSS entry points.
 
 ### Publishing
 

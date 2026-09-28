@@ -47,7 +47,7 @@ Barrel `index.ts` files (pure re-exports, no logic) are excluded from coverage �
 exclusion, files with zero executable functions dragged the aggregate "functions" metric down in a
 way that had nothing to do with actual test gaps.
 
-`packages/tokens` doesn't have any tests yet (`"test": "vitest run --passWithNoTests"` — it exits 0
+`@inzumer/tokens` (repository [`inzumer-tokens`](https://github.com/inzumer/inzumer-tokens)) doesn't have any tests yet (`"test": "vitest run --passWithNoTests"` — it exits 0
 with zero test files so CI doesn't fail on an empty package). The same 90% bar applies once tests are
 added there; add the same `thresholds` block to a `vitest.config.ts` coverage section at that point.
 
@@ -61,7 +61,7 @@ drift apart.
 
 ## Accessibility testing (two layers)
 
-1. **Static/lint time** — `eslint-plugin-jsx-a11y`, part of `@inzumer/eslint-config`'s `react` config.
+1. **Static/lint time** — `eslint-plugin-jsx-a11y`, part of `@inzumer/eslint`'s `react` config.
    Catches missing labels, invalid ARIA usage, non-interactive elements with click handlers, etc.,
    before code is even run.
 2. **Render time** — `@storybook/addon-a11y` runs axe-core against every story automatically. Open any

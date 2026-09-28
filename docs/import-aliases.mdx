@@ -4,11 +4,11 @@ import { Meta } from '@storybook/blocks';
 
 # Import Aliases
 
-Both `packages/ui` and `packages/tokens` use path aliases for imports that cross a directory
+`packages/ui` (and `@inzumer/tokens`, in its own [`inzumer-tokens`](https://github.com/inzumer/inzumer-tokens) repository) use path aliases for imports that cross a directory
 boundary, configured per-package in each `tsconfig.json`'s `compilerOptions.paths`. Same-folder
 sibling imports (`./Button` from `Button.stories.tsx`) stay relative — an alias doesn't add
 clarity for a file right next to you. No extension on that `./Button` either: both packages set
-`moduleResolution: "Bundler"` (in `packages/tsconfig/base.json`), which — unlike `NodeNext`/`Node16`
+`moduleResolution: "Bundler"` (in `inzumer-tsconfig/base.json`), which — unlike `NodeNext`/`Node16`
 — doesn't require spelling out `.js` on a relative import to a `.ts`/`.tsx` file. `tsc`, `tsup`
 (esbuild), and Vite (Vitest/Storybook) all resolve the extension-less form the same way, so there's
 nothing to add.
@@ -122,7 +122,10 @@ issue, but aren't the default. The one exception is a unit's **own** test import
 unit — that stays relative (`../useMediaQuery`, `../cn`), the same "don't alias a file right
 next to you" reasoning as `Button.tsx` importing `./Button.styles`.
 
-## `packages/tokens`
+## `inzumer-tokens`
+
+These aliases live in the [`inzumer-tokens`](https://github.com/inzumer/inzumer-tokens) repository; they are listed here for
+reference.
 
 <table>
   <thead>
@@ -228,11 +231,9 @@ need to understand the same mapping independently:
     <tr>
       <td>Storybook</td>
       <td>
-        <code>vite-tsconfig-paths</code> in <code>.storybook/main.ts</code>, given both packages'{' '}
-        <code>tsconfig.json</code> via its <code>projects</code> option — scoped per package, so{' '}
-        <code>@utils</code> resolves correctly whether the importing file lives in{' '}
-        <code>packages/ui</code> or <code>packages/tokens</code>, despite both defining an alias
-        with that name.
+        <code>vite-tsconfig-paths</code> in <code>.storybook/main.ts</code>, given{' '}
+        <code>packages/ui/tsconfig.json</code> via its <code>projects</code> option.
+        <code>@inzumer/tokens</code> comes built from npm, so its own aliases don't apply here.
       </td>
     </tr>
   </tbody>
@@ -241,7 +242,7 @@ need to understand the same mapping independently:
 Using one plugin (`vite-tsconfig-paths`) for both Vitest and Storybook means the aliases are defined
 **once**, in each package's `tsconfig.json` — nothing to keep in sync by hand.
 
-## The one exception: `packages/tokens/src/tailwind/preset.ts`
+## The one exception: `inzumer-tokens/src/tailwind/preset.ts`
 
 This file uses plain relative imports (`../tokens/base/colors.js`), not aliases — on purpose. It's
 loaded via `jiti` through Tailwind's own config resolution (see the root `tailwind.config.ts`), a
