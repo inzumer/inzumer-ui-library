@@ -4,7 +4,7 @@ Guidance for Claude Code (and any other AI coding agent) working in this reposit
 
 ## Project
 
-`@inzumer/ui-library` monorepo (pnpm workspaces + Turborepo): `packages/ui` (component library), `packages/tokens` (design tokens/theming), plus shared `eslint-config`/`prettier-config`/`tsconfig` packages. See [README.md](./README.md) and [docs](./docs) for conventions on components, hooks, utils, and imports.
+`inzumer-ui-library` repository (pnpm workspaces + Turborepo) with one published package: `packages/ui` → `@inzumer/ui-library`. The design tokens (`@inzumer/tokens`, repo `inzumer-tokens`) and the shared configs (`@inzumer/eslint`, `@inzumer/prettier`, `@inzumer/tsconfig`) live in their own `inzumer-*` repositories; change them there, not here. See [README.md](./README.md) and [docs](./docs) for conventions on components, hooks, utils, and imports.
 
 Key commands: `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm test:coverage` (90% gate), `pnpm build`, `pnpm build-storybook`.
 
@@ -31,7 +31,7 @@ Allowed types:
 
 Breaking changes: append `!` before the colon (e.g. `feat(api)!: ...`) and/or add a `BREAKING CHANGE:` footer explaining the break.
 
-Scope is optional but encouraged when a change is package- or area-specific, e.g. `feat(ui): ...`, `fix(tokens): ...`, `docs(storybook): ...`.
+Scope is optional but encouraged when a change is package- or area-specific, e.g. `feat(ui): ...`, `fix(carousel): ...`, `docs(storybook): ...`.
 
 ## Pull requests
 
@@ -43,7 +43,7 @@ Every PR must use [.github/PULL_REQUEST_TEMPLATE.md](./.github/PULL_REQUEST_TEMP
 
 ## Releases
 
-Versioning and publishing go through [Changesets](https://github.com/changesets/changesets). Any change to a published package (`@inzumer/ui-library` or `@inzumer/tokens`) should come with a changeset: run `pnpm changeset` and describe the change. The shared tooling packages (`eslint-config`, `prettier-config`, `tsconfig`) are `private: true` and are not published.
+Versioning and publishing go through [Changesets](https://github.com/changesets/changesets). Any change to `@inzumer/ui-library` should come with a changeset: run `pnpm changeset` and describe the change. Token changes are released from `inzumer-tokens`; bump `@inzumer/tokens` here afterwards.
 
 `.github/workflows/release.yml` runs on every push to `main`:
 

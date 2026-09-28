@@ -1,17 +1,17 @@
 {
-  "name": "ui-library",
+  "name": "inzumer-ui-library",
   "private": true,
   "version": "0.0.0",
   "description": "Inzumer Design System monorepo",
   "license": "MIT",
   "author": "Nahuel Zamuner <inzumer@gmail.com>",
-  "homepage": "https://github.com/inzumer/ui-library#readme",
+  "homepage": "https://github.com/inzumer/inzumer-ui-library#readme",
   "bugs": {
-    "url": "https://github.com/inzumer/ui-library/issues"
+    "url": "https://github.com/inzumer/inzumer-ui-library/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/inzumer/ui-library.git"
+    "url": "https://github.com/inzumer/inzumer-ui-library.git"
   },
   "packageManager": "pnpm@9.15.9",
   "engines": {
@@ -36,9 +36,10 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
-    "@inzumer/eslint-config": "workspace:*",
-    "@inzumer/prettier-config": "workspace:*",
-    "@inzumer/tsconfig": "workspace:*",
+    "@inzumer/eslint": "github:inzumer/inzumer-eslint#421a6c01fa6f62519c8f5d7d5b53e45780569d7d",
+    "@inzumer/prettier": "github:inzumer/inzumer-prettier#87763a515f7b470b73c172f8e7c8ff7e7ac94365",
+    "@inzumer/tokens": "^1.1.0",
+    "@inzumer/tsconfig": "github:inzumer/inzumer-tsconfig#70691fbdfedbc9dd44a327f629177b3370c03260",
     "@storybook/addon-a11y": "^8.6.18",
     "@storybook/addon-actions": "^8.6.18",
     "@storybook/addon-docs": "^8.6.18",

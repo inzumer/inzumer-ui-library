@@ -48,7 +48,7 @@ per-component prop tables.
   re-export it, so `buttonStyles` etc. aren't part of the package's public API.
 - **No blank lines between imports.** All imports in a file (built-ins, third-party, `@inzumer/*`,
   `@components`/`@utils`/etc. aliases, relative) are sorted by
-  `@ianvs/prettier-plugin-sort-imports` (see `packages/prettier-config/index.json`'s `importOrder`)
+  `@ianvs/prettier-plugin-sort-imports` (see `inzumer-prettier/index.json`'s `importOrder`)
   but kept as one contiguous block, not grouped with blank lines between them.
 - **`className` always wins.** Every component accepts a `className` prop and merges it last via the
   shared `cn()` helper (`clsx` + `tailwind-merge`), so consumer overrides never lose to the

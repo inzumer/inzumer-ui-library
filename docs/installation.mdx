@@ -16,12 +16,13 @@ import { Meta } from '@storybook/blocks';
 
 ```bash
 git clone <this-repo>
-cd ui-library
+cd inzumer-ui-library
 pnpm install
 ```
 
-That installs all workspace packages (`packages/ui`, `packages/tokens`, and the shared
-`eslint-config`/`prettier-config`/`tsconfig` packages) in one pass. See
+That installs `packages/ui` and its tooling in one pass. The design tokens
+(`@inzumer/tokens`) and the shared configs (`@inzumer/eslint`, `@inzumer/prettier`,
+`@inzumer/tsconfig`) come from their own `inzumer-*` repositories. See
 [Tech Stack](/docs/documentation-tech-stack--docs) for what each tool does, and run `pnpm storybook`
 to open this documentation locally at `http://localhost:6006`.
 

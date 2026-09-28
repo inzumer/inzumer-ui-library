@@ -30,18 +30,9 @@ const config: StorybookConfig = {
     config.plugins = config.plugins ?? [];
     config.plugins.push(
       tsconfigPaths({
-        projects: [
-          resolve(root, 'packages/ui/tsconfig.json'),
-          resolve(root, 'packages/tokens/tsconfig.json'),
-        ],
+        projects: [resolve(root, 'packages/ui/tsconfig.json')],
       }),
     );
-
-    config.resolve = config.resolve ?? {};
-    config.resolve.alias = {
-      ...(config.resolve.alias ?? {}),
-      '@inzumer/tokens': resolve(root, 'packages/tokens/src/index.ts'),
-    };
     return config;
   },
 };
