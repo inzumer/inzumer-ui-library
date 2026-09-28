@@ -1,8 +1,8 @@
+import { CookiePreferences } from '@components';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import { CookiePreferences } from '@components';
 
 const categories = [
   { id: 'necessary', title: 'Necessary', description: 'Keep the site working.', required: true },
