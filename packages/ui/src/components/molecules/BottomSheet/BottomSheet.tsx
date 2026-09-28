@@ -7,17 +7,7 @@ import {
   useScrollLock,
 } from '@hooks';
 import { cn } from '@utils';
-import {
-  forwardRef,
-  forwardRef,
-  useId,
-  useRef,
-  useRef,
-  type HTMLAttributes,
-  type HTMLAttributes,
-  type ReactNode,
-  type ReactNode,
-} from 'react';
+import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
   bottomSheetFooterStyles,
   bottomSheetHandleStyles,
