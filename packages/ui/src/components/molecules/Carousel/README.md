@@ -1,6 +1,6 @@
 # Carousel
 
-A horizontal row of cards (usually `MediaCard`) with **scroll snap** and, under the cards,
+A horizontal row of cards (usually `Showcase`) with **scroll snap** and, under the cards,
 **previous/next buttons** around **indicators** that show the current card and jump to any of them.
 Scrolling is native, so touch swipe and trackpad drag work as usual; tabbing to a card scrolls it
 into view. No autoplay.
@@ -8,7 +8,7 @@ into view. No autoplay.
 ## Usage
 
 ```tsx
-import { Carousel, MediaCard } from '@inzumer/ui-library';
+import { Carousel, Showcase } from '@inzumer/ui-library';
 
 <Carousel
   label="Featured recipes"
@@ -19,7 +19,7 @@ import { Carousel, MediaCard } from '@inzumer/ui-library';
   header={<h2>Featured recipes</h2>}
 >
   {recipes.map((recipe) => (
-    <MediaCard key={recipe.id} src={recipe.photo} alt="" title={recipe.title} href={recipe.url} />
+    <Showcase key={recipe.id} src={recipe.photo} alt="" title={recipe.title} href={recipe.url} />
   ))}
 </Carousel>;
 ```

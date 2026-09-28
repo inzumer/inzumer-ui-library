@@ -105,12 +105,16 @@
       "import": "./dist/components/molecules/Language/index.js"
     },
     "./media-card": {
-      "types": "./dist/components/molecules/MediaCard/index.d.ts",
-      "import": "./dist/components/molecules/MediaCard/index.js"
+      "types": "./dist/components/molecules/Showcase/index.d.ts",
+      "import": "./dist/components/molecules/Showcase/index.js"
     },
     "./modal": {
       "types": "./dist/components/molecules/Modal/index.d.ts",
       "import": "./dist/components/molecules/Modal/index.js"
+    },
+    "./showcase": {
+      "types": "./dist/components/molecules/Showcase/index.d.ts",
+      "import": "./dist/components/molecules/Showcase/index.js"
     },
     "./snackbar": {
       "types": "./dist/components/molecules/Snackbar/index.d.ts",

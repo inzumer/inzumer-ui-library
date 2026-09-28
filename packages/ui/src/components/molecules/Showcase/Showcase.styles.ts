@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const mediaCardStyles = cva(
+export const showcaseStyles = cva(
   'group relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-[var(--surface-tertiary)] shadow-sm',
   {
     variants: {
@@ -16,38 +16,40 @@ export const mediaCardStyles = cva(
   },
 );
 
-export const mediaCardImageStyles = [
+export const showcaseImageStyles = [
   'absolute inset-0 -z-20 h-full w-full',
   'transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100',
 ].join(' ');
 
 /**
  * Scrim from the bottom so the text reads on any photo. Text over photos is always light on dark,
- * whatever the theme; sites can tune it with --media-card-scrim and --media-card-text.
+ * whatever the theme; sites can tune it with --showcase-scrim and --showcase-text.
  */
-export const mediaCardScrimStyles = [
+export const showcaseScrimStyles = [
   'pointer-events-none absolute inset-0 -z-10',
-  'bg-gradient-to-t from-[var(--media-card-scrim,rgb(0_0_0/0.8))] via-[var(--media-card-scrim-mid,rgb(0_0_0/0.3))] via-45% to-transparent to-75%',
+  'bg-gradient-to-t from-[var(--showcase-scrim,rgb(0_0_0/0.8))] via-[var(--showcase-scrim-mid,rgb(0_0_0/0.3))] via-45% to-transparent to-75%',
 ].join(' ');
 
-export const mediaCardContentStyles = 'flex flex-col gap-1 p-4 text-[var(--media-card-text,#fff)]';
+export const showcaseContentStyles =
+  'flex flex-col items-start gap-1 p-4 text-[var(--showcase-text,#fff)]';
 
-export const mediaCardTitleStyles = 'text-lg font-bold leading-tight text-inherit';
+export const showcaseTitleStyles = 'text-lg font-bold leading-tight text-inherit';
 
-export const mediaCardSubtitleStyles = 'text-sm text-inherit opacity-90';
+export const showcaseSubtitleStyles = 'text-sm text-inherit opacity-90';
 
 /** Stretched link: its ::after covers the whole card, so the card is one link named by the title. */
-export const mediaCardLinkStyles = [
+export const showcaseLinkStyles = [
   'text-inherit no-underline hover:text-inherit',
   'after:absolute after:inset-0 after:z-[1] after:rounded-2xl after:content-[""]',
   'focus-visible:outline-none focus-visible:after:ring-4 focus-visible:after:ring-inset focus-visible:after:ring-[var(--border-focus)]',
 ].join(' ');
 
-export const mediaCardBadgeStyles = [
-  'absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide',
-  'bg-[var(--media-card-badge-bg,rgb(255_255_255/0.92))] text-[var(--media-card-badge-text,rgb(31_31_31))]',
+/** Above the title, in the text flow over the gradient. */
+export const showcaseBadgeStyles = [
+  'mb-1 rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide',
+  'bg-[var(--showcase-badge-bg,rgb(255_255_255/0.92))] text-[var(--showcase-badge-text,rgb(31_31_31))]',
 ].join(' ');
 
 /** Floating actions: round, above the card link, so they stay clickable. */
-export const mediaCardActionsStyles =
+export const showcaseActionsStyles =
   'absolute right-3 top-3 z-[2] flex gap-2 [&>*]:rounded-full [&>*]:shadow-md';
