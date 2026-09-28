@@ -84,6 +84,10 @@
       "types": "./dist/components/molecules/Card/index.d.ts",
       "import": "./dist/components/molecules/Card/index.js"
     },
+    "./carousel": {
+      "types": "./dist/components/molecules/Carousel/index.d.ts",
+      "import": "./dist/components/molecules/Carousel/index.js"
+    },
     "./cookie-consent": {
       "types": "./dist/components/organisms/CookieConsent/index.d.ts",
       "import": "./dist/components/organisms/CookieConsent/index.js"
@@ -99,6 +103,10 @@
     "./language": {
       "types": "./dist/components/molecules/Language/index.d.ts",
       "import": "./dist/components/molecules/Language/index.js"
+    },
+    "./media-card": {
+      "types": "./dist/components/molecules/MediaCard/index.d.ts",
+      "import": "./dist/components/molecules/MediaCard/index.js"
     },
     "./modal": {
       "types": "./dist/components/molecules/Modal/index.d.ts",
