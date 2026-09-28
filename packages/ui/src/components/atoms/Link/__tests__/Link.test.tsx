@@ -1,6 +1,6 @@
+import { Link } from '@components';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Link } from '@components';
 
 describe('Link', () => {
   it('renders an anchor with the given href', () => {

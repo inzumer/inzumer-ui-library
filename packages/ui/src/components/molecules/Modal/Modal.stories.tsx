@@ -1,9 +1,9 @@
+import { Button } from '@components';
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, waitForElementToBeRemoved, within } from '@storybook/test';
 import { useState } from 'react';
-import { Button } from '@components';
-import readme from './README.md?raw';
 import { Modal } from './Modal';
+import readme from './README.md?raw';
 
 const meta = {
   title: 'Molecules/Modal',

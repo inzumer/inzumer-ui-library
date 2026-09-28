@@ -100,12 +100,10 @@ consumers of the published packages always import from the package name (`@inzum
 import { Link } from '@components';
 import { useDelayedUnmount } from '@hooks';
 import { cn } from '@utils';
-
-// A file importing its own sibling — relative, no alias:
-import { buttonStyles } from './Button.styles';
-
 // A hook's (or util's) own test importing that exact unit — relative too, same idea:
 import { useMediaQuery } from '../useMediaQuery';
+// A file importing its own sibling — relative, no alias:
+import { buttonStyles } from './Button.styles';
 ```
 
 Components, hooks, and utils are organized the same way — `src/components/`, `src/hooks/`, and

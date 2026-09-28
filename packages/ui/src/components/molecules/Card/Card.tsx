@@ -1,6 +1,6 @@
-import { forwardRef, type ForwardedRef, type HTMLAttributes } from 'react';
 import { RichText } from '@components';
 import { cn } from '@utils';
+import { forwardRef, type ForwardedRef, type HTMLAttributes } from 'react';
 import {
   cardContentStyles,
   cardDescriptionStyles,

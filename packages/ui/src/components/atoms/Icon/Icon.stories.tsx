@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { SVGProps } from 'react';
-import readme from './README.md?raw';
 import { Icon } from './Icon';
+import readme from './README.md?raw';
 
 const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>

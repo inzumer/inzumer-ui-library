@@ -1,4 +1,3 @@
-import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { RichText } from '@components';
 import {
   useDelayedUnmount,
@@ -8,6 +7,7 @@ import {
   useScrollLock,
 } from '@hooks';
 import { cn } from '@utils';
+import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
   modalFooterStyles,
   modalOverlayStyles,

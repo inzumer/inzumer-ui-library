@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import readme from './README.md?raw';
 import { Image } from './Image';
+import readme from './README.md?raw';
 
 const meta = {
   title: 'Atoms/Image',

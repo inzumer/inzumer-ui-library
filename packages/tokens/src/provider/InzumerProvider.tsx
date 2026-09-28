@@ -7,7 +7,6 @@ import {
   useRef,
   type ReactNode,
 } from 'react';
-
 import type { ResolvedTheme, ThemeOverride } from '@theme-types/theme.js';
 import { DefaultTheme } from '@themes/default.js';
 import { createTheme } from '@utils/create-theme.js';

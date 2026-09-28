@@ -1,7 +1,7 @@
-import type { VariantProps } from 'class-variance-authority';
-import { forwardRef, useEffect, type HTMLAttributes, type ReactNode } from 'react';
 import { useDelayedUnmount } from '@hooks';
 import { cn } from '@utils';
+import type { VariantProps } from 'class-variance-authority';
+import { forwardRef, useEffect, type HTMLAttributes, type ReactNode } from 'react';
 import { snackbarStyles, snackbarWrapperStyles } from './Snackbar.styles';
 
 const EXIT_DURATION_MS = 200;

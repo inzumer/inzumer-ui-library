@@ -1,6 +1,6 @@
+import { Input } from '@components';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Input } from '@components';
 
 describe('Input', () => {
   it('renders without label', () => {

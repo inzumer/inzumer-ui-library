@@ -1,5 +1,4 @@
 import type { Decorator, Preview } from '@storybook/react';
-
 import '../packages/ui/src/styles/globals.css';
 import './brand-themes.css';
 
