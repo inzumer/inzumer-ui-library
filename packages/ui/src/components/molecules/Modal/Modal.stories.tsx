@@ -18,6 +18,7 @@ const meta = {
   },
   argTypes: {
     title: { control: 'text' },
+    maxHeight: { control: 'inline-radio', options: ['default', 'tall'] },
   },
 } satisfies Meta<typeof Modal>;
 

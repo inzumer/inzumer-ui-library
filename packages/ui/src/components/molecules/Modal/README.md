@@ -38,6 +38,10 @@ const [open, setOpen] = useState(false);
 - `closeOnBackdropClick` — defaults to `true`; set `false` for a dialog the user must dismiss
   explicitly (via a button, not by clicking outside)
 - Always closes on `Escape`, regardless of `closeOnBackdropClick`
+- `maxHeight` — `'default'` (80% of the viewport height) or `'tall'` (90%), for long content
+- Size: every dialog takes **90% of the viewport width, up to 768px**, and is **as tall as its
+  content** up to the `maxHeight` limit, so all dialogs look alike. Title and footer stay in place
+  and the content scrolls when it doesn't fit. Use `className` only for exceptions
 
 ## Notes
 
