@@ -1,5 +1,13 @@
 # @inzumer/ui-library
 
+## 2.2.0
+
+### Minor Changes
+
+- 7913f71: `Carousel`: new `buttons`, `buttonsPosition` and `indicatorsPosition` props (`start`, `center` or `end`). When buttons and indicators share a side they go together; otherwise each sits on its side of the same row. The buttons are now round, in the primary color, with the components' shadow and chevron icons, and the indicator dots use the primary color (the current one full, the rest faded).
+- d54578f: New `Loader`: a spinning or pulsing mark (a ring by default, or your brand's logo in `mark`) with an accessible label, sizes, speeds and inline or stacked layout; with reduced motion it pulses slowly instead of spinning. `Button` gets a `loading` prop: disabled, `aria-busy` and pulsing while it waits. Entry point `./loader`.
+- a14c96c: New building blocks, used by the existing components (no visual change): `Field` and `fieldAria` (label, hint and error of `Input`, `Textarea`, `Select` and `Dropdown`), `Chevron` (the arrow of `Select`, `Dropdown`, `Accordion` and `Carousel`) and the `useDialogLayer` hook (exit animation, Escape and backdrop, focus trap and scroll lock of `Modal`, `Drawer` and `BottomSheet`). Entry points `./field`, `./chevron` and `./use-dialog-layer`.
+
 ## 2.1.0
 
 ### Minor Changes
