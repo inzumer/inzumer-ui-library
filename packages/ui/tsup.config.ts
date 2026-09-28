@@ -18,8 +18,7 @@ export default defineConfig({
     'components/molecules/Card/index': 'src/components/molecules/Card/index.ts',
     'components/molecules/Carousel/index': 'src/components/molecules/Carousel/index.ts',
     'components/molecules/CookieBanner/index': 'src/components/molecules/CookieBanner/index.ts',
-    'components/molecules/CookiePreferences/index':
-      'src/components/molecules/CookiePreferences/index.ts',
+    'components/molecules/CookiePreferences/index': 'src/components/molecules/CookiePreferences/index.ts',
     'components/molecules/Drawer/index': 'src/components/molecules/Drawer/index.ts',
     'components/molecules/Dropdown/index': 'src/components/molecules/Dropdown/index.ts',
     'components/molecules/Language/index': 'src/components/molecules/Language/index.ts',

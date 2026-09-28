@@ -37,11 +37,8 @@ export const Default: Story = {
   },
 };
 
-const {
-  customizeLabel: _customizeLabel,
-  onCustomize: _onCustomize,
-  ...withoutCustomize
-} = Default.args;
+const { customizeLabel: _customizeLabel, onCustomize: _onCustomize, ...withoutCustomize } =
+  Default.args;
 
 export const WithoutCustomize: Story = {
   args: withoutCustomize,

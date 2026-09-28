@@ -1,6 +1,6 @@
+import { forwardRef, useId, type HTMLAttributes, type ReactNode } from 'react';
 import { Button, RichText } from '@components';
 import { cn } from '@utils';
-import { forwardRef, useId, type HTMLAttributes, type ReactNode } from 'react';
 import {
   cookieBannerActionsStyles,
   cookieBannerButtonStyles,

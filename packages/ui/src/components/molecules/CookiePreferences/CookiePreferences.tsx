@@ -1,5 +1,5 @@
-import { Button, Modal, RichText, Switch } from '@components';
 import { useId, type ReactNode } from 'react';
+import { Button, Modal, RichText, Switch } from '@components';
 import {
   cookieCategoryDescriptionStyles,
   cookieCategoryHeaderStyles,
