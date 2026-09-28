@@ -11,10 +11,12 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
      * a `<button>`. Use it for navigation that must look like a button.
      */
     asChild?: boolean;
+    /** Waiting for something (e.g. the API): disabled, `aria-busy` and pulsing. */
+    loading?: boolean;
   };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, fullWidth, asChild = false, loading = false, ...props }, ref) => {
     const classes = cn(buttonStyles({ variant, size, fullWidth }), className);
 
     if (asChild) {
@@ -23,7 +25,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return <Slot ref={slotRef} className={classes} {...props} />;
     }
 
-    return <button ref={ref} className={classes} {...props} />;
+    return (
+      <button
+        ref={ref}
+        className={classes}
+        {...props}
+        {...(loading && { disabled: true, 'aria-busy': true })}
+      />
+    );
   },
 );
 
