@@ -1,12 +1,7 @@
-import { RichText } from '@components';
 import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import { forwardRef, useId, type TextareaHTMLAttributes } from 'react';
-import {
-  inputErrorStyles,
-  inputHintStyles,
-  inputLabelStyles,
-} from '@components/atoms/Input/Input.styles';
+import { Field, fieldAria } from '@components/atoms/Field';
 import { textareaStyles } from './Textarea.styles';
 
 export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> &
@@ -21,42 +16,20 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, state, inputSize, resize, label, hint, error, id: idProp, ...props }, ref) => {
     const generatedId = useId();
     const id = idProp ?? generatedId;
-    const resolvedState = error ? 'error' : state;
 
     return (
-      <div className="flex flex-col gap-1.5">
-        {label && (
-          <label htmlFor={id}>
-            <RichText as="span" variant="p3" className={inputLabelStyles}>
-              {label}
-            </RichText>
-          </label>
-        )}
+      <Field id={id} label={label} hint={hint} error={error}>
         <textarea
           ref={ref}
           id={id}
-          aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
-          aria-invalid={error ? 'true' : undefined}
-          className={cn(textareaStyles({ state: resolvedState, inputSize, resize }), className)}
+          {...fieldAria(id, { hint, error })}
+          className={cn(
+            textareaStyles({ state: error ? 'error' : state, inputSize, resize }),
+            className,
+          )}
           {...props}
         />
-        {error && (
-          <RichText
-            as="p"
-            id={`${id}-error`}
-            role="alert"
-            variant="p4"
-            className={inputErrorStyles}
-          >
-            {error}
-          </RichText>
-        )}
-        {!error && hint && (
-          <RichText as="p" id={`${id}-hint`} variant="p4" className={inputHintStyles}>
-            {hint}
-          </RichText>
-        )}
-      </div>
+      </Field>
     );
   },
 );

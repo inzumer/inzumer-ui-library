@@ -1,4 +1,4 @@
-import { Button } from '@components';
+import { Button, Chevron } from '@components';
 import { useMediaQuery } from '@hooks';
 import { cn } from '@utils';
 import {
@@ -151,18 +151,7 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
         disabled={direction < 0 ? edges.start : edges.end}
         onClick={() => scrollByPage(direction)}
       >
-        <svg
-          aria-hidden
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={carouselChevronStyles}
-        >
-          <path d={direction < 0 ? 'm15 18-6-6 6-6' : 'm9 18 6-6-6-6'} />
-        </svg>
+        <Chevron direction={direction < 0 ? 'left' : 'right'} className={carouselChevronStyles} />
       </Button>
     );
 

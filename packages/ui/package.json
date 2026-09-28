@@ -36,6 +36,14 @@
       "types": "./dist/components/atoms/Button/index.d.ts",
       "import": "./dist/components/atoms/Button/index.js"
     },
+    "./chevron": {
+      "types": "./dist/components/atoms/Chevron/index.d.ts",
+      "import": "./dist/components/atoms/Chevron/index.js"
+    },
+    "./field": {
+      "types": "./dist/components/atoms/Field/index.d.ts",
+      "import": "./dist/components/atoms/Field/index.js"
+    },
     "./icon": {
       "types": "./dist/components/atoms/Icon/index.d.ts",
       "import": "./dist/components/atoms/Icon/index.js"
@@ -131,6 +139,10 @@
     "./use-delayed-unmount": {
       "types": "./dist/hooks/useDelayedUnmount/index.d.ts",
       "import": "./dist/hooks/useDelayedUnmount/index.js"
+    },
+    "./use-dialog-layer": {
+      "types": "./dist/hooks/useDialogLayer/index.d.ts",
+      "import": "./dist/hooks/useDialogLayer/index.js"
     },
     "./use-dismissable-layer": {
       "types": "./dist/hooks/useDismissableLayer/index.d.ts",

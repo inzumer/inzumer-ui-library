@@ -1,4 +1,5 @@
 export * from './useDelayedUnmount';
+export * from './useDialogLayer';
 export * from './useDismissableLayer';
 export * from './useFocusTrap';
 export * from './useMediaQuery';

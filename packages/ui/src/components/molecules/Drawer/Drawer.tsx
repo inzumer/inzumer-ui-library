@@ -1,14 +1,8 @@
 import { Button, RichText } from '@components';
-import {
-  useDelayedUnmount,
-  useDismissableLayer,
-  useFocusTrap,
-  useMergedRef,
-  useScrollLock,
-} from '@hooks';
+import { useDialogLayer } from '@hooks';
 import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
-import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
   drawerFooterStyles,
   drawerHeaderStyles,
@@ -55,15 +49,13 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
     },
     ref,
   ) => {
-    const panelRef = useRef<HTMLDivElement | null>(null);
-    const setPanelRef = useMergedRef(ref, panelRef);
-    const titleId = useId();
-    const { mounted, visible } = useDelayedUnmount(open, EXIT_DURATION_MS);
-
-    useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick);
-    // The panel mounts one render after `open` flips, so the trap starts once it exists.
-    useFocusTrap(open && mounted, panelRef);
-    useScrollLock(open);
+    const { mounted, visible, titleId, dialogProps } = useDialogLayer({
+      open,
+      onClose,
+      ref,
+      exitDurationMs: EXIT_DURATION_MS,
+      closeOnBackdropClick,
+    });
 
     if (!mounted) {
       return null;
@@ -73,11 +65,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       <div className="fixed inset-0 z-50">
         <div aria-hidden="true" className={drawerOverlayStyles({ visible })} />
         <div
-          ref={setPanelRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={title ? titleId : undefined}
-          tabIndex={-1}
+          {...dialogProps(Boolean(title))}
           className={cn(drawerPanelStyles({ side, visible }), className)}
           {...props}
         >

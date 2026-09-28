@@ -1,4 +1,6 @@
 export * from './Button';
+export * from './Chevron';
+export * from './Field';
 export * from './Icon';
 export * from './Image';
 export * from './Input';

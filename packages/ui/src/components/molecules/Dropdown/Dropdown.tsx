@@ -1,4 +1,4 @@
-import { RichText } from '@components';
+import { Chevron, Field, fieldAria, RichText } from '@components';
 import { useDismissableLayer } from '@hooks';
 import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
@@ -11,11 +11,6 @@ import {
   useState,
   type KeyboardEvent,
 } from 'react';
-import {
-  inputErrorStyles,
-  inputHintStyles,
-  inputLabelStyles,
-} from '@components/atoms/Input/Input.styles';
 import { selectChevronStyles, selectStyles } from '@components/atoms/Select/Select.styles';
 import {
   dropdownCheckStyles,
@@ -155,10 +150,14 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     };
 
     return (
-      <div className={cn('flex flex-col gap-1.5', className)}>
-        <RichText as="span" id={labelId} variant="p3" className={inputLabelStyles}>
-          {label}
-        </RichText>
+      <Field
+        id={id}
+        label={label}
+        labelId={labelId}
+        hint={hint}
+        error={error}
+        className={className}
+      >
         <div ref={containerRef} className="relative">
           <button
             ref={ref}
@@ -170,8 +169,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             aria-controls={listId}
             aria-labelledby={`${labelId} ${id}`}
             aria-activedescendant={open ? `${id}-option-${activeIndex}` : undefined}
-            aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
-            aria-invalid={error ? 'true' : undefined}
+            {...fieldAria(id, { hint, error })}
             disabled={disabled}
             onClick={() => (open ? close() : openAt(selectedIndex))}
             onKeyDown={handleKeyDown}
@@ -181,18 +179,9 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
               {options[selectedIndex]?.label}
             </RichText>
           </button>
-          <svg
-            aria-hidden
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          <Chevron
             className={cn(selectChevronStyles, dropdownChevronStyles, open && 'rotate-180')}
-          >
-            <path d="m6 9 6 6 6-6" />
-          </svg>
+          />
           {name && <input type="hidden" name={name} value={value} />}
           <ul
             ref={listRef}
@@ -240,23 +229,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             })}
           </ul>
         </div>
-        {error && (
-          <RichText
-            as="p"
-            id={`${id}-error`}
-            role="alert"
-            variant="p4"
-            className={inputErrorStyles}
-          >
-            {error}
-          </RichText>
-        )}
-        {!error && hint && (
-          <RichText as="p" id={`${id}-hint`} variant="p4" className={inputHintStyles}>
-            {hint}
-          </RichText>
-        )}
-      </div>
+      </Field>
     );
   },
 );
