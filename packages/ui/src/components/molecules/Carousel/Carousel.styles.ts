@@ -12,8 +12,18 @@ export const carouselSlideStyles = 'shrink-0 snap-start';
 /** Default slide widths: most of the screen on mobile, two on tablets, three on desktop. */
 export const carouselSlideWidthStyles = 'w-[80%] sm:w-[45%] lg:w-[31%]';
 
-/** Previous · indicators · next, centered under the cards. */
-export const carouselControlsStyles = 'flex items-center justify-center gap-3';
+/** Three slots (start · center · end) so buttons and indicators can sit on different sides. */
+export const carouselControlsStyles = 'grid grid-cols-[1fr_auto_1fr] items-center gap-3';
+
+export const carouselSlotStyles = cva('row-start-1 flex min-w-0 items-center gap-3', {
+  variants: {
+    position: {
+      start: 'col-start-1 justify-start',
+      center: 'col-start-2 justify-center',
+      end: 'col-start-3 justify-end',
+    },
+  },
+});
 
 export const carouselIndicatorsStyles = 'flex flex-wrap items-center justify-center gap-1';
 
@@ -24,12 +34,12 @@ export const carouselIndicatorStyles = [
 ].join(' ');
 
 export const carouselDotStyles = cva(
-  'block h-2 rounded-full transition-all duration-200 motion-reduce:transition-none',
+  'block h-2 rounded-full bg-[var(--btn-primary-bg)] transition-all duration-200 motion-reduce:transition-none',
   {
     variants: {
       active: {
-        true: 'w-6 bg-[var(--btn-primary-bg)]',
-        false: 'w-2 bg-[var(--border-strong)] hover:bg-[var(--text-secondary)]',
+        true: 'w-6',
+        false: 'w-2 opacity-30 hover:opacity-60',
       },
     },
     defaultVariants: {
@@ -37,3 +47,8 @@ export const carouselDotStyles = cva(
     },
   },
 );
+
+/** Round primary buttons with the components' shadow. */
+export const carouselButtonStyles = 'rounded-full shadow-md disabled:shadow-none';
+
+export const carouselChevronStyles = 'h-5 w-5';
