@@ -20,8 +20,9 @@ export const modalOverlayStyles = cva(
 
 export const modalPanelStyles = cva(
   [
-    // Every dialog takes 90% of the viewport's width and at most 90% of its height; the body scrolls.
-    'flex max-h-[90dvh] w-[90vw] flex-col rounded-xl border border-[var(--border-default)] bg-[var(--surface-secondary)] p-6 shadow-lg',
+    // Every dialog: 90% of the viewport's width up to 768px, as tall as its content up to the
+    // `maxHeight` limit; beyond that the body scrolls. Pixels, so a site's root font size can't shrink it.
+    'flex w-[90vw] max-w-[768px] flex-col rounded-xl border border-[var(--border-default)] bg-[var(--surface-secondary)] p-6 shadow-lg',
     'transition-all duration-200 ease-out',
   ],
   {
@@ -30,9 +31,14 @@ export const modalPanelStyles = cva(
         true: 'scale-100 opacity-100',
         false: 'scale-95 opacity-0',
       },
+      maxHeight: {
+        default: 'max-h-[80dvh]',
+        tall: 'max-h-[90dvh]',
+      },
     },
     defaultVariants: {
       visible: false,
+      maxHeight: 'default',
     },
   },
 );
