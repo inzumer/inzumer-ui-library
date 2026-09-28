@@ -84,13 +84,9 @@
       "types": "./dist/components/molecules/Card/index.d.ts",
       "import": "./dist/components/molecules/Card/index.js"
     },
-    "./cookie-banner": {
-      "types": "./dist/components/molecules/CookieBanner/index.d.ts",
-      "import": "./dist/components/molecules/CookieBanner/index.js"
-    },
-    "./cookie-preferences": {
-      "types": "./dist/components/molecules/CookiePreferences/index.d.ts",
-      "import": "./dist/components/molecules/CookiePreferences/index.js"
+    "./cookie-consent": {
+      "types": "./dist/components/organisms/CookieConsent/index.d.ts",
+      "import": "./dist/components/organisms/CookieConsent/index.js"
     },
     "./drawer": {
       "types": "./dist/components/molecules/Drawer/index.d.ts",
