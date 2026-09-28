@@ -1,6 +1,6 @@
+import { Breadcrumbs } from '@components';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Breadcrumbs } from '@components';
 
 describe('Breadcrumbs', () => {
   const items = [

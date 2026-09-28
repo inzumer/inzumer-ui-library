@@ -1,6 +1,6 @@
+import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import { forwardRef, type ImgHTMLAttributes } from 'react';
-import { cn } from '@utils';
 import { imageStyles } from './Image.styles';
 
 export type ImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'alt'> &

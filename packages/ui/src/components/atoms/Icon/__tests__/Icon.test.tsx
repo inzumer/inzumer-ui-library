@@ -1,7 +1,7 @@
+import { Icon } from '@components';
 import { render, screen } from '@testing-library/react';
 import type { SVGProps } from 'react';
 import { describe, expect, it } from 'vitest';
-import { Icon } from '@components';
 
 const DotIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg data-testid="dot-icon" {...props}>

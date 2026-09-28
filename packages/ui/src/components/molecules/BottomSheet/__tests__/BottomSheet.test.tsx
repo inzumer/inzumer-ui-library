@@ -1,7 +1,7 @@
+import { BottomSheet } from '@components';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { BottomSheet } from '@components';
 
 describe('BottomSheet', () => {
   it('renders nothing when closed', () => {

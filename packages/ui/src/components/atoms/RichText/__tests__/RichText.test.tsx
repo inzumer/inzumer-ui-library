@@ -1,6 +1,6 @@
+import { RichText } from '@components';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { RichText } from '@components';
 
 describe('RichText', () => {
   it('renders children', () => {

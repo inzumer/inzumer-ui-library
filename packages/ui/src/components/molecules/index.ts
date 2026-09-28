@@ -3,8 +3,6 @@ export * from './BottomSheet';
 export * from './Breadcrumbs';
 export * from './Card';
 export * from './Carousel';
-export * from './CookieBanner';
-export * from './CookiePreferences';
 export * from './Drawer';
 export * from './Dropdown';
 export * from './Language';

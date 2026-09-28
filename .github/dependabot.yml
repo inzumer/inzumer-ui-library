@@ -3,18 +3,29 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
-      day: monday
+      interval: cron
+      # Days 1 and 15 of each month, like the Milimon repos.
+      cronjob: '0 9 1,15 * *'
+      timezone: Europe/Madrid
     open-pull-requests-limit: 5
     commit-message:
       prefix: chore(deps)
     groups:
+      # Storybook packages move together: a major (e.g. 8 -> 9) is a migration, not a bump,
+      # and some addons become empty packages when they move into the core.
+      storybook:
+        patterns: ['storybook', '@storybook/*']
+      # Vitest, its coverage provider and jsdom also need to move together.
+      testing:
+        patterns: ['vitest', '@vitest/*', 'jsdom']
       minor-and-patch:
         update-types: [minor, patch]
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: monthly
+      interval: cron
+      cronjob: '0 9 1,15 * *'
+      timezone: Europe/Madrid
     commit-message:
       prefix: ci

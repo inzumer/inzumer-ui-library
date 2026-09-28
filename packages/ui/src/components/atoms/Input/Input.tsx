@@ -1,13 +1,8 @@
-import type { VariantProps } from 'class-variance-authority';
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
 import { RichText } from '@components';
 import { cn } from '@utils';
-import {
-  inputErrorStyles,
-  inputHintStyles,
-  inputLabelStyles,
-  inputStyles,
-} from './Input.styles';
+import type { VariantProps } from 'class-variance-authority';
+import { forwardRef, useId, type InputHTMLAttributes } from 'react';
+import { inputErrorStyles, inputHintStyles, inputLabelStyles, inputStyles } from './Input.styles';
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> &
   VariantProps<typeof inputStyles> & {
@@ -40,7 +35,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {error && (
-          <RichText as="p" id={`${id}-error`} role="alert" variant="p4" className={inputErrorStyles}>
+          <RichText
+            as="p"
+            id={`${id}-error`}
+            role="alert"
+            variant="p4"
+            className={inputErrorStyles}
+          >
             {error}
           </RichText>
         )}

@@ -7,7 +7,15 @@ section).
 ## Usage
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from '@inzumer/ui-library';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@inzumer/ui-library';
 
 <Card>
   <CardHeader>

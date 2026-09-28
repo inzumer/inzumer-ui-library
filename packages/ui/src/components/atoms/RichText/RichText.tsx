@@ -1,6 +1,6 @@
+import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import { forwardRef, type ElementType, type HTMLAttributes } from 'react';
-import { cn } from '@utils';
 import { richTextStyles } from './RichText.styles';
 
 export type RichTextVariant = NonNullable<VariantProps<typeof richTextStyles>['variant']>;

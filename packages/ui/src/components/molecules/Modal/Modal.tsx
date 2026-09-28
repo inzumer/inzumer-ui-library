@@ -1,4 +1,3 @@
-import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { RichText } from '@components';
 import {
   useDelayedUnmount,
@@ -8,7 +7,9 @@ import {
   useScrollLock,
 } from '@hooks';
 import { cn } from '@utils';
+import { forwardRef, useId, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
+  modalBodyStyles,
   modalFooterStyles,
   modalOverlayStyles,
   modalPanelStyles,
@@ -23,11 +24,23 @@ export type ModalProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   title?: ReactNode;
   footer?: ReactNode;
   closeOnBackdropClick?: boolean;
+  /** Height limit before the body scrolls: 80% of the viewport (`default`) or 90% (`tall`). */
+  maxHeight?: 'default' | 'tall';
 };
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   (
-    { open, onClose, title, footer, closeOnBackdropClick = true, className, children, ...props },
+    {
+      open,
+      onClose,
+      title,
+      footer,
+      closeOnBackdropClick = true,
+      maxHeight = 'default',
+      className,
+      children,
+      ...props
+    },
     ref,
   ) => {
     const panelRef = useRef<HTMLDivElement | null>(null);
@@ -52,7 +65,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           aria-modal="true"
           aria-labelledby={title ? titleId : undefined}
           tabIndex={-1}
-          className={cn(modalPanelStyles({ visible }), className)}
+          className={cn(modalPanelStyles({ visible, maxHeight }), className)}
           {...props}
         >
           {title && (
@@ -60,7 +73,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
               {title}
             </RichText>
           )}
-          {children}
+          <div className={modalBodyStyles}>{children}</div>
           {footer && <div className={modalFooterStyles}>{footer}</div>}
         </div>
       </div>

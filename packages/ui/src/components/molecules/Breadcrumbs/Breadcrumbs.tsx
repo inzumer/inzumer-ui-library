@@ -1,6 +1,6 @@
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import { Link, RichText } from '@components';
 import { cn } from '@utils';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
   breadcrumbsCurrentStyles,
   breadcrumbsItemStyles,

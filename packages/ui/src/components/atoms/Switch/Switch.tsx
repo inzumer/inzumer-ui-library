@@ -1,6 +1,6 @@
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
 import { RichText } from '@components';
 import { cn } from '@utils';
+import { forwardRef, useId, type InputHTMLAttributes } from 'react';
 import {
   switchInputStyles,
   switchLabelDisabledStyles,

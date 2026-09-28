@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, within } from '@storybook/test';
-import readme from './README.md?raw';
 import { Input } from './Input';
+import readme from './README.md?raw';
 
 const meta = {
   title: 'Atoms/Input',

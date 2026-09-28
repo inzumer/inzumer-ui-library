@@ -7,8 +7,8 @@ the same accessibility rules as every other icon in the app.
 ## Usage
 
 ```tsx
-import { Icon } from '@inzumer/ui-library';
 import { CheckIcon } from 'your-icon-library';
+import { Icon } from '@inzumer/ui-library';
 
 <Icon icon={CheckIcon} size="md" label="Success" />;
 ```
@@ -18,7 +18,7 @@ import { CheckIcon } from 'your-icon-library';
 - `icon`: any component shaped like `(props: SVGProps<SVGSVGElement>) => JSX.Element` — a
   `lucide-react` icon, an SVGR-generated component, a hand-written `<svg>` wrapper, etc.
 - `size`: `sm` | `md` | `lg`
-- `label`: pass it for a *meaningful* icon (renders `role="img"` + `aria-label`); omit it for a
+- `label`: pass it for a _meaningful_ icon (renders `role="img"` + `aria-label`); omit it for a
   purely decorative icon next to visible text (renders `aria-hidden`)
 
 ## Notes

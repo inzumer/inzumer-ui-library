@@ -1,5 +1,4 @@
 import type { BaseTokens } from '@theme-types/theme.js';
-
 import { baseColors } from './colors.js';
 import { baseRadius } from './radius.js';
 import { baseSpacing } from './spacing.js';

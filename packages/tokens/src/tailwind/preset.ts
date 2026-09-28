@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-
 // Relative imports on purpose: this file is loaded via jiti by Tailwind's
 // config resolution (see root tailwind.config.ts), which doesn't understand
 // our tsconfig path aliases.
