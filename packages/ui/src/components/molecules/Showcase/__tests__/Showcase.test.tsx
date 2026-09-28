@@ -1,11 +1,11 @@
-import { MediaCard } from '@components';
+import { MediaCard, Showcase } from '@components';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('MediaCard', () => {
+describe('Showcase', () => {
   it('shows the photo, title and subtitle as a card', () => {
     render(
-      <MediaCard
+      <Showcase
         src="/lemon-loaf.jpg"
         alt="Lemon loaf on a plate"
         title="Lemon loaf"
@@ -24,14 +24,13 @@ describe('MediaCard', () => {
 
   it('links the whole card, named by its title, with the actions above it', () => {
     render(
-      <MediaCard
+      <Showcase
         src="/scones.jpg"
         title="Scones"
         href="/recipes/scones"
         linkId="card-scones"
         headingLevel="h2"
         aspect="square"
-        badge="New"
         actions={<button type="button">Save</button>}
         className="custom"
       />,
@@ -41,14 +40,25 @@ describe('MediaCard', () => {
     expect(link).toHaveAttribute('id', 'card-scones');
     expect(link).toHaveClass('after:absolute');
     expect(screen.getByRole('button', { name: 'Save' }).parentElement).toHaveClass('z-[2]');
-    expect(screen.getByText('New')).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
     expect(screen.getByRole('article')).toHaveClass('aspect-square', 'custom');
   });
 
+  it('shows the badge right above the title, outside the link name', () => {
+    render(<Showcase title="Carrot cake" href="/recipes/carrot-cake" badge="New" />);
+    const badge = screen.getByText('New');
+    const heading = screen.getByRole('heading', { name: 'Carrot cake' });
+    expect(badge.nextElementSibling).toBe(heading);
+    expect(screen.getByRole('link', { name: 'Carrot cake' })).toBeInTheDocument();
+  });
+
   it('accepts its own media element instead of a URL', () => {
-    render(<MediaCard media={<picture data-testid="picture" />} title="Guide" />);
+    render(<Showcase media={<picture data-testid="picture" />} title="Guide" />);
     expect(screen.getByTestId('picture')).toBeInTheDocument();
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
+
+  it('keeps MediaCard as a deprecated alias', () => {
+    expect(MediaCard).toBe(Showcase);
   });
 });

@@ -1,16 +1,16 @@
-import { MediaCard } from '@components';
+import { Showcase } from '@components';
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, userEvent, within } from '@storybook/test';
-import { samplePhoto } from '../MediaCard/MediaCard.stories';
+import { photos } from '../Showcase/Showcase.stories';
 import { Carousel } from './Carousel';
 import readme from './README.md?raw';
 
 const recipes = [
-  ['Lemon loaf', 'Sweet · 45 min', '#f09363', '#773b1d'],
-  ['Carrot cake', 'Sweet · 1 h 10 min', '#fbcfb8', '#9b4e26'],
-  ['Scones', 'Sweet · 35 min', '#f7b390', '#592b15'],
-  ['Quiche', 'Savory · 50 min', '#e9793a', '#46210f'],
-  ['Focaccia', 'Savory · 3 h', '#fee4d6', '#c36430'],
+  ['Lemon loaf', 'Sweet · 45 min', photos.lemonLoaf],
+  ['Carrot cake', 'Sweet · 1 h 10 min', photos.carrotCake],
+  ['Scones', 'Sweet · 35 min', photos.scones],
+  ['Quiche', 'Savory · 50 min', photos.quiche],
+  ['Focaccia', 'Savory · 3 h', photos.focaccia],
 ] as const;
 
 const meta = {
@@ -37,10 +37,10 @@ export const Recipes: Story = {
     indicatorsLabel: 'Choose a recipe',
     goToLabel: (index, total) => `Recipe ${index + 1} of ${total}`,
     header: <h2 style={{ fontSize: '2rem', fontWeight: 700 }}>Featured recipes</h2>,
-    children: recipes.map(([title, subtitle, from, to]) => (
-      <MediaCard
+    children: recipes.map(([title, subtitle, photo]) => (
+      <Showcase
         key={title}
-        src={samplePhoto(from, to)}
+        src={photo.src}
         alt=""
         title={title}
         subtitle={subtitle}
