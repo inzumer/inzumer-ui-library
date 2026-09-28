@@ -8,6 +8,7 @@ export default defineConfig({
     'components/atoms/Image/index': 'src/components/atoms/Image/index.ts',
     'components/atoms/Input/index': 'src/components/atoms/Input/index.ts',
     'components/atoms/Link/index': 'src/components/atoms/Link/index.ts',
+    'components/atoms/Loader/index': 'src/components/atoms/Loader/index.ts',
     'components/atoms/RichText/index': 'src/components/atoms/RichText/index.ts',
     'components/atoms/Select/index': 'src/components/atoms/Select/index.ts',
     'components/atoms/Switch/index': 'src/components/atoms/Switch/index.ts',

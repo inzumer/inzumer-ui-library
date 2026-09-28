@@ -117,4 +117,19 @@ describe('Button', () => {
   it('should export buttonStyles for styling other elements', () => {
     expect(buttonStyles({ variant: 'primary' })).toContain('inline-flex');
   });
+
+  it('should be busy, disabled and pulsing while loading', async () => {
+    const onClick = vi.fn();
+    render(
+      <Button loading onClick={onClick}>
+        Save
+      </Button>,
+    );
+    const button = screen.getByRole('button', { name: 'Save' });
+    expect(button).toBeDisabled();
+    expect(button).toHaveAttribute('aria-busy', 'true');
+    expect(button).toHaveClass('aria-busy:animate-pulse');
+    await userEvent.click(button);
+    expect(onClick).not.toHaveBeenCalled();
+  });
 });

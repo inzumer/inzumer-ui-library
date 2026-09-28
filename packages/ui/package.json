@@ -52,6 +52,10 @@
       "types": "./dist/components/atoms/Link/index.d.ts",
       "import": "./dist/components/atoms/Link/index.js"
     },
+    "./loader": {
+      "types": "./dist/components/atoms/Loader/index.d.ts",
+      "import": "./dist/components/atoms/Loader/index.js"
+    },
     "./rich-text": {
       "types": "./dist/components/atoms/RichText/index.d.ts",
       "import": "./dist/components/atoms/RichText/index.js"

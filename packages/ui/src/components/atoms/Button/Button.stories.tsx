@@ -128,3 +128,10 @@ export const AsChildLink: Story = {
     await expect(canvas.queryByRole('button')).not.toBeInTheDocument();
   },
 };
+
+export const Loading: Story = {
+  args: { children: 'Saving…', loading: true },
+  play: async ({ canvasElement }) => {
+    await expect(within(canvasElement).getByRole('button')).toHaveAttribute('aria-busy', 'true');
+  },
+};

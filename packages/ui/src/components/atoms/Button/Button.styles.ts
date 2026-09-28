@@ -8,6 +8,7 @@ export const buttonStyles = cva(
     'transition-colors duration-150 ease-in-out',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)] focus-visible:ring-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
+    'aria-busy:cursor-wait aria-busy:animate-pulse aria-busy:opacity-80 motion-reduce:aria-busy:animate-[pulse_2.4s_ease-in-out_infinite]',
     'select-none',
   ],
   {
