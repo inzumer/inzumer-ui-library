@@ -32,6 +32,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./badge": {
+      "types": "./dist/components/atoms/Badge/index.d.ts",
+      "import": "./dist/components/atoms/Badge/index.js"
+    },
     "./button": {
       "types": "./dist/components/atoms/Button/index.d.ts",
       "import": "./dist/components/atoms/Button/index.js"
@@ -39,6 +43,10 @@
     "./chevron": {
       "types": "./dist/components/atoms/Chevron/index.d.ts",
       "import": "./dist/components/atoms/Chevron/index.js"
+    },
+    "./chip": {
+      "types": "./dist/components/atoms/Chip/index.d.ts",
+      "import": "./dist/components/atoms/Chip/index.js"
     },
     "./field": {
       "types": "./dist/components/atoms/Field/index.d.ts",
@@ -111,6 +119,10 @@
     "./dropdown": {
       "types": "./dist/components/molecules/Dropdown/index.d.ts",
       "import": "./dist/components/molecules/Dropdown/index.js"
+    },
+    "./filter": {
+      "types": "./dist/components/molecules/Filter/index.d.ts",
+      "import": "./dist/components/molecules/Filter/index.js"
     },
     "./language": {
       "types": "./dist/components/molecules/Language/index.d.ts",

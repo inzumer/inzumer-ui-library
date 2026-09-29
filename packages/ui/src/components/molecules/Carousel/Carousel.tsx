@@ -1,16 +1,7 @@
 import { Button, Chevron } from '@components';
-import { useMediaQuery } from '@hooks';
+import { useHorizontalScroll } from '@hooks';
 import { cn } from '@utils';
-import {
-  Children,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type HTMLAttributes,
-  type ReactNode,
-} from 'react';
+import { Children, forwardRef, useRef, useState, type HTMLAttributes, type ReactNode } from 'react';
 import {
   carouselButtonStyles,
   carouselChevronStyles,
@@ -57,8 +48,6 @@ export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   buttonIds?: { previous?: string; next?: string };
 };
 
-const EDGE_TOLERANCE_PX = 4;
-
 /** Carousel of cards with native snap scroll; optional buttons and indicators on any side. */
 export const Carousel = forwardRef<HTMLElement, CarouselProps>(
   (
@@ -82,26 +71,23 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
     },
     ref,
   ) => {
-    const trackRef = useRef<HTMLDivElement | null>(null);
     const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
-    const [edges, setEdges] = useState({ start: true, end: false });
     const [active, setActive] = useState(0);
     const slides = Children.toArray(children);
-    const behavior = reducedMotion ? 'auto' : 'smooth';
 
     /** Offset of a slide from the start of the track's content. */
     const offsetOf = (index: number) =>
       (slideRefs.current[index]?.offsetLeft ?? 0) - (slideRefs.current[0]?.offsetLeft ?? 0);
 
-    const update = useCallback(() => {
-      const track = trackRef.current;
-      if (!track) {
-        return;
-      }
+    /** The indicator follows the slide nearest to the scroll position (the last one at the end). */
+    const {
+      ref: trackRef,
+      edges,
+      update,
+      scrollByPage,
+      scrollToOffset,
+    } = useHorizontalScroll((track, { end: atEnd }) => {
       const max = track.scrollWidth - track.clientWidth;
-      const atEnd = track.scrollLeft >= max - EDGE_TOLERANCE_PX;
-      setEdges({ start: track.scrollLeft <= EDGE_TOLERANCE_PX, end: atEnd });
       const offsets = slideRefs.current.map((slide) =>
         slide ? slide.offsetLeft - (slideRefs.current[0]?.offsetLeft ?? 0) : 0,
       );
@@ -113,29 +99,9 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
         0,
       );
       setActive(atEnd && max > 0 ? offsets.length - 1 : nearest);
-    }, []);
+    });
 
-    useEffect(() => {
-      update();
-      const track = trackRef.current;
-      if (!track || typeof ResizeObserver === 'undefined') {
-        return undefined;
-      }
-      const observer = new ResizeObserver(update);
-      observer.observe(track);
-      return () => observer.disconnect();
-    }, [update, slides.length]);
-
-    const scrollByPage = (direction: 1 | -1) => {
-      trackRef.current?.scrollBy({
-        left: direction * trackRef.current.clientWidth * 0.9,
-        behavior,
-      });
-    };
-
-    const goTo = (index: number) => {
-      trackRef.current?.scrollTo({ left: offsetOf(index), behavior });
-    };
+    const goTo = (index: number) => scrollToOffset(offsetOf(index));
 
     const showIndicators = indicators && slides.length > 1;
     const together = buttons && showIndicators && buttonsPosition === indicatorsPosition;

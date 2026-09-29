@@ -3,8 +3,10 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: {
     index: 'src/index.ts',
+    'components/atoms/Badge/index': 'src/components/atoms/Badge/index.ts',
     'components/atoms/Button/index': 'src/components/atoms/Button/index.ts',
     'components/atoms/Chevron/index': 'src/components/atoms/Chevron/index.ts',
+    'components/atoms/Chip/index': 'src/components/atoms/Chip/index.ts',
     'components/atoms/Field/index': 'src/components/atoms/Field/index.ts',
     'components/atoms/Icon/index': 'src/components/atoms/Icon/index.ts',
     'components/atoms/Image/index': 'src/components/atoms/Image/index.ts',
@@ -22,6 +24,7 @@ export default defineConfig({
     'components/molecules/Carousel/index': 'src/components/molecules/Carousel/index.ts',
     'components/molecules/Drawer/index': 'src/components/molecules/Drawer/index.ts',
     'components/molecules/Dropdown/index': 'src/components/molecules/Dropdown/index.ts',
+    'components/molecules/Filter/index': 'src/components/molecules/Filter/index.ts',
     'components/molecules/Language/index': 'src/components/molecules/Language/index.ts',
     'components/molecules/Modal/index': 'src/components/molecules/Modal/index.ts',
     'components/molecules/Showcase/index': 'src/components/molecules/Showcase/index.ts',

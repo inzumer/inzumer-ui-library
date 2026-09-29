@@ -42,10 +42,7 @@ export const showcaseLinkStyles = [
 ].join(' ');
 
 /** Above the title, in the text flow over the gradient. */
-export const showcaseBadgeStyles = [
-  'mb-1 rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide',
-  'bg-[var(--showcase-badge-bg,rgb(255_255_255/0.92))] text-[var(--showcase-badge-text,rgb(31_31_31))]',
-].join(' ');
+export const showcaseBadgeStyles = 'mb-1 self-start';
 
 /** Floating actions: round, above the card link, so they stay clickable. */
 export const showcaseActionsStyles =
