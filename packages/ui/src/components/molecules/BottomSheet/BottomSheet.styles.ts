@@ -1,26 +1,22 @@
 import { cva } from 'class-variance-authority';
+import { overlayBackdropStyles } from '@styles/overlay';
 
-export const bottomSheetOverlayStyles = cva(
-  [
-    'fixed inset-0 z-50 flex items-end justify-center bg-[var(--surface-overlay)]',
-    'transition-opacity duration-200 ease-out',
-  ],
-  {
-    variants: {
-      visible: {
-        true: 'opacity-100',
-        false: 'opacity-0',
-      },
-    },
-    defaultVariants: {
-      visible: false,
+export const bottomSheetOverlayStyles = cva([overlayBackdropStyles, 'items-end'], {
+  variants: {
+    visible: {
+      true: 'opacity-100',
+      false: 'opacity-0',
     },
   },
-);
+  defaultVariants: {
+    visible: false,
+  },
+});
 
 export const bottomSheetPanelStyles = cva(
   [
-    'w-full max-w-md rounded-t-xl border border-b-0 border-[var(--border-default)]',
+    // Full width up to 768px (pixels, like Modal), centered.
+    'w-full max-w-[768px] rounded-t-xl border border-b-0 border-[var(--border-default)]',
     'bg-[var(--surface-secondary)] p-6 shadow-lg',
     'transition-transform duration-200 ease-out',
   ],

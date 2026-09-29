@@ -52,3 +52,31 @@ export const BrandPulse: Story = {
 export const WithLabel: Story = {
   args: { label: 'Saving…', showLabel: true, size: 'sm' },
 };
+
+const MESSAGES = ['Warming things up…', 'Almost there…', 'Checking the details…'];
+
+export const WithMessages: Story = {
+  args: { label: 'Saving', effect: 'pulse', size: 'lg', layout: 'stacked', messages: MESSAGES },
+};
+
+/** Full screen: the brand pulse over the Modal's backdrop, with rotating messages. */
+export const Screen: Story = {
+  args: {
+    label: 'Signing in',
+    screen: true,
+    effect: 'pulse',
+    size: 'xl',
+    mark: brandMark,
+    messages: MESSAGES,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'grid', gap: 12 }}>
+        <h2>A page behind the loader</h2>
+        <p>Clicks, scroll and keyboard are blocked until the answer arrives.</p>
+        <button type="button">Can&apos;t reach me</button>
+        <Story />
+      </div>
+    ),
+  ],
+};
