@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, within } from '@storybook/test';
+import { inputStyles } from '@components/atoms/Input/Input.styles';
 import { Field, fieldAria } from './Field';
 import readme from './README.md?raw';
 
@@ -24,7 +25,7 @@ const renderField: Story['render'] = (args) => (
     <input
       id={args.id}
       {...fieldAria(args.id, args)}
-      className="rounded-md border border-[var(--input-border)] px-3 py-2"
+      className={inputStyles({ state: args.error ? 'error' : 'default' })}
     />
   </Field>
 );

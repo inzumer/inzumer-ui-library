@@ -4,7 +4,7 @@ export const fieldControlBase = [
   'text-[var(--input-text)] bg-[var(--input-bg)]',
   'border border-[var(--input-border)]',
   'transition-colors duration-150 ease-in-out',
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)] focus-visible:ring-offset-0',
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--border-focus)]',
   'focus-visible:border-[var(--input-border-focus)]',
   'disabled:cursor-not-allowed disabled:opacity-50',
 ];
