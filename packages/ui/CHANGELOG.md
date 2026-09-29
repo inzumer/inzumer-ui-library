@@ -1,5 +1,12 @@
 # @inzumer/ui-library
 
+## 2.2.1
+
+### Patch Changes
+
+- 14f76ec: Form controls (`Input`, `Textarea`, `Select`, `Dropdown`) draw their focus ring inside the border, so scroll containers such as the `Modal` body no longer clip it on the sides; the `Modal` body also leaves room for the focus ring of other controls.
+- 837e02d: Depends on `@inzumer/tokens` `^1.1.1`, whose entry points also load with `require` (Tailwind 3 configs can import `@inzumer/tokens/tailwind` by name). No change to the components.
+
 ## 2.2.0
 
 ### Minor Changes
