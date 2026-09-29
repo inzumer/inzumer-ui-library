@@ -35,11 +35,7 @@ export type ShowcaseProps = Omit<HTMLAttributes<HTMLElement>, 'title'> &
     actions?: ReactNode;
   };
 
-/**
- * Vertical card that showcases a photo: full-bleed image, a dark gradient from the bottom for an
- * optional badge, the title and the subtitle, and floating actions. For recipes, articles and
- * guides; pair it with `Carousel` for rows of cards.
- */
+/** Photo card with a bottom gradient for badge, title and subtitle, and floating actions. */
 export const Showcase = forwardRef<HTMLElement, ShowcaseProps>(
   (
     {

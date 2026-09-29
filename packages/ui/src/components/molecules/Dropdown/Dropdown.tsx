@@ -39,12 +39,7 @@ export type DropdownProps = VariantProps<typeof selectStyles> & {
   className?: string;
 };
 
-/**
- * A select whose list is drawn with the theme (a native `<select>` opens the platform picker).
- * WAI-ARIA "select-only combobox": focus stays on the trigger and the active option is announced
- * through `aria-activedescendant`; arrows, Home/End, Enter/Space, Escape and typing a letter behave
- * like a native select.
- */
+/** Themed select (WAI-ARIA select-only combobox) that behaves like a native select. */
 export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
   (
     {

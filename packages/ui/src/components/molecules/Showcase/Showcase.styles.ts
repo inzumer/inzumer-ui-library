@@ -21,10 +21,7 @@ export const showcaseImageStyles = [
   'transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100',
 ].join(' ');
 
-/**
- * Scrim from the bottom so the text reads on any photo. Text over photos is always light on dark,
- * whatever the theme; sites can tune it with --showcase-scrim and --showcase-text.
- */
+/** Bottom scrim so light text reads on any photo; tune it with --showcase-scrim and --showcase-text. */
 export const showcaseScrimStyles = [
   'pointer-events-none absolute inset-0 -z-10',
   'bg-gradient-to-t from-[var(--showcase-scrim,rgb(0_0_0/0.8))] via-[var(--showcase-scrim-mid,rgb(0_0_0/0.3))] via-45% to-transparent to-75%',

@@ -25,10 +25,7 @@ export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
   containerClassName?: string;
 };
 
-/**
- * A data table that scrolls horizontally inside its own bordered container on small screens,
- * instead of pushing the page wider. Compose it with the `Table*` parts below.
- */
+/** Data table that scrolls horizontally in its own container on small screens. */
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ caption, captionHidden = false, containerClassName, className, children, ...props }, ref) => (
     <div className={cn(tableContainerStyles, containerClassName)}>

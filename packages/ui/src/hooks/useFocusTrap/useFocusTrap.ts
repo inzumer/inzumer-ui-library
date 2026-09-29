@@ -12,10 +12,7 @@ const FOCUSABLE = [
 const getFocusable = (container: HTMLElement): HTMLElement[] =>
   Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE));
 
-/**
- * While `active`, keeps Tab / Shift+Tab inside `containerRef`, moves focus into it, and returns
- * focus to the previously focused element when it deactivates (WCAG dialog pattern).
- */
+/** While `active`, keeps Tab inside `containerRef` and restores focus afterwards (WCAG dialog). */
 export const useFocusTrap = (
   active: boolean,
   containerRef: RefObject<HTMLElement | null>,

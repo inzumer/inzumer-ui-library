@@ -38,10 +38,7 @@ const mergeProps = (slotProps: AnyProps, childProps: AnyProps): AnyProps => {
   return merged;
 };
 
-/**
- * Renders its single child element instead of its own DOM node, merging its props into it
- * (Radix-style `asChild`). Used by `Button` so a link can look like a button and stay an `<a>`.
- */
+/** Renders its single child with merged props (Radix-style `asChild`), e.g. a link as a button. */
 export const Slot = forwardRef<HTMLElement, SlotProps>(
   ({ children, ...slotProps }, forwardedRef) => {
     // Text or several children can't receive props: render nothing rather than throwing.

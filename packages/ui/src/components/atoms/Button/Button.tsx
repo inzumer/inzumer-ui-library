@@ -6,10 +6,7 @@ import { Slot } from './Slot';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonStyles> & {
-    /**
-     * Render the single child element (e.g. an `<a>`) with the button styles and props instead of
-     * a `<button>`. Use it for navigation that must look like a button.
-     */
+    /** Render the single child (e.g. an `<a>`) with the button styles instead of a `<button>`. */
     asChild?: boolean;
     /** Waiting for something (e.g. the API): disabled, `aria-busy` and pulsing. */
     loading?: boolean;

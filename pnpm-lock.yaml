@@ -12,17 +12,17 @@ importers:
         specifier: ^2.27.9
         version: 2.31.0
       '@inzumer/eslint':
-        specifier: github:inzumer/inzumer-eslint#421a6c01fa6f62519c8f5d7d5b53e45780569d7d
-        version: https://codeload.github.com/inzumer/inzumer-eslint/tar.gz/421a6c01fa6f62519c8f5d7d5b53e45780569d7d(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)
+        specifier: ^1.0.0
+        version: 1.0.0(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)
       '@inzumer/prettier':
-        specifier: github:inzumer/inzumer-prettier#87763a515f7b470b73c172f8e7c8ff7e7ac94365
-        version: https://codeload.github.com/inzumer/inzumer-prettier/tar.gz/87763a515f7b470b73c172f8e7c8ff7e7ac94365(prettier@3.8.3)
+        specifier: ^1.0.0
+        version: 1.0.0(prettier@3.8.3)
       '@inzumer/tokens':
-        specifier: ^1.1.0
-        version: 1.1.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^1.1.1
+        version: 1.1.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@inzumer/tsconfig':
-        specifier: github:inzumer/inzumer-tsconfig#70691fbdfedbc9dd44a327f629177b3370c03260
-        version: https://codeload.github.com/inzumer/inzumer-tsconfig/tar.gz/70691fbdfedbc9dd44a327f629177b3370c03260
+        specifier: ^1.0.0
+        version: 1.0.0
       '@storybook/addon-a11y':
         specifier: ^8.6.18
         version: 8.6.18(storybook@8.6.18(prettier@3.8.3))
@@ -105,8 +105,8 @@ importers:
   packages/ui:
     dependencies:
       '@inzumer/tokens':
-        specifier: ^1.1.0
-        version: 1.1.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^1.1.1
+        version: 1.1.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react:
         specifier: '>=18 || ^19'
         version: 19.2.6
@@ -933,27 +933,25 @@ packages:
       '@types/node':
         optional: true
 
-  '@inzumer/eslint@https://codeload.github.com/inzumer/inzumer-eslint/tar.gz/421a6c01fa6f62519c8f5d7d5b53e45780569d7d':
-    resolution: {tarball: https://codeload.github.com/inzumer/inzumer-eslint/tar.gz/421a6c01fa6f62519c8f5d7d5b53e45780569d7d}
-    version: 1.0.0
+  '@inzumer/eslint@1.0.0':
+    resolution: {integrity: sha512-0ZLcpm1U0cIA4RtWSbIc0upzp7AyU1YL9qzhfIwcXUTezpkvEMGkvI+zarOvz1T5NWkwVbw/y0ni9Q4o/ro/+Q==}
     engines: {node: '>=20'}
     peerDependencies:
       eslint: '>=9'
 
-  '@inzumer/prettier@https://codeload.github.com/inzumer/inzumer-prettier/tar.gz/87763a515f7b470b73c172f8e7c8ff7e7ac94365':
-    resolution: {tarball: https://codeload.github.com/inzumer/inzumer-prettier/tar.gz/87763a515f7b470b73c172f8e7c8ff7e7ac94365}
-    version: 1.0.0
+  '@inzumer/prettier@1.0.0':
+    resolution: {integrity: sha512-MfN3xHV0hPwIn5BNVJWS1S5a7/0ErNymDtdFRIbnN0B0k85nfQQt6FsxbYSpngXyJYgePrwa9iGnS/Om7vtxDA==}
     engines: {node: '>=20'}
 
-  '@inzumer/tokens@1.1.0':
-    resolution: {integrity: sha512-aKd7KW3XouUegh3RfejEJW1hTypoHsP1RN9ry9VXHZlv8VtuqVnBd7JCWY7GIsHuONAdo8DZ5HX5Zc8DN+uKUQ==}
+  '@inzumer/tokens@1.1.1':
+    resolution: {integrity: sha512-jB2LUAF8pONnuaXfSDVgWlFk7oZAExn3E7/SqGWONEc81iMKXZw9LhxppbxLzh0vFtsUg1n7tJJS4GrWssmbsw==}
+    engines: {node: '>=20'}
     peerDependencies:
       react: '>=18 || ^19'
       react-dom: '>=18 || ^19'
 
-  '@inzumer/tsconfig@https://codeload.github.com/inzumer/inzumer-tsconfig/tar.gz/70691fbdfedbc9dd44a327f629177b3370c03260':
-    resolution: {tarball: https://codeload.github.com/inzumer/inzumer-tsconfig/tar.gz/70691fbdfedbc9dd44a327f629177b3370c03260}
-    version: 1.0.0
+  '@inzumer/tsconfig@1.0.0':
+    resolution: {integrity: sha512-DbQOqnqBOm1Mp/IIbP6pqzN18aCdG6wJ1GDCoK1SNqXPRA+KB6+dKvy1uzf47V0UGe4PgEWuIDwd7gl0Q9kxuQ==}
     engines: {node: '>=20'}
 
   '@isaacs/cliui@8.0.2':
@@ -4362,7 +4360,7 @@ snapshots:
       chardet: 2.1.1
       iconv-lite: 0.7.2
 
-  '@inzumer/eslint@https://codeload.github.com/inzumer/inzumer-eslint/tar.gz/421a6c01fa6f62519c8f5d7d5b53e45780569d7d(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)':
+  '@inzumer/eslint@1.0.0(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)
@@ -4382,7 +4380,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@inzumer/prettier@https://codeload.github.com/inzumer/inzumer-prettier/tar.gz/87763a515f7b470b73c172f8e7c8ff7e7ac94365(prettier@3.8.3)':
+  '@inzumer/prettier@1.0.0(prettier@3.8.3)':
     dependencies:
       '@ianvs/prettier-plugin-sort-imports': 4.7.1(prettier@3.8.3)
     transitivePeerDependencies:
@@ -4393,12 +4391,12 @@ snapshots:
       - prettier-plugin-ember-template-tag
       - supports-color
 
-  '@inzumer/tokens@1.1.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@inzumer/tokens@1.1.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
 
-  '@inzumer/tsconfig@https://codeload.github.com/inzumer/inzumer-tsconfig/tar.gz/70691fbdfedbc9dd44a327f629177b3370c03260': {}
+  '@inzumer/tsconfig@1.0.0': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
