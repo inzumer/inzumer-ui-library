@@ -39,7 +39,7 @@ import { Loader } from '@inzumer/ui-library';
 - `layout` — `inline` (mark and label side by side, default) or `stacked` (label under the mark)
 - `messages` — visible texts under the mark: one at random (`pickRandom`), changing every
   `messageInterval` ms (3500 by default) without repeating the last one; each project passes its own
-- `screen` — full screen: the Modal's backdrop with a card in the middle, blocking clicks, scroll
+- `screen` — full screen: the mark and the text (light, over the dark backdrop) in the middle, blocking clicks, scroll
   and keyboard (busy modal dialog, focus trapped and restored). Render it while waiting for an
   answer the person asked for, and remove it when it arrives
 

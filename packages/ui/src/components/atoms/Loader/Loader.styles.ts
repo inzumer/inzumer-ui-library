@@ -46,6 +46,9 @@ export const loaderMessageStyles = 'min-h-[3em] max-w-72 text-center text-[var(-
 /** `screen`: the shared backdrop, centered. */
 export const loaderScreenStyles = `${overlayBackdropStyles} items-center`;
 
-/** `screen`: a card in the middle, so the texts read well in light and dark mode. */
-export const loaderScreenPanelStyles =
-  'flex w-[min(90vw,360px)] flex-col items-center rounded-2xl bg-[var(--surface-primary)] p-8 shadow-lg outline-none';
+/** `screen`: just the mark and the text in the middle of the backdrop. */
+export const loaderScreenPanelStyles = 'flex max-w-[90vw] flex-col items-center outline-none';
+
+/** `screen`: light text over the dark backdrop, readable in light and dark mode. */
+export const loaderScreenTextStyles =
+  'text-white [&_span]:text-lg [&_span]:font-semibold [&_span]:text-white [&_span]:drop-shadow-md';

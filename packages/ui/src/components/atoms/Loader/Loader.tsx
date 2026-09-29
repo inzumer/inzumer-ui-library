@@ -9,6 +9,7 @@ import {
   loaderRingStyles,
   loaderScreenPanelStyles,
   loaderScreenStyles,
+  loaderScreenTextStyles,
   loaderStyles,
 } from './Loader.styles';
 
@@ -59,7 +60,11 @@ export const Loader = forwardRef<HTMLSpanElement, LoaderProps>(
         ref={ref}
         role="status"
         aria-live="polite"
-        className={cn(loaderStyles({ layout: screen ? 'stacked' : layout }), className)}
+        className={cn(
+          loaderStyles({ layout: screen ? 'stacked' : layout }),
+          screen && loaderScreenTextStyles,
+          className,
+        )}
         {...props}
       >
         <span aria-hidden="true" className={loaderMarkStyles({ effect, size, speed })}>
