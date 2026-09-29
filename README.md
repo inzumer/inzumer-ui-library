@@ -29,8 +29,7 @@ The design tokens and the shared tooling live in their own repositories, one per
 | [`inzumer-tsconfig`](https://github.com/inzumer/inzumer-tsconfig) | `@inzumer/tsconfig` | Shared TypeScript base configs.                         |
 | [`inzumer-ci`](https://github.com/inzumer/inzumer-ci)             | —                   | Shared GitHub Actions workflows.                        |
 
-`@inzumer/tokens` comes from npm. The configs are pinned to a commit of their repository
-(`github:inzumer/inzumer-<name>#<sha>`) until they are published; then they move to npm versions.
+All of them come from npm.
 
 ---
 

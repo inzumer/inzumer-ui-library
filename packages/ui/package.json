@@ -187,7 +187,7 @@
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
   },
   "dependencies": {
-    "@inzumer/tokens": "^1.1.0"
+    "@inzumer/tokens": "^1.1.1"
   },
   "peerDependencies": {
     "class-variance-authority": ">=0.7.0",

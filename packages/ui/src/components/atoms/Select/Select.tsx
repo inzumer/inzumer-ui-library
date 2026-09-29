@@ -12,10 +12,7 @@ export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> &
     error?: string;
   };
 
-/**
- * A native `<select>` with the same label / hint / error contract and look as `Input`. Native on
- * purpose: it gets the platform picker on mobile, typeahead and full screen reader support for free.
- */
+/** Native `<select>` with the `Field` contract: platform picker, typeahead and screen readers. */
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ className, state, inputSize, label, hint, error, id: idProp, children, ...props }, ref) => {
     const generatedId = useId();

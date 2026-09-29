@@ -27,13 +27,7 @@ export interface CookieCategory {
 /** Whether each optional category is allowed, by id. */
 export type CookieChoices = Record<string, boolean>;
 
-/**
- * - `banner`: bar at the bottom while there is no answer (`value === null`), with accept, reject
- *   and customize; customize opens the preferences dialog.
- * - `modal`: only the preferences dialog, opened with `open` / `onOpenChange`.
- * - `inline`: the categories with switches inside a page (privacy, settings); every change is
- *   saved at once, there is no save button.
- */
+/** `banner` until answered, `modal` preferences opened from outside, or `inline` settings. */
 export type CookieConsentMode = 'banner' | 'modal' | 'inline';
 
 export interface CookieConsentLabels {
@@ -122,12 +116,7 @@ const CategoryList = ({
   </ul>
 );
 
-/**
- * Cookie consent in one component: the banner, the preferences dialog and the inline settings,
- * chosen with `mode`. Controlled: the consumer stores `value` and loads non-essential scripts only
- * after the person allows them. Accept and reject weigh the same, so rejecting is as easy as
- * accepting (GDPR / ePrivacy).
- */
+/** Controlled cookie consent in three modes; accepting and rejecting weigh the same (GDPR). */
 export const CookieConsent = ({
   mode,
   categories,

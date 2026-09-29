@@ -10,10 +10,7 @@ const commons = (path: string) => {
   return `https://upload.wikimedia.org/wikipedia/commons/thumb/${encodeURI(path)}/960px-${encodeURIComponent(name)}`;
 };
 
-/**
- * Story photos that match each card, from Wikimedia Commons. Credits and licenses are in the
- * README ("Photos in the stories"); shared with the Carousel stories.
- */
+/** Wikimedia Commons photos matching each card (credits in the README); shared with Carousel. */
 export const photos = {
   lemonLoaf: {
     src: commons('b/b9/Lemon_Drizzle_Slice_-_Café_W_2025-12-26.jpg'),

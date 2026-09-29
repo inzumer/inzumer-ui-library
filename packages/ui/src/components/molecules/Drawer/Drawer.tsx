@@ -27,11 +27,7 @@ export type DrawerProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> &
     closeOnBackdropClick?: boolean;
   };
 
-/**
- * A side panel (navigation menus, filters, settings) that slides in from the left or right.
- * Modal dialog semantics: focus moves inside and is trapped, Escape and backdrop clicks close it,
- * the page behind doesn't scroll, and focus returns to the trigger when it closes.
- */
+/** Side panel from the left or right with modal dialog behavior (see `useDialogLayer`). */
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   (
     {

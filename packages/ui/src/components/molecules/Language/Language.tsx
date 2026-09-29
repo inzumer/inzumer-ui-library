@@ -25,11 +25,7 @@ type IndicatorRect = { left: number; top: number; width: number; height: number 
 const NEXT_KEYS = new Set(['ArrowRight', 'ArrowDown']);
 const PREVIOUS_KEYS = new Set(['ArrowLeft', 'ArrowUp']);
 
-/**
- * Single-choice segmented switch, following the WAI-ARIA radio group pattern: one Tab stop,
- * arrow keys (and Home/End) move the selection. Name it with `aria-label` (defaults to
- * "Language selector") or `aria-labelledby`.
- */
+/** Segmented single choice (WAI-ARIA radio group); name it with `aria-label` or `aria-labelledby`. */
 export const Language = forwardRef<HTMLDivElement, LanguageProps>(
   ({ options, value, onChange, className, ...props }, ref) => {
     const buttonRefs = useRef(new Map<string, HTMLButtonElement>());

@@ -17,11 +17,7 @@ export type AccordionProps = Omit<DetailsHTMLAttributes<HTMLDetailsElement>, 'ti
   contentClassName?: string;
 };
 
-/**
- * A collapsible section built on native `<details>`/`<summary>`: keyboard and screen reader support,
- * find-in-page and no JavaScript needed to toggle. Stack several for an accordion list; pass
- * `open` to start expanded (e.g. the section that contains the current page).
- */
+/** Collapsible section on native `<details>`: accessible, find-in-page, no JS to toggle. */
 export const Accordion = forwardRef<HTMLDetailsElement, AccordionProps>(
   ({ summary, summaryClassName, contentClassName, className, children, ...props }, ref) => (
     <details ref={ref} className={cn(accordionStyles, className)} {...props}>

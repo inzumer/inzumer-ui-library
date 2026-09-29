@@ -21,11 +21,7 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: (config) => {
-    // Resolved from process.cwd() (the repo root, where Storybook is always
-    // invoked from) rather than __dirname/import.meta.url: this file gets
-    // evaluated under different module contexts (CJS-ish for the static
-    // config, real ESM when Vite later calls viteFinal), and neither
-    // __dirname nor import.meta is safe in both.
+    // process.cwd() (repo root): __dirname and import.meta differ between config and viteFinal.
     const root = process.cwd();
     config.plugins = config.plugins ?? [];
     config.plugins.push(
