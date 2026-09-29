@@ -27,8 +27,8 @@ import { Badge } from '@inzumer/ui-library';
 - `uppercase` — uppercase text with a little letter spacing; off by default
 - `icon` — any node before the label, hidden from assistive tech. The library doesn't ship an icon
   family: each project passes its own
-- `tone` — preset colors: `neutral` (default) or the Snackbar's `info`, `success`, `error` and
-  `warning` (`STATUS_TONES` / `PILL_TONES` in `@utils`)
+- `tone` — preset colors: `neutral` (default) or the Snackbar's statuses `info`, `success`,
+  `error` and `warning`, soft (light background, strong text; `PILL_TONES` in `@utils`)
 - `colors` — `{ background, text }` as CSS colors, ideally the project's tokens; they win over
   `tone`
 

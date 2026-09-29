@@ -30,7 +30,7 @@ describe('Badge', () => {
       </>,
     );
     expect(screen.getByText('Saved').style.getPropertyValue('--badge-bg')).toBe(
-      'rgb(var(--color-success-600))',
+      'rgb(var(--color-success-100))',
     );
     expect(screen.getByText('Custom').style.getPropertyValue('--badge-bg')).toBe('pink');
   });
