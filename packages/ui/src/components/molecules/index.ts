@@ -5,6 +5,7 @@ export * from './Card';
 export * from './Carousel';
 export * from './Drawer';
 export * from './Dropdown';
+export * from './Filter';
 export * from './Language';
 export * from './Modal';
 export * from './Showcase';

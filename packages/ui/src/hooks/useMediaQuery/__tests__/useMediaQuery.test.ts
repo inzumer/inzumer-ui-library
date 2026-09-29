@@ -82,4 +82,10 @@ describe('useMediaQuery', () => {
     rerender({ query: '(min-width: 1024px)' });
     expect(result.current).toBe(true);
   });
+
+  it('returns false where matchMedia does not exist', () => {
+    vi.stubGlobal('matchMedia', undefined);
+    const { result } = renderHook(() => useMediaQuery('(prefers-reduced-motion: reduce)'));
+    expect(result.current).toBe(false);
+  });
 });

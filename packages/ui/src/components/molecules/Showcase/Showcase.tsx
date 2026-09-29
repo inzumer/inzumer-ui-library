@@ -2,6 +2,7 @@ import { Image, RichText } from '@components';
 import { cn } from '@utils';
 import { type VariantProps } from 'class-variance-authority';
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { Badge } from '@components/atoms/Badge';
 import {
   showcaseActionsStyles,
   showcaseBadgeStyles,
@@ -13,6 +14,12 @@ import {
   showcaseSubtitleStyles,
   showcaseTitleStyles,
 } from './Showcase.styles';
+
+/** Light pill over the photo; each project can set `--showcase-badge-bg` / `--showcase-badge-text`. */
+const SHOWCASE_BADGE_COLORS = {
+  background: 'var(--showcase-badge-bg, rgb(255 255 255 / 0.92))',
+  text: 'var(--showcase-badge-text, rgb(31 31 31))',
+};
 
 export type ShowcaseProps = Omit<HTMLAttributes<HTMLElement>, 'title'> &
   VariantProps<typeof showcaseStyles> & {
@@ -60,7 +67,11 @@ export const Showcase = forwardRef<HTMLElement, ShowcaseProps>(
         {media ?? (src && <Image src={src} alt={alt} className={showcaseImageStyles} />)}
         <div aria-hidden="true" className={showcaseScrimStyles} />
         <div className={showcaseContentStyles}>
-          {badge && <span className={showcaseBadgeStyles}>{badge}</span>}
+          {badge && (
+            <Badge uppercase className={showcaseBadgeStyles} colors={SHOWCASE_BADGE_COLORS}>
+              {badge}
+            </Badge>
+          )}
           <RichText as={headingLevel} variant="s1" className={showcaseTitleStyles}>
             {href ? (
               <a id={linkId} href={href} className={showcaseLinkStyles}>
