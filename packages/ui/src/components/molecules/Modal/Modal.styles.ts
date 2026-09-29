@@ -45,6 +45,7 @@ export const modalPanelStyles = cva(
 
 export const modalTitleStyles = 'mb-4 shrink-0 text-lg font-semibold text-[var(--text-primary)]';
 
-export const modalBodyStyles = 'min-h-0 flex-1 overflow-y-auto';
+/** Scrolls; the inline padding (undone by the negative margin) keeps focus rings from being clipped. */
+export const modalBodyStyles = 'min-h-0 flex-1 overflow-y-auto -mx-2 px-2 py-1';
 
 export const modalFooterStyles = 'mt-6 flex shrink-0 flex-wrap items-center justify-end gap-2';
