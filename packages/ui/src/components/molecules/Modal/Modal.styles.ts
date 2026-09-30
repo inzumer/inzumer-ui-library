@@ -1,22 +1,17 @@
 import { cva } from 'class-variance-authority';
+import { overlayBackdropStyles } from '@styles/overlay';
 
-export const modalOverlayStyles = cva(
-  [
-    'fixed inset-0 z-50 flex items-center justify-center bg-[var(--surface-overlay)]',
-    'transition-opacity duration-200 ease-out',
-  ],
-  {
-    variants: {
-      visible: {
-        true: 'opacity-100',
-        false: 'opacity-0',
-      },
-    },
-    defaultVariants: {
-      visible: false,
+export const modalOverlayStyles = cva([overlayBackdropStyles, 'items-center'], {
+  variants: {
+    visible: {
+      true: 'opacity-100',
+      false: 'opacity-0',
     },
   },
-);
+  defaultVariants: {
+    visible: false,
+  },
+});
 
 export const modalPanelStyles = cva(
   [

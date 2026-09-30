@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority';
+import { overlayBackdropStyles } from '@styles/overlay';
 
 export const loaderStyles = cva('inline-flex items-center gap-3 text-[var(--text-secondary)]', {
   variants: {
@@ -38,3 +39,16 @@ export const loaderMarkStyles = cva(
 /** Default mark: a ring with the primary color on top. */
 export const loaderRingStyles =
   'block rounded-full border-[3px] border-[var(--border-default)] border-t-[var(--btn-primary-bg)]';
+
+/** Rotating `messages`: always visible, with room for two lines so the layout doesn't jump. */
+export const loaderMessageStyles = 'min-h-[3em] max-w-72 text-center text-[var(--text-secondary)]';
+
+/** `screen`: the shared backdrop, centered. */
+export const loaderScreenStyles = `${overlayBackdropStyles} items-center`;
+
+/** `screen`: just the mark and the text in the middle of the backdrop. */
+export const loaderScreenPanelStyles = 'flex max-w-[90vw] flex-col items-center outline-none';
+
+/** `screen`: light text over the dark backdrop, readable in light and dark mode. */
+export const loaderScreenTextStyles =
+  'text-white [&_span]:text-lg [&_span]:font-semibold [&_span]:text-white [&_span]:drop-shadow-md';

@@ -12,6 +12,15 @@ import { Loader } from '@inzumer/ui-library';
 <Loader label="Loading your account" />;
 
 <Loader
+  screen
+  label="Signing in"
+  effect="pulse"
+  size="xl"
+  mark={<img src={logo} alt="" />}
+  messages={texts}
+/>;
+
+<Loader
   label="Loading the calculator"
   showLabel
   layout="stacked"
@@ -28,6 +37,11 @@ import { Loader } from '@inzumer/ui-library';
 - `effect` — `spin` (default) or `pulse`; `speed` — `normal`, `slow` or `fast`
 - `size` — `sm` (20px), `md` (40px, default), `lg` (64px), `xl` (96px)
 - `layout` — `inline` (mark and label side by side, default) or `stacked` (label under the mark)
+- `messages` — visible texts under the mark: one at random (`pickRandom`), changing every
+  `messageInterval` ms (3500 by default) without repeating the last one; each project passes its own
+- `screen` — full screen: the mark and the text (light, over the dark backdrop) in the middle, blocking clicks, scroll
+  and keyboard (busy modal dialog, focus trapped and restored). Render it while waiting for an
+  answer the person asked for, and remove it when it arrives
 
 ## Notes
 

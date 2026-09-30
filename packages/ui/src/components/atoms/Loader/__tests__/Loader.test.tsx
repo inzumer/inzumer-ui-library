@@ -1,6 +1,7 @@
 import { Loader } from '@components';
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { act, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 describe('Loader', () => {
   it('announces what is loading with a spinning ring by default', () => {
@@ -30,5 +31,42 @@ describe('Loader', () => {
     expect(mark?.querySelector('img')).toHaveAttribute('src', '/logo.webp');
     expect(screen.getByText('Loading')).not.toHaveClass('sr-only');
     expect(screen.getByRole('status')).toHaveClass('flex-col');
+  });
+
+  describe('messages', () => {
+    afterEach(() => vi.useRealTimers());
+
+    it('shows one of the messages and changes it every interval', () => {
+      vi.useFakeTimers();
+      render(<Loader label="Saving" messages={['Whisking', 'Tasting']} messageInterval={1000} />);
+      const first = screen.getByText(/Whisking|Tasting/).textContent;
+      act(() => vi.advanceTimersByTime(1000));
+      expect(screen.getByText(/Whisking|Tasting/).textContent).not.toBe(first);
+    });
+  });
+
+  describe('screen', () => {
+    it('covers the page as a busy modal dialog named by the label', () => {
+      render(<Loader screen label="Signing in" messages={['Preheating the oven']} />);
+      const dialog = screen.getByRole('dialog', { name: 'Signing in' });
+      expect(dialog).toHaveAttribute('aria-modal', 'true');
+      expect(dialog).toHaveAttribute('aria-busy', 'true');
+      expect(dialog.parentElement).toHaveClass('fixed', 'inset-0', 'items-center');
+      expect(screen.getByRole('status')).toHaveClass('flex-col');
+      expect(screen.getByText('Preheating the oven')).toBeInTheDocument();
+    });
+
+    it('keeps the focus inside and locks the page scroll', async () => {
+      render(
+        <>
+          <button type="button">Behind</button>
+          <Loader screen label="Saving" />
+        </>,
+      );
+      expect(screen.getByRole('dialog')).toHaveFocus();
+      await userEvent.tab();
+      expect(screen.getByRole('button', { name: 'Behind' })).not.toHaveFocus();
+      expect(document.body.style.overflow).toBe('hidden');
+    });
   });
 });
