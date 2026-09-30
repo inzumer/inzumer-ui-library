@@ -43,8 +43,8 @@ export const loaderRingStyles =
 /** Rotating `messages`: always visible, with room for two lines so the layout doesn't jump. */
 export const loaderMessageStyles = 'min-h-[3em] max-w-72 text-center text-[var(--text-secondary)]';
 
-/** `screen`: the shared backdrop, centered. */
-export const loaderScreenStyles = `${overlayBackdropStyles} items-center`;
+/** `screen`: the shared backdrop, centered and blurred so the mark and text stand out. */
+export const loaderScreenStyles = `${overlayBackdropStyles} items-center backdrop-blur-md`;
 
 /** `screen`: just the mark and the text in the middle of the backdrop. */
 export const loaderScreenPanelStyles = 'flex max-w-[90vw] flex-col items-center outline-none';

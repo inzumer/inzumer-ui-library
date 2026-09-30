@@ -18,8 +18,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(prettier@3.8.3)
       '@inzumer/tokens':
-        specifier: ^1.1.1
-        version: 1.1.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^1.2.0
+        version: 1.2.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@inzumer/tsconfig':
         specifier: ^1.0.0
         version: 1.0.0
@@ -105,8 +105,8 @@ importers:
   packages/ui:
     dependencies:
       '@inzumer/tokens':
-        specifier: ^1.1.1
-        version: 1.1.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^1.2.0
+        version: 1.2.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react:
         specifier: '>=18 || ^19'
         version: 19.2.6
@@ -943,8 +943,8 @@ packages:
     resolution: {integrity: sha512-MfN3xHV0hPwIn5BNVJWS1S5a7/0ErNymDtdFRIbnN0B0k85nfQQt6FsxbYSpngXyJYgePrwa9iGnS/Om7vtxDA==}
     engines: {node: '>=20'}
 
-  '@inzumer/tokens@1.1.1':
-    resolution: {integrity: sha512-jB2LUAF8pONnuaXfSDVgWlFk7oZAExn3E7/SqGWONEc81iMKXZw9LhxppbxLzh0vFtsUg1n7tJJS4GrWssmbsw==}
+  '@inzumer/tokens@1.2.0':
+    resolution: {integrity: sha512-JK3Fs79JipkqTZUBsey3ZAtcBIkpp8tSLzV6kqy9GSNMNdxVN9xs/SCw/wGCWQoxwYRZ3ZoaB5ew7CLaLbbsIw==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18 || ^19'
@@ -4391,7 +4391,7 @@ snapshots:
       - prettier-plugin-ember-template-tag
       - supports-color
 
-  '@inzumer/tokens@1.1.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
+  '@inzumer/tokens@1.2.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)

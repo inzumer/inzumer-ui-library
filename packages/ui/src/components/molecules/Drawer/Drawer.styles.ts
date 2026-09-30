@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const drawerOverlayStyles = cva(
-  'absolute inset-0 bg-[var(--surface-overlay)] transition-opacity duration-200 ease-out',
+  'absolute inset-0 bg-surface-overlay transition-opacity duration-200 ease-out',
   {
     variants: {
       visible: {

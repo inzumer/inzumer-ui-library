@@ -38,7 +38,7 @@
     "@changesets/cli": "^2.27.9",
     "@inzumer/eslint": "^1.0.0",
     "@inzumer/prettier": "^1.0.0",
-    "@inzumer/tokens": "^1.1.1",
+    "@inzumer/tokens": "^1.2.0",
     "@inzumer/tsconfig": "^1.0.0",
     "@storybook/addon-a11y": "^8.6.18",
     "@storybook/addon-actions": "^8.6.18",
