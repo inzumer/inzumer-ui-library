@@ -29,3 +29,7 @@ updates:
       timezone: Europe/Madrid
     commit-message:
       prefix: ci
+    ignore:
+      # v2 only works with the Changesets CLI v3; move both together (see tokens #3).
+      - dependency-name: changesets/action
+        update-types: ['version-update:semver-major']
