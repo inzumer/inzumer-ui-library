@@ -64,6 +64,7 @@ const args: CookieConsentProps = {
 const Host = (props: CookieConsentProps) => {
   const [value, setValue] = useState<CookieChoices | null>(props.value);
   const [open, setOpen] = useState(false);
+
   return (
     <div style={{ minHeight: '24rem', padding: '1.6rem' }}>
       <p>Answer: {value === null ? 'none yet' : JSON.stringify(value)}</p>

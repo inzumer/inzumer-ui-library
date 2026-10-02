@@ -6,6 +6,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 const Harness = ({ onClose = vi.fn() }: { onClose?: () => void }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <>
       <button type="button" onClick={() => setOpen(true)}>

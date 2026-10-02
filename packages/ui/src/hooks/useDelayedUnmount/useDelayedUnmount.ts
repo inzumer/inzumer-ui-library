@@ -14,6 +14,7 @@ export const useDelayedUnmount = (open: boolean, exitDurationMs: number) => {
       const outerRafId = requestAnimationFrame(() => {
         innerRafId = requestAnimationFrame(() => setVisible(true));
       });
+
       return () => {
         cancelAnimationFrame(outerRafId);
         cancelAnimationFrame(innerRafId);
@@ -22,6 +23,7 @@ export const useDelayedUnmount = (open: boolean, exitDurationMs: number) => {
 
     setVisible(false);
     const timeoutId = setTimeout(() => setMounted(false), exitDurationMs);
+
     return () => clearTimeout(timeoutId);
   }, [open, exitDurationMs]);
 

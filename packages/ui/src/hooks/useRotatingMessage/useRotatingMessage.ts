@@ -12,10 +12,12 @@ export const useRotatingMessage = (
     if (!messages || messages.length < 2) {
       return undefined;
     }
+
     const id = setInterval(
       () => setMessage((current) => pickRandom(messages, current)),
       intervalMs,
     );
+
     return () => clearInterval(id);
   }, [messages, intervalMs]);
 

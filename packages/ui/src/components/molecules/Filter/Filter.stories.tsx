@@ -26,6 +26,7 @@ const options: FilterOption[] = [
 /** Keeps the chosen option, like a real page would. */
 const ControlledFilter = (args: FilterProps) => {
   const [value, setValue] = useState(args.value);
+
   return <Filter {...args} value={value} onChange={setValue} />;
 };
 

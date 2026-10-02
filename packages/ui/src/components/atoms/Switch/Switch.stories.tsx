@@ -28,6 +28,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     const [checked, setChecked] = useState(false);
+
     return <Switch {...args} checked={checked} onCheckedChange={setChecked} />;
   },
   play: async ({ canvasElement }) => {

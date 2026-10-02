@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
-    "@inzumer/eslint": "^1.0.0",
+    "@inzumer/eslint": "^1.1.0",
     "@inzumer/prettier": "^1.0.0",
     "@inzumer/tokens": "^1.2.0",
     "@inzumer/tsconfig": "^1.0.0",

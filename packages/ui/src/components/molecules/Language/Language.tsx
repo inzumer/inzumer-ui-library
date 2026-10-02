@@ -52,6 +52,7 @@ export const Language = forwardRef<HTMLDivElement, LanguageProps>(
       if (!option) {
         return;
       }
+
       buttonRefs.current.get(option.value)?.focus();
       if (option.value !== value) {
         onChange(option.value);
@@ -70,6 +71,7 @@ export const Language = forwardRef<HTMLDivElement, LanguageProps>(
       } else if (event.key === 'End') {
         target = last;
       }
+
       if (target !== null) {
         event.preventDefault();
         select(target);

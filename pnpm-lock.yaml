@@ -12,8 +12,8 @@ importers:
         specifier: ^2.27.9
         version: 2.31.0
       '@inzumer/eslint':
-        specifier: ^1.0.0
-        version: 1.0.0(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)
+        specifier: ^1.1.0
+        version: 1.1.0(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)
       '@inzumer/prettier':
         specifier: ^1.0.0
         version: 1.0.0(prettier@3.9.9)
@@ -945,8 +945,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inzumer/eslint@1.0.0':
-    resolution: {integrity: sha512-0ZLcpm1U0cIA4RtWSbIc0upzp7AyU1YL9qzhfIwcXUTezpkvEMGkvI+zarOvz1T5NWkwVbw/y0ni9Q4o/ro/+Q==}
+  '@inzumer/eslint@1.1.0':
+    resolution: {integrity: sha512-GwhLu1WH9mpbf/Jg3YHHsMfnwP2aDWC1L/AZgFvFmc3ho9U0Cmj4NVuYd+TkYeoRTGI2oEqUSJYWNR68ciBOMw==}
     engines: {node: '>=20'}
     peerDependencies:
       eslint: '>=9'
@@ -1313,6 +1313,12 @@ packages:
     resolution: {integrity: sha512-n6OEjEtHupa2PdTwWzRepr7cO8NkDd4rgF6BKLitRbujOspLxzMBEqdphs+QLcuiCIgf33SqmEA64QWnbSMhPw==}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+
+  '@stylistic/eslint-plugin@5.10.0':
+    resolution: {integrity: sha512-nPK52ZHvot8Ju/0A4ucSX1dcPV2/1clx0kLcH5wDmrE4naKso7TUC/voUyU1O9OTKTrR6MYip6LP0ogEMQ9jPQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^9.0.0 || ^10.0.0
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -4399,8 +4405,9 @@ snapshots:
       chardet: 2.1.1
       iconv-lite: 0.7.2
 
-  '@inzumer/eslint@1.0.0(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)':
+  '@inzumer/eslint@1.1.0(@typescript-eslint/utils@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)':
     dependencies:
+      '@stylistic/eslint-plugin': 5.10.0(eslint@9.39.5(jiti@1.21.7))
       '@typescript-eslint/eslint-plugin': 8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)
       '@vitest/eslint-plugin': 1.6.24(@typescript-eslint/eslint-plugin@8.59.2(@typescript-eslint/parser@8.59.2(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)(vitest@5.0.2)
@@ -4787,6 +4794,16 @@ snapshots:
   '@storybook/theming@8.6.18(storybook@8.6.18(prettier@3.9.9))':
     dependencies:
       storybook: 8.6.18(prettier@3.9.9)
+
+  '@stylistic/eslint-plugin@5.10.0(eslint@9.39.5(jiti@1.21.7))':
+    dependencies:
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.5(jiti@1.21.7))
+      '@typescript-eslint/types': 8.59.2
+      eslint: 9.39.5(jiti@1.21.7)
+      eslint-visitor-keys: 4.2.1
+      espree: 10.4.0
+      estraverse: 5.3.0
+      picomatch: 4.0.7
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -5783,7 +5800,7 @@ snapshots:
       eslint-import-context: 0.1.9(unrs-resolver@1.11.1)
       is-glob: 4.0.3
       minimatch: 10.2.5
-      semver: 7.8.0
+      semver: 7.8.5
       stable-hash-x: 0.2.0
       unrs-resolver: 1.11.1
     optionalDependencies:

@@ -85,6 +85,7 @@ const CategoryList = ({
   <ul className={cookieCategoryListStyles}>
     {categories.map((category) => {
       const descriptionId = `${switchId(category.id)}-description`;
+
       return (
         <li key={category.id} className={cookieCategoryStyles}>
           <div className={cookieCategoryHeaderStyles}>
