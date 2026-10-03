@@ -1,13 +1,13 @@
 import { cva } from 'class-variance-authority';
 
 export const showcaseStyles = cva(
-  'group relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-[var(--surface-tertiary)] shadow-sm',
+  'group relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-(--surface-tertiary) shadow-xs',
   {
     variants: {
       aspect: {
-        portrait: 'aspect-[3/4]',
+        portrait: 'aspect-3/4',
         square: 'aspect-square',
-        landscape: 'aspect-[4/3]',
+        landscape: 'aspect-4/3',
       },
     },
     defaultVariants: {
@@ -24,11 +24,11 @@ export const showcaseImageStyles = [
 /** Bottom scrim so light text reads on any photo; tune it with --showcase-scrim and --showcase-text. */
 export const showcaseScrimStyles = [
   'pointer-events-none absolute inset-0 -z-10',
-  'bg-gradient-to-t from-[var(--showcase-scrim,rgb(0_0_0/0.8))] via-[var(--showcase-scrim-mid,rgb(0_0_0/0.3))] via-45% to-transparent to-75%',
+  'bg-linear-to-t from-(--showcase-scrim,rgb(0_0_0/0.8)) via-(--showcase-scrim-mid,rgb(0_0_0/0.3)) via-45% to-transparent to-75%',
 ].join(' ');
 
 export const showcaseContentStyles =
-  'flex flex-col items-start gap-1 p-4 text-[var(--showcase-text,#fff)]';
+  'flex flex-col items-start gap-1 p-4 text-(--showcase-text,#fff)';
 
 export const showcaseTitleStyles = 'text-lg font-bold leading-tight text-inherit';
 
@@ -37,8 +37,8 @@ export const showcaseSubtitleStyles = 'text-sm text-inherit opacity-90';
 /** Stretched link: its ::after covers the whole card, so the card is one link named by the title. */
 export const showcaseLinkStyles = [
   'text-inherit no-underline hover:text-inherit',
-  'after:absolute after:inset-0 after:z-[1] after:rounded-2xl after:content-[""]',
-  'focus-visible:outline-none focus-visible:after:ring-4 focus-visible:after:ring-inset focus-visible:after:ring-[var(--border-focus)]',
+  'after:absolute after:inset-0 after:z-1 after:rounded-2xl after:content-[""]',
+  'focus-visible:outline-hidden focus-visible:after:ring-4 focus-visible:after:ring-inset focus-visible:after:ring-(--border-focus)',
 ].join(' ');
 
 /** Above the title, in the text flow over the gradient. */
@@ -46,4 +46,4 @@ export const showcaseBadgeStyles = 'mb-1 self-start';
 
 /** Floating actions: round, above the card link, so they stay clickable. */
 export const showcaseActionsStyles =
-  'absolute right-3 top-3 z-[2] flex gap-2 [&>*]:rounded-full [&>*]:shadow-md';
+  'absolute right-3 top-3 z-2 flex gap-2 *:rounded-full *:shadow-md';

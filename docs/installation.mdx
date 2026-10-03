@@ -96,8 +96,9 @@ avoids shipping a second copy of React in your app.
 
 ## Minimum setup
 
-1. Add the Tailwind preset from `@inzumer/tokens` to your app's `tailwind.config.ts` (see
-   [Design Tokens](/docs/documentation-design-tokens--docs)).
+1. With **Tailwind 4**, add the preset from `@inzumer/tokens` to your app's `tailwind.config.ts` (see
+   [Design Tokens](/docs/documentation-design-tokens--docs)), load it with `@config` and add the
+   library to the scanned files with `@source '…/node_modules/@inzumer/ui-library/dist'`.
 2. Import the base tokens CSS somewhere loaded once (e.g. your root layout), so the CSS custom
    properties components rely on (`--btn-primary-bg`, `--surface-primary`, ...) exist:
 

@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 import { overlayBackdropStyles } from '@styles/overlay';
 
-export const loaderStyles = cva('inline-flex items-center gap-3 text-[var(--text-secondary)]', {
+export const loaderStyles = cva('inline-flex items-center gap-3 text-(--text-secondary)', {
   variants: {
     layout: {
       inline: 'flex-row',
@@ -13,7 +13,7 @@ export const loaderStyles = cva('inline-flex items-center gap-3 text-[var(--text
 
 /** The animated mark; with reduced motion a spin becomes a slow pulse. */
 export const loaderMarkStyles = cva(
-  'inline-flex shrink-0 items-center justify-center [&>*]:size-full [&>img]:object-contain',
+  'inline-flex shrink-0 items-center justify-center *:size-full [&>img]:object-contain',
   {
     variants: {
       effect: {
@@ -38,16 +38,16 @@ export const loaderMarkStyles = cva(
 
 /** Default mark: a ring with the primary color on top. */
 export const loaderRingStyles =
-  'block rounded-full border-[3px] border-[var(--border-default)] border-t-[var(--btn-primary-bg)]';
+  'block rounded-full border-[3px] border-(--border-default) border-t-(--btn-primary-bg)';
 
 /** Rotating `messages`: always visible, with room for two lines so the layout doesn't jump. */
-export const loaderMessageStyles = 'min-h-[3em] max-w-72 text-center text-[var(--text-secondary)]';
+export const loaderMessageStyles = 'min-h-[3em] max-w-72 text-center text-(--text-secondary)';
 
 /** `screen`: the shared backdrop, centered and blurred so the mark and text stand out. */
 export const loaderScreenStyles = `${overlayBackdropStyles} items-center backdrop-blur-md`;
 
 /** `screen`: just the mark and the text in the middle of the backdrop. */
-export const loaderScreenPanelStyles = 'flex max-w-[90vw] flex-col items-center outline-none';
+export const loaderScreenPanelStyles = 'flex max-w-[90vw] flex-col items-center outline-hidden';
 
 /** `screen`: light text over the dark backdrop, readable in light and dark mode. */
 export const loaderScreenTextStyles =

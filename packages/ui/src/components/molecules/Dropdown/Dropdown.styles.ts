@@ -8,16 +8,16 @@ export const dropdownChevronStyles = 'transition-transform duration-150 ease-out
 
 export const dropdownListStyles = [
   'absolute left-0 right-0 top-full z-50 mt-1 max-h-60 overflow-y-auto p-1',
-  'rounded-md border border-[var(--input-border)] bg-[var(--input-bg)] shadow-lg',
-  'focus:outline-none',
+  'rounded-md border border-(--input-border) bg-(--input-bg) shadow-lg',
+  'focus:outline-hidden',
 ].join(' ');
 
 export const dropdownOptionStyles = cva(
-  'flex min-h-10 cursor-pointer items-center justify-between gap-3 rounded px-3 text-[var(--input-text)]',
+  'flex min-h-10 cursor-pointer items-center justify-between gap-3 rounded px-3 text-(--input-text)',
   {
     variants: {
       active: {
-        true: 'bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)]',
+        true: 'bg-(--btn-primary-bg) text-(--btn-primary-text)',
         false: '',
       },
       selected: {

@@ -40,7 +40,7 @@ All of them come from npm.
 | React 18/19                | Component model                         |
 | TypeScript (strict)        | Type safety                             |
 | tsup                       | Library build (ESM + type declarations) |
-| Tailwind CSS 3             | Token-driven styling                    |
+| Tailwind CSS 4             | Token-driven styling                    |
 | class-variance-authority   | Variant management                      |
 | Vitest + RTL               | Unit and accessibility testing          |
 | Storybook 8 (Vite builder) | Component documentation                 |

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 describe('Loader', () => {
-  it('announces what is loading with a spinning ring by default', () => {
+  it('announces what is loading with a spinning ring-3 by default', () => {
     render(<Loader label="Loading your account" />);
     const status = screen.getByRole('status');
     expect(status).toHaveTextContent('Loading your account');

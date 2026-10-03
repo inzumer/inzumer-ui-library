@@ -43,7 +43,7 @@ export const Sizes: Story = {
     icon: CheckIcon,
   },
   render: () => (
-    <div className="flex items-center gap-3 text-[var(--text-primary)]">
+    <div className="flex items-center gap-3 text-(--text-primary)">
       <Icon icon={CheckIcon} size="sm" />
       <Icon icon={CheckIcon} size="md" />
       <Icon icon={CheckIcon} size="lg" />
