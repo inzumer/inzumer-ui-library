@@ -10,5 +10,6 @@ export * from './Language';
 export * from './Modal';
 export * from './Showcase';
 export * from './Snackbar';
+export * from './SocialLinks';
 export * from './Table';
 export * from './Timeline';
