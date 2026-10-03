@@ -1,13 +1,13 @@
 # IconLink
 
 A round link that only shows an icon: a social network, a shortcut. The `label` is its accessible
-name (and tooltip). The library doesn't ship icons: each project passes its own SVG, which takes half
-the button and the current text color.
+name (and tooltip). Pass any SVG, like the library's `Icons` (Material Symbols and networks); it takes
+half the button and the current text color.
 
 ## Usage
 
 ```tsx
-import { IconLink } from '@inzumer/ui-library';
+import { IconLink, InstagramIcon } from '@inzumer/ui-library';
 
 <IconLink href="https://www.instagram.com/…" label="Instagram" icon={<InstagramIcon />} external />;
 ```

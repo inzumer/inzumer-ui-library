@@ -22,8 +22,8 @@ import { Chip } from '@inzumer/ui-library';
 
 - `pressed` — toggle state (`aria-pressed`); the pressed chip gets an inset ring in its text color.
   Leave it out for a plain action chip
-- `icon` — any node before the label, hidden from assistive tech. The library doesn't ship an icon
-  family: each project passes its own
+- `icon` — any node before the label, hidden from assistive tech: a library icon
+  (`<Icon name="…" />`, see Icons) or a project's own
 - `tone` — preset colors, as in `Badge` (`neutral` by default, or `info`, `success`, `error`,
   `warning`)
 - `colors` — `{ background, text }` as CSS colors, ideally the project's tokens; they win over

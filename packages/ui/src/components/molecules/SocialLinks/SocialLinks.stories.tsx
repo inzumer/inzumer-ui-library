@@ -1,7 +1,7 @@
+import { InstagramIcon, LinkedInIcon, PinterestIcon } from '@/icons';
 import type { Meta, StoryObj } from '@storybook/react';
 import readme from './README.md?raw';
 import { SocialLinks } from './SocialLinks';
-import { sampleSocialIcons } from './SocialLinks.fixtures';
 
 const meta = {
   title: 'Molecules/SocialLinks',
@@ -16,9 +16,9 @@ const meta = {
   },
   args: {
     links: [
-      { href: 'https://www.pinterest.com', label: 'Pinterest', icon: sampleSocialIcons.pinterest },
-      { href: 'https://www.instagram.com', label: 'Instagram', icon: sampleSocialIcons.instagram },
-      { href: 'https://www.linkedin.com', label: 'LinkedIn', icon: sampleSocialIcons.linkedin },
+      { href: 'https://www.pinterest.com', label: 'Pinterest', icon: <PinterestIcon /> },
+      { href: 'https://www.instagram.com', label: 'Instagram', icon: <InstagramIcon /> },
+      { href: 'https://www.linkedin.com', label: 'LinkedIn', icon: <LinkedInIcon /> },
     ],
   },
 } satisfies Meta<typeof SocialLinks>;

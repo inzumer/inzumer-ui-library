@@ -1,13 +1,12 @@
 # SocialLinks
 
 A row of icon buttons (`IconLink`) to the brand's social networks, for footers. Each one opens in a
-new tab and is named by the network. The library doesn't ship network icons: each project passes its
-own SVGs.
+new tab and is named by the network. The network icons ship with the library (`Icons`).
 
 ## Usage
 
 ```tsx
-import { SocialLinks } from '@inzumer/ui-library';
+import { InstagramIcon, LinkedInIcon, PinterestIcon, SocialLinks } from '@inzumer/ui-library';
 
 <SocialLinks
   align="center"
