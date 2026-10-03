@@ -7,6 +7,7 @@ import { Showcase } from './Showcase';
 /** A Wikimedia Commons photo served by its CDN (upload.wikimedia.org), 960px wide. */
 const commons = (path: string) => {
   const name = path.split('/').pop() ?? '';
+
   return `https://upload.wikimedia.org/wikipedia/commons/thumb/${encodeURI(path)}/960px-${encodeURIComponent(name)}`;
 };
 

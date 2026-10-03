@@ -23,6 +23,7 @@ const Dialog = ({
   if (!mounted) {
     return null;
   }
+
   return (
     <div {...dialogProps(Boolean(title))}>
       {title && <h2 id={titleId}>{title}</h2>}

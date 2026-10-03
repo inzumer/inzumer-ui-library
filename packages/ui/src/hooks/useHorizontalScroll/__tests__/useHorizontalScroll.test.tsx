@@ -4,6 +4,7 @@ import { useHorizontalScroll } from '../useHorizontalScroll';
 
 const Scroller = ({ onUpdate }: { onUpdate?: () => void }) => {
   const { ref, edges, update, scrollByPage, scrollToOffset } = useHorizontalScroll(onUpdate);
+
   return (
     <>
       <div ref={ref} data-testid="track" onScroll={update} />

@@ -5,5 +5,6 @@ export const pickRandom = <T>(
   random: () => number = Math.random,
 ): T | undefined => {
   const pool = items.length > 1 ? items.filter((item) => item !== previous) : items;
+
   return pool[Math.floor(random() * pool.length)];
 };

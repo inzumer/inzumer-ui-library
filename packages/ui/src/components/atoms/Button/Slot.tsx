@@ -35,6 +35,7 @@ const mergeProps = (slotProps: AnyProps, childProps: AnyProps): AnyProps => {
     ...(slotProps['style'] as CSSProperties),
     ...(childProps['style'] as CSSProperties),
   };
+
   return merged;
 };
 
@@ -52,6 +53,7 @@ export const Slot = forwardRef<HTMLElement, SlotProps>(
     if (!isValidElement<AnyProps>(child)) {
       return null;
     }
+
     return cloneElement(child, { ...mergeProps(slotProps as AnyProps, childProps), ref });
   },
 );

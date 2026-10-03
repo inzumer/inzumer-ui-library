@@ -35,6 +35,7 @@ const meta = {
   },
   render: function Render(args) {
     const [value, setValue] = useState(args.value);
+
     return (
       <div className="h-64 max-w-xs">
         <Dropdown {...args} value={value} onChange={setValue} />

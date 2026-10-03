@@ -7,6 +7,7 @@ import { useFocusTrap } from '../useFocusTrap';
 const Trap = ({ active, empty = false }: { active: boolean; empty?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
   useFocusTrap(active, ref);
+
   return (
     <div ref={ref} tabIndex={-1} data-testid="trap">
       {!empty && (

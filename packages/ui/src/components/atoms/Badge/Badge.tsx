@@ -14,6 +14,7 @@ export const badgeColorStyle = (
   style?: CSSProperties,
 ): CSSProperties | undefined => {
   const chosen = colors ?? (tone ? PILL_TONES[tone] : undefined);
+
   return chosen
     ? ({ '--badge-bg': chosen.background, '--badge-text': chosen.text, ...style } as CSSProperties)
     : style;

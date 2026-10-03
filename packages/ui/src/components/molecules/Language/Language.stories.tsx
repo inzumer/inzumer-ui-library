@@ -34,6 +34,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     const [value, setValue] = useState(args.value);
+
     return <Language {...args} value={value} onChange={setValue} />;
   },
   play: async ({ canvasElement }) => {

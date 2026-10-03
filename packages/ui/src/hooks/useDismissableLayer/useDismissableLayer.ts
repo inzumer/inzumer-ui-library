@@ -27,6 +27,7 @@ export const useDismissableLayer = (
 
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('pointerdown', handlePointerDown);
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('pointerdown', handlePointerDown);

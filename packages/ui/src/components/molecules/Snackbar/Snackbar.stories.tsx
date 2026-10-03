@@ -36,6 +36,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     const [open, setOpen] = useState(false);
+
     return (
       <>
         <Button onClick={() => setOpen(true)}>Show snackbar</Button>
@@ -61,6 +62,7 @@ export const Statuses: Story = {
   },
   render: function Render() {
     const [active, setActive] = useState<(typeof statuses)[number] | null>(null);
+
     return (
       <>
         <div className="flex gap-2">

@@ -12,6 +12,7 @@ const options = [
 
 const Controlled = ({ initial = 'es', onChange = vi.fn() }) => {
   const [value, setValue] = useState(initial);
+
   return (
     <Language
       aria-label="Idioma"

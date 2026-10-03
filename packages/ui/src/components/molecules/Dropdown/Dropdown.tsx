@@ -92,6 +92,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       if (option && option.value !== value) {
         onChange(option.value);
       }
+
       setOpen(false);
     };
 
@@ -101,6 +102,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       const match = ordered.find((option) =>
         option.label.toLowerCase().startsWith(key.toLowerCase()),
       );
+
       return match ? options.indexOf(match) : -1;
     };
 
@@ -126,14 +128,18 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
       if (event.key === 'Tab') {
         close();
+
         return;
       }
+
       const action = (open ? openKeys : closedKeys)[event.key];
       if (action) {
         event.preventDefault();
         action();
+
         return;
       }
+
       if (event.key.length === 1 && event.key.trim() !== '') {
         const index = indexForLetter(event.key);
         if (index >= 0 && open) {
@@ -189,6 +195,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           >
             {options.map((option, index) => {
               const selected = index === selectedIndex;
+
               return (
                 // Options never take focus (APG select-only combobox): the trigger handles the keys.
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events

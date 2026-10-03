@@ -17,6 +17,7 @@ const getTrack = () => {
   if (!track) {
     throw new Error('Carousel track not found');
   }
+
   return track;
 };
 
@@ -34,6 +35,7 @@ const layout = (scrollLeft: number) => {
   track.scrollBy = vi.fn();
   track.scrollTo = vi.fn();
   fireEvent.scroll(track);
+
   return track;
 };
 

@@ -19,6 +19,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     if (asChild) {
       // The ref points at whatever element the child renders (usually an <a>), not a <button>.
       const slotRef = ref as unknown as Ref<HTMLElement>;
+
       return <Slot ref={slotRef} className={classes} {...props} />;
     }
 

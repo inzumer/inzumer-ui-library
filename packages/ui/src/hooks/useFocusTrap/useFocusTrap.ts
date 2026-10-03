@@ -31,13 +31,16 @@ export const useFocusTrap = (
       if (event.key !== 'Tab') {
         return;
       }
+
       const focusable = getFocusable(container);
       const first = focusable[0];
       const last = focusable.at(-1);
       if (!first || !last) {
         event.preventDefault();
+
         return;
       }
+
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
@@ -48,6 +51,7 @@ export const useFocusTrap = (
     };
 
     container.addEventListener('keydown', handleKeyDown);
+
     return () => {
       container.removeEventListener('keydown', handleKeyDown);
       previouslyFocused?.focus();

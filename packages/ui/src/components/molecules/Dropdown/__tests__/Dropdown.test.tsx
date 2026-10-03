@@ -12,6 +12,7 @@ const options = [
 
 const Harness = ({ onChange = vi.fn(), ...props }: Partial<Parameters<typeof Dropdown>[0]>) => {
   const [value, setValue] = useState('ARS');
+
   return (
     <Dropdown
       id="currency"

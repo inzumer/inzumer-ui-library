@@ -27,6 +27,7 @@ const Controlled = (
   props: Partial<CookieConsentProps> & { onSaved?: (v: CookieChoices) => void },
 ) => {
   const [value, setValue] = useState<CookieChoices | null>(null);
+
   return (
     <CookieConsent
       mode="banner"

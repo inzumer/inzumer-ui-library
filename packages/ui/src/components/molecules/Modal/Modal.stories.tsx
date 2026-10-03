@@ -34,6 +34,7 @@ export const Default: Story = {
   },
   render: function Render(args) {
     const [open, setOpen] = useState(false);
+
     return (
       <>
         <Button onClick={() => setOpen(true)}>Open modal</Button>

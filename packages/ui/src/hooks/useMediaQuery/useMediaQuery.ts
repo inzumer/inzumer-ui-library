@@ -22,6 +22,7 @@ export const useMediaQuery = (query: string): boolean => {
 
     setMatches(list.matches);
     list.addEventListener('change', handleChange);
+
     return () => list.removeEventListener('change', handleChange);
   }, [query]);
 

@@ -35,6 +35,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
       }
 
       const timeoutId = setTimeout(onClose, duration);
+
       return () => clearTimeout(timeoutId);
     }, [open, duration, onClose]);
 

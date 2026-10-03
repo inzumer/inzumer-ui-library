@@ -30,6 +30,7 @@ export const useHorizontalScroll = <T extends HTMLElement = HTMLDivElement>(
     if (!track) {
       return;
     }
+
     const max = track.scrollWidth - track.clientWidth;
     const next = {
       start: track.scrollLeft <= EDGE_TOLERANCE_PX,
@@ -45,8 +46,10 @@ export const useHorizontalScroll = <T extends HTMLElement = HTMLDivElement>(
     if (!track || typeof ResizeObserver === 'undefined') {
       return undefined;
     }
+
     const observer = new ResizeObserver(update);
     observer.observe(track);
+
     return () => observer.disconnect();
   }, [update]);
 

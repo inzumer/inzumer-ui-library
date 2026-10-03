@@ -6,9 +6,11 @@ export const useScrollLock = (active: boolean): void => {
     if (!active) {
       return;
     }
+
     const { style } = document.body;
     const previous = style.overflow;
     style.overflow = 'hidden';
+
     return () => {
       style.overflow = previous;
     };
