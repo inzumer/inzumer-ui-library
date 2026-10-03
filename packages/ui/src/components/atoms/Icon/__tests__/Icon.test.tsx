@@ -30,6 +30,12 @@ describe('Icon', () => {
     expect(screen.getByTestId('dot-icon')).toHaveClass('h-6', 'w-6');
   });
 
+  it('should draw a library icon by its kebab-case id', () => {
+    const { container } = render(<Icon name="arrow-forward" label="Next" />);
+
+    expect(screen.getByRole('img', { name: 'Next' })).toBe(container.querySelector('svg'));
+  });
+
   it('applies a custom className alongside its own classes', () => {
     render(<Icon icon={DotIcon} className="custom-class" />);
     expect(screen.getByTestId('dot-icon')).toHaveClass('custom-class', 'inline-block');

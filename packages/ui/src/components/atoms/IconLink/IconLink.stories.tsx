@@ -1,5 +1,5 @@
+import { InstagramIcon } from '@/icons';
 import type { Meta, StoryObj } from '@storybook/react';
-import { sampleSocialIcons } from '../../molecules/SocialLinks/SocialLinks.fixtures';
 import { IconLink } from './IconLink';
 import readme from './README.md?raw';
 
@@ -17,7 +17,7 @@ const meta = {
   args: {
     href: 'https://www.instagram.com',
     label: 'Instagram',
-    icon: sampleSocialIcons.instagram,
+    icon: <InstagramIcon />,
     external: true,
   },
 } satisfies Meta<typeof IconLink>;

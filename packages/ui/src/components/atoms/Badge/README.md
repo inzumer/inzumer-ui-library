@@ -25,8 +25,8 @@ import { Badge } from '@inzumer/ui-library';
 - `size` — `sm` (default, small label) or `md` (same size as a `Chip`)
 - `radius` — `none`, `sm`, `md`, `lg` or `full` (default)
 - `uppercase` — uppercase text with a little letter spacing; off by default
-- `icon` — any node before the label, hidden from assistive tech. The library doesn't ship an icon
-  family: each project passes its own
+- `icon` — any node before the label, hidden from assistive tech: a library icon
+  (`<Icon name="…" />`, see Icons) or a project's own
 - `tone` — preset colors: `neutral` (default) or the Snackbar's statuses `info`, `success`,
   `error` and `warning`, soft (light background, strong text; `PILL_TONES` in `@utils`)
 - `colors` — `{ background, text }` as CSS colors, ideally the project's tokens; they win over
