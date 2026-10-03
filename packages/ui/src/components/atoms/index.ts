@@ -4,6 +4,7 @@ export * from './Chevron';
 export * from './Chip';
 export * from './Field';
 export * from './Icon';
+export * from './IconLink';
 export * from './Image';
 export * from './Input';
 export * from './Link';
