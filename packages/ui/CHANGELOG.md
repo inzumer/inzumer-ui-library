@@ -1,5 +1,15 @@
 # @inzumer/ui-library
 
+## 2.6.0
+
+### Minor Changes
+
+- 5ae3f0b: `IconLink` drops the `sm` size (36px) so it never goes under the 44px touch target; `IconLink` and `Navbar` skip their transitions with reduced motion. `Navbar` and `SocialLinks` keep their styles in `*.styles.ts` like the other components.
+- 0176fc8: Icons in the Google Material Symbols style, cited by kebab-case id: `<Icon name="arrow-forward" />`. Interface icons from Material Symbols (menu, close, search, arrows, share, bookmark, mail, language, person, favorite) and the networks drawn in the same outlined style (pinterest, instagram, linkedin, facebook, x, youtube, tiktok, whatsapp). SVG React components in the current color, with `ICONS` / `ICON_NAMES` and one story per icon under "Icons".
+- 9e116d9: - `IconLink`: a round link that only shows an icon, with an accessible label (sizes and `ghost` / `outline` / `solid`).
+  - `SocialLinks`: a row of `IconLink` to the brand's networks, for footers, aligned to a side or centered.
+  - `Navbar`: brand, links aligned to the start, center or end, and actions; the links scroll sideways on narrow screens.
+
 ## 2.5.0
 
 ### Minor Changes
