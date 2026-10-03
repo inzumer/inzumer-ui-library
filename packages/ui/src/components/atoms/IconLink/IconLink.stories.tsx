@@ -34,7 +34,7 @@ export const Solid: Story = { args: { variant: 'solid' } };
 export const Sizes: Story = {
   render: (args) => (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-      {(['sm', 'md', 'lg'] as const).map((size) => (
+      {(['md', 'lg'] as const).map((size) => (
         <IconLink key={size} {...args} size={size} variant="outline" />
       ))}
     </div>

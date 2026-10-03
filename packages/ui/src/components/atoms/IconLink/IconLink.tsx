@@ -14,7 +14,7 @@ export type IconLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'child
     external?: boolean;
   };
 
-/** A round link that only shows an icon (a social network, a shortcut), with a 44px touch target by default. */
+/** A round link that only shows an icon (a social network, a shortcut), with a 44px touch target or more. */
 export const IconLink = forwardRef<HTMLAnchorElement, IconLinkProps>(
   ({ label, icon, size, variant, external, className, target, rel, ...props }, ref) => (
     <a
