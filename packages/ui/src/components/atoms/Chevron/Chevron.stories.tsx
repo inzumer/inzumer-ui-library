@@ -22,5 +22,5 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: { direction: 'down', className: 'size-6 text-[var(--text-primary)]' },
+  args: { direction: 'down', className: 'size-6 text-(--text-primary)' },
 };

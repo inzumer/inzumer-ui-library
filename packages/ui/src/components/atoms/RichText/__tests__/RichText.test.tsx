@@ -47,6 +47,6 @@ describe('RichText', () => {
         Text
       </RichText>,
     );
-    expect(screen.getByText('Text')).toHaveClass('custom-class', 'text-[var(--text-primary)]');
+    expect(screen.getByText('Text')).toHaveClass('custom-class', 'text-(--text-primary)');
   });
 });

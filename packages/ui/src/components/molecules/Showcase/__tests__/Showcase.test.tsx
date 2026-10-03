@@ -12,7 +12,7 @@ describe('Showcase', () => {
         subtitle="45 min · 8 servings"
       />,
     );
-    expect(screen.getByRole('article')).toHaveClass('aspect-[3/4]');
+    expect(screen.getByRole('article')).toHaveClass('aspect-3/4');
     expect(screen.getByRole('img', { name: 'Lemon loaf on a plate' })).toHaveAttribute(
       'src',
       '/lemon-loaf.jpg',
@@ -39,7 +39,7 @@ describe('Showcase', () => {
     expect(link).toHaveAttribute('href', '/recipes/scones');
     expect(link).toHaveAttribute('id', 'card-scones');
     expect(link).toHaveClass('after:absolute');
-    expect(screen.getByRole('button', { name: 'Save' }).parentElement).toHaveClass('z-[2]');
+    expect(screen.getByRole('button', { name: 'Save' }).parentElement).toHaveClass('z-2');
     expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
     expect(screen.getByRole('article')).toHaveClass('aspect-square', 'custom');
   });

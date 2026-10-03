@@ -16,8 +16,8 @@ export const bottomSheetOverlayStyles = cva([overlayBackdropStyles, 'items-end']
 export const bottomSheetPanelStyles = cva(
   [
     // Full width up to 768px (pixels, like Modal), centered.
-    'w-full max-w-[768px] rounded-t-xl border border-b-0 border-[var(--border-default)]',
-    'bg-[var(--surface-secondary)] p-6 shadow-lg',
+    'w-full max-w-[768px] rounded-t-xl border border-b-0 border-(--border-default)',
+    'bg-(--surface-secondary) p-6 shadow-lg',
     'transition-transform duration-200 ease-out',
   ],
   {
@@ -33,9 +33,8 @@ export const bottomSheetPanelStyles = cva(
   },
 );
 
-export const bottomSheetHandleStyles =
-  'mx-auto mb-4 h-1.5 w-10 rounded-full bg-[var(--border-strong)]';
+export const bottomSheetHandleStyles = 'mx-auto mb-4 h-1.5 w-10 rounded-full bg-(--border-strong)';
 
-export const bottomSheetTitleStyles = 'mb-4 text-lg font-semibold text-[var(--text-primary)]';
+export const bottomSheetTitleStyles = 'mb-4 text-lg font-semibold text-(--text-primary)';
 
 export const bottomSheetFooterStyles = 'mt-6 flex items-center justify-end gap-2';

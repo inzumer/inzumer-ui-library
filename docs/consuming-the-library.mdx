@@ -40,6 +40,15 @@ export default {
 } satisfies Config;
 ```
 
+The library needs **Tailwind 4**: load that config from your main CSS and let Tailwind scan the
+library's built files, which it skips inside `node_modules` by default:
+
+```css
+@import 'tailwindcss';
+@config './tailwind.config.ts';
+@source '../node_modules/@inzumer/ui-library/dist';
+```
+
 ```tsx
 import { Button, Card, CardContent, CardHeader, CardTitle, Input } from '@inzumer/ui-library';
 

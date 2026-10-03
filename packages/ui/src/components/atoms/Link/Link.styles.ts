@@ -2,8 +2,8 @@ import { cva } from 'class-variance-authority';
 
 export const linkStyles = cva(
   [
-    'text-[var(--text-link)] transition-colors duration-150 ease-in-out',
-    'hover:text-[var(--text-link-hover)]',
+    'text-(--text-link) transition-colors duration-150 ease-in-out',
+    'hover:text-(--text-link-hover)',
   ],
   {
     variants: {

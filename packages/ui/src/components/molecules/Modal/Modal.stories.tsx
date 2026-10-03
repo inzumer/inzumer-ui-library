@@ -53,7 +53,7 @@ export const Default: Story = {
             </>
           }
         >
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-sm text-(--text-secondary)">
             Are you sure you want to continue? This action cannot be undone.
           </p>
         </Modal>

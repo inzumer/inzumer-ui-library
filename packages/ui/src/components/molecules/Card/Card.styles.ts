@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const cardStyles = cva(
-  ['rounded-xl border border-[var(--border-default)] bg-[var(--surface-secondary)]', 'shadow-sm'],
+  ['rounded-xl border border-(--border-default) bg-(--surface-secondary)', 'shadow-xs'],
   {
     variants: {
       padding: {
@@ -17,9 +17,9 @@ export const cardStyles = cva(
 
 export const cardHeaderStyles = 'flex flex-col gap-1.5 p-6';
 
-export const cardTitleStyles = 'text-lg font-semibold leading-none text-[var(--text-primary)]';
+export const cardTitleStyles = 'text-lg font-semibold leading-none text-(--text-primary)';
 
-export const cardDescriptionStyles = 'text-sm text-[var(--text-secondary)]';
+export const cardDescriptionStyles = 'text-sm text-(--text-secondary)';
 
 export const cardContentStyles = 'px-6 pb-6';
 

@@ -18,8 +18,8 @@ export const drawerOverlayStyles = cva(
 export const drawerPanelStyles = cva(
   [
     'absolute inset-y-0 flex w-full max-w-80 flex-col gap-6 overflow-y-auto',
-    'border-[var(--border-default)] bg-[var(--surface-primary)] p-6 shadow-xl',
-    'transition-transform duration-200 ease-out focus:outline-none',
+    'border-(--border-default) bg-(--surface-primary) p-6 shadow-xl',
+    'transition-transform duration-200 ease-out focus:outline-hidden',
   ],
   {
     variants: {
@@ -45,6 +45,6 @@ export const drawerPanelStyles = cva(
 
 export const drawerHeaderStyles = 'flex items-center justify-between gap-4';
 
-export const drawerTitleStyles = 'text-lg font-semibold text-[var(--text-primary)]';
+export const drawerTitleStyles = 'text-lg font-semibold text-(--text-primary)';
 
 export const drawerFooterStyles = 'mt-auto flex flex-col gap-4';

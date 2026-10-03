@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 export const badgeStyles = cva(
   [
     'inline-flex items-center',
-    'bg-[var(--badge-bg,var(--surface-secondary))] text-[var(--badge-text,var(--text-primary))]',
+    'bg-(--badge-bg,var(--surface-secondary)) text-(--badge-text,var(--text-primary))',
   ].join(' '),
   {
     variants: {

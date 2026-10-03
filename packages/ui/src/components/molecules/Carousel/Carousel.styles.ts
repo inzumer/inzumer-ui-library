@@ -4,7 +4,7 @@ export const carouselStyles = 'relative flex flex-col gap-3';
 
 export const carouselTrackStyles = [
   'flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-1 px-1 pb-2',
-  '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+  'scrollbar-none [&::-webkit-scrollbar]:hidden',
 ].join(' ');
 
 export const carouselSlideStyles = 'shrink-0 snap-start';
@@ -30,11 +30,11 @@ export const carouselIndicatorsStyles = 'flex flex-wrap items-center justify-cen
 /** 24px hit area around a small dot, so the indicators are easy to tap. */
 export const carouselIndicatorStyles = [
   'flex h-6 min-w-6 items-center justify-center rounded-full',
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)]',
+  'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--border-focus)',
 ].join(' ');
 
 export const carouselDotStyles = cva(
-  'block h-2 rounded-full bg-[var(--btn-primary-bg)] transition-all duration-200 motion-reduce:transition-none',
+  'block h-2 rounded-full bg-(--btn-primary-bg) transition-all duration-200 motion-reduce:transition-none',
   {
     variants: {
       active: {

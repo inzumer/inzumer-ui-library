@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const richTextStyles = cva('text-[var(--text-primary)]', {
+export const richTextStyles = cva('text-(--text-primary)', {
   variants: {
     variant: {
       h1: 'text-4xl leading-tight',

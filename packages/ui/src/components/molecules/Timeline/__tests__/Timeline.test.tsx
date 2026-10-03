@@ -51,7 +51,7 @@ describe('Timeline', () => {
     const photo = screen.getByRole('img', { name: 'Batter in a bowl' });
     expect(photo).toHaveAttribute('src', '/steps/batter.jpg');
     expect(photo).toHaveAttribute('loading', 'lazy');
-    expect(photo).toHaveClass('aspect-[4/3]');
+    expect(photo).toHaveClass('aspect-4/3');
     expect(photo.parentElement).toHaveClass('rounded-xl');
     expect(screen.getByTestId('oven')).toBeInTheDocument();
     expect(screen.getAllByRole('img')).toHaveLength(1);

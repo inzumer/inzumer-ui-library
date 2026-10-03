@@ -52,7 +52,7 @@ export const Default: Story = {
             </>
           }
         >
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-sm text-(--text-secondary)">
             Pick the options that match what you are looking for.
           </p>
         </BottomSheet>

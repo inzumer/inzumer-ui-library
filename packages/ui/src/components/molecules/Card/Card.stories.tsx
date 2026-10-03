@@ -30,7 +30,7 @@ export const Default: Story = {
         <CardDescription>A short description of the card content.</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-[var(--text-secondary)]">
+        <p className="text-sm text-(--text-secondary)">
           This is the main content area of the card.
         </p>
       </CardContent>

@@ -7,7 +7,7 @@ export const snackbarWrapperStyles =
 export const snackbarStyles = cva(
   [
     'pointer-events-auto rounded-md border border-transparent px-4 py-3 text-sm shadow-lg',
-    'bg-[var(--snackbar-bg)] text-[var(--snackbar-text)]',
+    'bg-(--snackbar-bg) text-(--snackbar-text)',
     'transition-all duration-200 ease-out',
   ],
   {
