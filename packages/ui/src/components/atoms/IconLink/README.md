@@ -16,6 +16,6 @@ import { IconLink, InstagramIcon } from '@inzumer/ui-library';
 
 - `href` and `label` — required
 - `icon` — the SVG
-- `size` — `sm` (36px), `md` (default, 44px) or `lg` (48px)
+- `size` — `md` (default, 44px) or `lg` (48px); never smaller, so it stays an easy touch target
 - `variant` — `ghost` (default), `outline` or `solid`
 - `external` — opens in a new tab with `rel="noopener noreferrer"`

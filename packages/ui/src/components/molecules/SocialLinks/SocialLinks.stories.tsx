@@ -30,4 +30,4 @@ export const Default: Story = {};
 
 export const Centered: Story = { args: { align: 'center', variant: 'outline' } };
 
-export const End: Story = { args: { align: 'end', variant: 'solid', size: 'sm' } };
+export const End: Story = { args: { align: 'end', variant: 'solid' } };

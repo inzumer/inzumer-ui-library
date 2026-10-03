@@ -1,6 +1,8 @@
 import { cn } from '@utils';
+import type { VariantProps } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 import { IconLink, type IconLinkProps } from '@components/atoms/IconLink';
+import { socialLinksStyles } from './SocialLinks.styles';
 
 export interface SocialLink {
   href: string;
@@ -9,27 +11,24 @@ export interface SocialLink {
   icon: ReactNode;
 }
 
-export interface SocialLinksProps extends Pick<IconLinkProps, 'size' | 'variant'> {
+export interface SocialLinksProps
+  extends Pick<IconLinkProps, 'size' | 'variant'>, VariantProps<typeof socialLinksStyles> {
   links: SocialLink[];
-  /** Where the row sits: `start` (default), `center` or `end`. */
-  align?: 'start' | 'center' | 'end';
   /** Name of the list for screen readers. */
   label?: string;
   className?: string;
 }
 
-const ALIGN = { start: 'justify-start', center: 'justify-center', end: 'justify-end' } as const;
-
 /** A row of icon buttons to the brand's networks, for footers; each opens in a new tab. */
 export const SocialLinks = ({
   links,
-  align = 'start',
+  align,
   label = 'Social networks',
   size,
   variant,
   className,
 }: SocialLinksProps) => (
-  <ul aria-label={label} className={cn('flex flex-wrap gap-2', ALIGN[align], className)}>
+  <ul aria-label={label} className={cn(socialLinksStyles({ align }), className)}>
     {links.map((link) => (
       <li key={link.href}>
         <IconLink {...link} size={size} variant={variant} external />
