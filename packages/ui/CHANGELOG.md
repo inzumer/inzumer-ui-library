@@ -1,5 +1,12 @@
 # @inzumer/ui-library
 
+## 3.0.0
+
+### Major Changes
+
+- b88b3c9: New `Banner` (subtle, inverse, gradient, aurora and image appearances; photos take a black, white or token-colored veil from the left, right, top, bottom, center or all over) and `Marquee` (with a pause button, reduced motion and the `useMarquee` hook). `Chevron` is gone: use the `chevron-left`, `chevron-right` and `expand-more` icons (`<Icon name="expand-more" />`). New `pause` and `play-arrow` icons, and the icons have their own Storybook section, at the end.
+- 8f92c5b: Tailwind CSS 4. The classes use the v4 syntax (`bg-(--surface-primary)`, `outline-hidden`…), so apps need Tailwind 4 (load the tokens preset with `@config` and scan the library with `@source`) and `tailwind-merge` 3 (peer `>=3.0.0`). No vulnerabilities left in the dependencies: Changesets CLI 3, and overrides for the patched versions of `brace-expansion`, `js-yaml`, `nanoid`, `postcss`, `ws`, `uuid` and `esbuild`.
+
 ## 2.6.0
 
 ### Minor Changes
