@@ -4,8 +4,8 @@ import { Meta } from '@storybook/blocks';
 
 # Consuming The Library
 
-This page covers using `@inzumer/ui-library` **from another repository** (e.g. the `inzumer` or
-`zamuner` Next.js sites). For working on the library itself, see
+This page covers using `@inzumer/ui-library` **from another repository**. For working on the
+library itself, see
 [Installation](/docs/documentation-installation--docs).
 
 ## Once published to npm
@@ -22,7 +22,7 @@ import '@inzumer/tokens/css/typography';
 ```
 
 `css/reset` sets `html { font-size: 62.5% }` (`1rem = 10px` at the browser default) — this matches
-the convention already used across the Inzumer ecosystem (`inzumer`, `zamuner`), and every token in
+the convention across the Inzumer ecosystem, and every token in
 `@inzumer/tokens` (spacing, radius, font sizes) is scaled to match it. If your app doesn't apply
 this reset, or sets a different root font-size, components will render at the wrong scale (e.g. a
 button sized for `1rem = 16px` renders ~62.5% too small under a `1rem = 10px` root, or vice versa).
@@ -94,7 +94,7 @@ publishes any workspace package whose version changed and isn't marked private.
 
 ## Testing an unpublished version in another repo
 
-Useful while developing a change here that you want to try in `inzumer`/`zamuner`/a new project before
+Useful while developing a change here that you want to try in another project before
 cutting a release.
 
 **Option A — tarball (closest to a real install, no live-reload):**

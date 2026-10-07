@@ -1,4 +1,5 @@
 import type { Decorator, Preview } from '@storybook/react';
+import { theme } from './theme';
 import '../packages/ui/src/styles/globals.css';
 import './brand-themes.css';
 
@@ -58,6 +59,7 @@ const preview: Preview = {
   decorators: [withThemeWrapper],
   parameters: {
     docs: {
+      theme,
       toc: true,
     },
     options: {

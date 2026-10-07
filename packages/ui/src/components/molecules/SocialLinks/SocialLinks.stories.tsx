@@ -1,4 +1,4 @@
-import { InstagramIcon, LinkedInIcon, PinterestIcon } from '@/icons';
+import { InstagramIcon, LinkedInIcon, PinterestIcon } from '@components/atoms/Icons';
 import type { Meta, StoryObj } from '@storybook/react';
 import readme from './README.md?raw';
 import { SocialLinks } from './SocialLinks';

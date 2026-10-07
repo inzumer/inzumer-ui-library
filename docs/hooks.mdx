@@ -72,6 +72,6 @@ export in `package.json` (`./use-media-query`, `./use-delayed-unmount`, ...) and
    `packages/ui/tsup.config.ts`'s `entry` map, matching the existing hook entries.
 4. Write tests in `__tests__/`, importing the hook via a relative path — keep coverage at/above 90%
    (see [Testing And Coverage](/docs/documentation-testing-and-coverage--docs)).
-5. If porting a hook from another repo (e.g. `inzumer`/`zamuner`), generalize it first — drop any
+5. If porting a hook from another repo, generalize it first — drop any
    hardcoded app config (a fixed breakpoint registry, a specific API path, `localStorage` keys tied
    to one product) in favor of parameters the consumer supplies.

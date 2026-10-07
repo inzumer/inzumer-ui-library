@@ -9,7 +9,7 @@ interface IconStoryArgs {
 }
 
 const meta = {
-  title: 'Icons',
+  title: 'Atoms/Icons',
   tags: ['autodocs'],
   parameters: {
     docs: {

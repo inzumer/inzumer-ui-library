@@ -1,7 +1,7 @@
-import { ICONS, type IconName } from '@/icons/registry';
 import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import type { ComponentType, SVGProps } from 'react';
+import { ICONS, type IconName } from '@components/atoms/Icons/registry';
 import { iconStyles } from './Icon.styles';
 
 export type IconProps = Omit<SVGProps<SVGSVGElement>, 'children' | 'name'> &
