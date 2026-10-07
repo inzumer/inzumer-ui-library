@@ -19,6 +19,7 @@
 - [ ] `pnpm build` y `pnpm build-storybook` pasan localmente
 - [ ] Si el cambio afecta a `@inzumer/ui-library`: agregué un changeset (`pnpm changeset`)
 - [ ] Si agregué o edité un componente: tiene stories con controls (y `play` si aplica), README propio, y sigue [docs/components.mdx](../docs/components.mdx)
+- [ ] Si el componente va pegado a un borde, hace scroll en un overlay o tiene gestos: sigue [docs/webview-apps.mdx](../docs/webview-apps.mdx)
 - [ ] Si agregué o edité un hook o util: sigue el patrón de carpeta/barrel/tests de [docs/hooks.mdx](../docs/hooks.mdx)
 
 ## Issue relacionado

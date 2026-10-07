@@ -40,3 +40,7 @@ center.
 - Accessible by default: focus moves into the panel and stays there while it's open
   (`useFocusTrap`), returns to whatever opened it on close, and the page behind doesn't scroll
   (`useScrollLock`). The title gets a unique id, so several can be on the same page.
+- Swiping the handle down closes it (`useSwipeToClose`, 80px); a shorter drag springs back. Escape,
+  the backdrop and your own close button still work, so the gesture is never the only way out.
+- Ready for apps in a WebView: it clears the home bar (`safe-area-inset-bottom`), grows up to 90% of
+  the screen and scrolls inside without moving the page behind (`overscroll-contain`).

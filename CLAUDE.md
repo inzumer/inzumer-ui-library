@@ -8,6 +8,10 @@ Guidance for Claude Code (and any other AI coding agent) working in this reposit
 
 Key commands: `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm test:coverage` (90% gate), `pnpm build`, `pnpm build-storybook`.
 
+## Mobile apps (WebView)
+
+The mobile apps open each project's website in a WebView; there is no native component library. Every component must also work inside those apps: safe-area insets on anything pinned to an edge, `overscroll-contain` in overlays, `dvh` for screen heights, gestures with a button alternative, no hover-only actions. Follow [docs/webview-apps.mdx](./docs/webview-apps.mdx) and the `mobile-bridge` agent ([.claude/agents/mobile-bridge-agent.md](./.claude/agents/mobile-bridge-agent.md)).
+
 ## Commit messages & PR titles
 
 This repo strictly follows [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) for every commit message and pull request title generated or suggested here.

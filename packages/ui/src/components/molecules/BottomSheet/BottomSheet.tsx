@@ -1,9 +1,10 @@
 import { RichText } from '@components';
-import { useDialogLayer } from '@hooks';
+import { useDialogLayer, useSwipeToClose } from '@hooks';
 import { cn } from '@utils';
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import {
   bottomSheetFooterStyles,
+  bottomSheetHandleAreaStyles,
   bottomSheetHandleStyles,
   bottomSheetOverlayStyles,
   bottomSheetPanelStyles,
@@ -22,7 +23,17 @@ export type BottomSheetProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
   (
-    { open, onClose, title, footer, closeOnBackdropClick = true, className, children, ...props },
+    {
+      open,
+      onClose,
+      title,
+      footer,
+      closeOnBackdropClick = true,
+      className,
+      style,
+      children,
+      ...props
+    },
     ref,
   ) => {
     const { mounted, visible, titleId, dialogProps } = useDialogLayer({
@@ -32,19 +43,27 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
       exitDurationMs: EXIT_DURATION_MS,
       closeOnBackdropClick,
     });
+    const { offset, dragProps } = useSwipeToClose({ onClose });
 
     if (!mounted) {
       return null;
     }
+
+    // While dragging, the panel follows the finger without the open/close transition.
+    const dragStyle =
+      offset > 0 ? { transform: `translateY(${offset}px)`, transition: 'none' } : {};
 
     return (
       <div className={bottomSheetOverlayStyles({ visible })}>
         <div
           {...dialogProps(Boolean(title))}
           className={cn(bottomSheetPanelStyles({ visible }), className)}
+          style={{ ...style, ...dragStyle }}
           {...props}
         >
-          <div aria-hidden className={bottomSheetHandleStyles} />
+          <div aria-hidden className={bottomSheetHandleAreaStyles} {...dragProps}>
+            <div className={bottomSheetHandleStyles} />
+          </div>
           {title && (
             <RichText as="h2" id={titleId} variant="s1" className={bottomSheetTitleStyles}>
               {title}

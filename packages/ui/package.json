@@ -188,6 +188,10 @@
       "types": "./dist/hooks/useScrollLock/index.d.ts",
       "import": "./dist/hooks/useScrollLock/index.js"
     },
+    "./use-swipe-to-close": {
+      "types": "./dist/hooks/useSwipeToClose/index.d.ts",
+      "import": "./dist/hooks/useSwipeToClose/index.js"
+    },
     "./cn": {
       "types": "./dist/utils/cn/index.d.ts",
       "import": "./dist/utils/cn/index.js"

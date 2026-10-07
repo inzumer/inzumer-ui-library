@@ -1,7 +1,8 @@
 import { cva } from 'class-variance-authority';
 
+/** Above the home bar in apps (safe-area inset; 0 in browsers). */
 export const snackbarWrapperStyles =
-  'pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-4';
+  'pointer-events-none fixed inset-x-0 bottom-[calc(1rem_+_env(safe-area-inset-bottom))] z-50 flex justify-center px-4';
 
 /** Colors come from `--snackbar-bg` / `--snackbar-text`, set from the shared status tones. */
 export const snackbarStyles = cva(

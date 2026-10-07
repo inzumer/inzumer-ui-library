@@ -8,3 +8,4 @@ export * from './useMediaQuery';
 export * from './useRotatingMessage';
 export * from './useMergedRef';
 export * from './useScrollLock';
+export * from './useSwipeToClose';
