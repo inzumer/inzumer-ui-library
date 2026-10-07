@@ -6,8 +6,7 @@ import { Meta } from '@storybook/blocks';
 
 `@inzumer/ui-library` is the shared React component library for the Inzumer design system. It provides
 accessible, token-driven components (`Button`, `Input`, `Card`) meant to be installed into other
-repositories — currently the two reference consumers are the **inzumer** and **zamuner** sites — instead
-of copy-pasting UI code between projects.
+repositories instead of copy-pasting UI code between projects.
 
 ## Why this exists
 
@@ -23,7 +22,7 @@ of copy-pasting UI code between projects.
 
 ## What lives where
 
-This is a **pnpm + Turborepo monorepo** with two published packages:
+This repo (a **pnpm + Turborepo** workspace) publishes the components; the tokens live in their own repo:
 
 <table>
   <thead>
@@ -74,6 +73,6 @@ The tokens and the shared tooling live in their own repositories, one per packag
 - Theming or rebranding? See [Design Tokens](/docs/documentation-design-tokens--docs),
   [Theming](/docs/documentation-theming--docs), and
   [Overriding Styles](/docs/documentation-overriding-styles--docs).
-- Consuming this library from `inzumer`, `zamuner`, or a new project? See
+- Using this library from another project? See
   [Consuming The Library](/docs/documentation-consuming-the-library--docs).
 - Curious about the `.claude/agents` setup? See [Claude Agents](/docs/documentation-claude-agents--docs).

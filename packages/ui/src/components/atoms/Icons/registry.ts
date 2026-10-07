@@ -6,6 +6,7 @@ import * as social from './social';
 export const ICONS = {
   'arrow-forward': material.ArrowForwardIcon,
   bookmark: material.BookmarkIcon,
+  'chevron-left': material.ChevronLeftIcon,
   'chevron-right': material.ChevronRightIcon,
   close: material.CloseIcon,
   'expand-more': material.ExpandMoreIcon,
@@ -13,7 +14,9 @@ export const ICONS = {
   language: material.LanguageIcon,
   mail: material.MailIcon,
   menu: material.MenuIcon,
+  pause: material.PauseIcon,
   person: material.PersonIcon,
+  'play-arrow': material.PlayArrowIcon,
   search: material.SearchIcon,
   share: material.ShareIcon,
   facebook: social.FacebookIcon,

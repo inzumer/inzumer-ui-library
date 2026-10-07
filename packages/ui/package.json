@@ -40,10 +40,6 @@
       "types": "./dist/components/atoms/Button/index.d.ts",
       "import": "./dist/components/atoms/Button/index.js"
     },
-    "./chevron": {
-      "types": "./dist/components/atoms/Chevron/index.d.ts",
-      "import": "./dist/components/atoms/Chevron/index.js"
-    },
     "./chip": {
       "types": "./dist/components/atoms/Chip/index.d.ts",
       "import": "./dist/components/atoms/Chip/index.js"
@@ -92,6 +88,10 @@
       "types": "./dist/components/molecules/Accordion/index.d.ts",
       "import": "./dist/components/molecules/Accordion/index.js"
     },
+    "./banner": {
+      "types": "./dist/components/molecules/Banner/index.d.ts",
+      "import": "./dist/components/molecules/Banner/index.js"
+    },
     "./bottom-sheet": {
       "types": "./dist/components/molecules/BottomSheet/index.d.ts",
       "import": "./dist/components/molecules/BottomSheet/index.js"
@@ -127,6 +127,10 @@
     "./language": {
       "types": "./dist/components/molecules/Language/index.d.ts",
       "import": "./dist/components/molecules/Language/index.js"
+    },
+    "./marquee": {
+      "types": "./dist/components/molecules/Marquee/index.d.ts",
+      "import": "./dist/components/molecules/Marquee/index.js"
     },
     "./media-card": {
       "types": "./dist/components/molecules/Showcase/index.d.ts",
@@ -171,6 +175,10 @@
     "./use-media-query": {
       "types": "./dist/hooks/useMediaQuery/index.d.ts",
       "import": "./dist/hooks/useMediaQuery/index.js"
+    },
+    "./use-marquee": {
+      "types": "./dist/hooks/useMarquee/index.d.ts",
+      "import": "./dist/hooks/useMarquee/index.js"
     },
     "./use-merged-ref": {
       "types": "./dist/hooks/useMergedRef/index.d.ts",

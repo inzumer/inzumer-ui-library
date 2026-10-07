@@ -1,4 +1,4 @@
-import { Button, Chevron, Chip, type BadgeColors, type ChipProps } from '@components';
+import { Button, Chip, Icon, type BadgeColors, type ChipProps } from '@components';
 import { useHorizontalScroll } from '@hooks';
 import { cn, type PillTone } from '@utils';
 import type { HTMLAttributes, ReactNode } from 'react';
@@ -67,7 +67,10 @@ export const Filter = <T extends string = string>({
         aria-label={direction < 0 ? previousLabel : nextLabel}
         onClick={() => scrollByPage(direction)}
       >
-        <Chevron direction={direction < 0 ? 'left' : 'right'} className={filterChevronStyles} />
+        <Icon
+          name={direction < 0 ? 'chevron-left' : 'chevron-right'}
+          className={filterChevronStyles}
+        />
       </Button>
     </div>
   );

@@ -1,4 +1,5 @@
 export * from './Accordion';
+export * from './Banner';
 export * from './BottomSheet';
 export * from './Breadcrumbs';
 export * from './Card';
@@ -7,6 +8,7 @@ export * from './Drawer';
 export * from './Dropdown';
 export * from './Filter';
 export * from './Language';
+export * from './Marquee';
 export * from './Modal';
 export * from './Showcase';
 export * from './Snackbar';

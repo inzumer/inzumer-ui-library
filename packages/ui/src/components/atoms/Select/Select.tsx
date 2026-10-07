@@ -1,8 +1,8 @@
 import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import { forwardRef, useId, type SelectHTMLAttributes } from 'react';
-import { Chevron } from '@components/atoms/Chevron';
 import { Field, fieldAria } from '@components/atoms/Field';
+import { Icon } from '@components/atoms/Icon';
 import { selectChevronStyles, selectStyles } from './Select.styles';
 
 export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> &
@@ -30,7 +30,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           >
             {children}
           </select>
-          <Chevron className={selectChevronStyles} />
+          <Icon name="expand-more" className={selectChevronStyles} />
         </div>
       </Field>
     );

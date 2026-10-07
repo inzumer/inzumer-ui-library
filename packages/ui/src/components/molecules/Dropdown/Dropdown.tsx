@@ -1,4 +1,4 @@
-import { Chevron, Field, fieldAria, RichText } from '@components';
+import { Field, fieldAria, Icon, RichText } from '@components';
 import { useDismissableLayer } from '@hooks';
 import { cn } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
@@ -180,7 +180,8 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
               {options[selectedIndex]?.label}
             </RichText>
           </button>
-          <Chevron
+          <Icon
+            name="expand-more"
             className={cn(selectChevronStyles, dropdownChevronStyles, open && 'rotate-180')}
           />
           {name && <input type="hidden" name={name} value={value} />}

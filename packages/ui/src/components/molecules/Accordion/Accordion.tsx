@@ -1,4 +1,4 @@
-import { Chevron } from '@components';
+import { Icon } from '@components';
 import { cn } from '@utils';
 import { forwardRef, type DetailsHTMLAttributes, type ReactNode } from 'react';
 import {
@@ -23,7 +23,7 @@ export const Accordion = forwardRef<HTMLDetailsElement, AccordionProps>(
     <details ref={ref} className={cn(accordionStyles, className)} {...props}>
       <summary className={cn(accordionSummaryStyles, summaryClassName)}>
         {summary}
-        <Chevron className={accordionChevronStyles} />
+        <Icon name="expand-more" className={accordionChevronStyles} />
       </summary>
       <div className={cn(accordionContentStyles, contentClassName)}>{children}</div>
     </details>

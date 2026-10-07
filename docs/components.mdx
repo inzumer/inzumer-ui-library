@@ -109,6 +109,6 @@ composite, page-section-level components as they're needed.
    tab and TypeScript already have that).
 7. Use only the semantic CSS variables already defined in `@inzumer/tokens` (or add new ones there
    first) — don't hardcode colors or introduce component-local one-off tokens.
-8. If porting a component from another repo (e.g. `inzumer`/`zamuner`), keep only what's actually
+8. If porting a component from another repo, keep only what's actually
    generic and reusable — strip app-specific coupling (routing, i18n, hardcoded copy, business hooks)
    in favor of props/callbacks the consumer supplies.

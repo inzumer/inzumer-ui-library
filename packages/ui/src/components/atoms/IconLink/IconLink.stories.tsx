@@ -1,5 +1,5 @@
-import { InstagramIcon } from '@/icons';
 import type { Meta, StoryObj } from '@storybook/react';
+import { InstagramIcon } from '@components/atoms/Icons';
 import { IconLink } from './IconLink';
 import readme from './README.md?raw';
 

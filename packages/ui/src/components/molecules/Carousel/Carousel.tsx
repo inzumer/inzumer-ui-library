@@ -1,4 +1,4 @@
-import { Button, Chevron } from '@components';
+import { Button, Icon } from '@components';
 import { useHorizontalScroll } from '@hooks';
 import { cn } from '@utils';
 import { Children, forwardRef, useRef, useState, type HTMLAttributes, type ReactNode } from 'react';
@@ -117,7 +117,10 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
         disabled={direction < 0 ? edges.start : edges.end}
         onClick={() => scrollByPage(direction)}
       >
-        <Chevron direction={direction < 0 ? 'left' : 'right'} className={carouselChevronStyles} />
+        <Icon
+          name={direction < 0 ? 'chevron-left' : 'chevron-right'}
+          className={carouselChevronStyles}
+        />
       </Button>
     );
 
