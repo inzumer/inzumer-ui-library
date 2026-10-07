@@ -1,7 +1,8 @@
 import { cva } from 'class-variance-authority';
 
+/** Below the notch / status bar in apps (safe-area inset; 0 in browsers). */
 export const navbarStyles =
-  'flex items-center gap-4 border-b border-(--border-default) bg-(--surface-primary) px-4 py-2';
+  'flex items-center gap-4 border-b border-(--border-default) bg-(--surface-primary) px-4 py-2 pt-[calc(0.5rem_+_env(safe-area-inset-top))]';
 
 export const navbarListStyles = cva('flex gap-1 overflow-x-auto whitespace-nowrap', {
   variants: {

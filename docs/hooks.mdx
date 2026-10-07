@@ -38,6 +38,9 @@ export in `package.json` (`./use-media-query`, `./use-delayed-unmount`, ...) and
 - **`useMediaQuery(query: string): boolean`** — Tracks whether a CSS media query currently matches
   (e.g. `useMediaQuery('(min-width: 768px)')`). SSR-safe (returns `false` until mounted, then syncs
   to the real value) and re-subscribes whenever the `query` string changes.
+- **`useSwipeToClose({ onClose, threshold })`** — Drag-down-to-dismiss for bottom sheets: returns
+  `{ offset, dragProps }`; spread `dragProps` on the drag area and translate the panel by `offset`.
+  Past `threshold` (80px) it calls `onClose`, otherwise it springs back. Used by `BottomSheet`.
 - **`useMarquee(trackRef, { duration, direction, paused })`** — Loops a track that holds its content
   twice, with the Web Animations API, and returns `{ animated }`. It stays still with
   `prefers-reduced-motion` or where `animate` doesn't exist. Used by `Marquee`.

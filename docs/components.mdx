@@ -76,6 +76,10 @@ per-component prop tables.
   or `Modal.stories.tsx` do. Where a story demonstrates a real interaction (click, type, toggle,
   open/close), add a `play` function using `@storybook/test` (`within`, `userEvent`, `expect`) so
   it's exercised — and visible, step by step, in the Interactions panel — automatically.
+- **Works inside the apps.** The mobile apps render these components in a WebView, so anything
+  pinned to an edge adds the safe-area insets, overlay scrolling uses `overscroll-contain`, screen
+  heights use `dvh` and gestures always have a button alternative. The full checklist is in
+  [WebView Apps](/docs/documentation-webview-apps--docs).
 
 ## Organisms & Templates
 

@@ -76,6 +76,7 @@ const preview: Preview = {
             'Theming',
             'Overriding Styles',
             'Import Aliases',
+            'WebView Apps',
             'Testing And Coverage',
             'Consuming The Library',
             'Claude Agents',

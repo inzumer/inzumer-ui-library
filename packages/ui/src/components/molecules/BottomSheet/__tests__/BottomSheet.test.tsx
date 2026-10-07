@@ -1,5 +1,5 @@
 import { BottomSheet } from '@components';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -67,5 +67,24 @@ describe('BottomSheet', () => {
       </BottomSheet>,
     );
     expect(screen.getByRole('dialog')).toHaveClass('custom-class', 'rounded-t-xl');
+  });
+
+  it('should follow a swipe down on the handle and close past the threshold', () => {
+    const onClose = vi.fn();
+    render(
+      <BottomSheet open onClose={onClose} title="Filters">
+        Content
+      </BottomSheet>,
+    );
+    const dialog = screen.getByRole('dialog');
+    const handle = dialog.firstElementChild as HTMLElement;
+
+    fireEvent.pointerDown(handle, { clientY: 100, pointerId: 1 });
+    fireEvent.pointerMove(handle, { clientY: 150, pointerId: 1 });
+    expect(dialog.style.transform).toBe('translateY(50px)');
+
+    fireEvent.pointerMove(handle, { clientY: 200, pointerId: 1 });
+    fireEvent.pointerUp(handle, { pointerId: 1 });
+    expect(onClose).toHaveBeenCalledOnce();
   });
 });

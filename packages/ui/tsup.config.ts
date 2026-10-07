@@ -41,6 +41,7 @@ export default defineConfig({
     'hooks/useMediaQuery/index': 'src/hooks/useMediaQuery/index.ts',
     'hooks/useMergedRef/index': 'src/hooks/useMergedRef/index.ts',
     'hooks/useScrollLock/index': 'src/hooks/useScrollLock/index.ts',
+    'hooks/useSwipeToClose/index': 'src/hooks/useSwipeToClose/index.ts',
     'utils/cn/index': 'src/utils/cn/index.ts',
   },
   format: ['esm'],

@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/WebView Apps" />
+
+# WebView Apps
+
+The mobile apps don't use a native component library: each one is a small native shell (Expo) that
+opens the project's website in a WebView. The screens are built with these same components, so every
+component has to work both in a browser and inside an app.
+
+## What the components already handle
+
+- **Notches, status bar and home bar**: components pinned to an edge add the
+  `env(safe-area-inset-*)` insets: `Navbar` (top), `Drawer` (top, bottom and its side),
+  `BottomSheet`, `Snackbar` and the `CookieConsent` banner (bottom). In a browser the insets are 0.
+- **Scroll chaining**: scrolling areas of overlays (`Modal`, `Drawer`, `BottomSheet`) use
+  `overscroll-contain`, so reaching their end doesn't scroll the page behind.
+- **Screen height**: heights relative to the screen use `dvh` (`Modal`, `BottomSheet`), which
+  follows the browser bars and the virtual keyboard.
+- **Gestures**: `BottomSheet` closes with a swipe down on its handle (`useSwipeToClose`); Escape,
+  the backdrop and a button still close it.
+- **Touch**: 44px targets, and no action that only exists on hover (`Marquee` also has a pause
+  button).
+
+## What the page needs
+
+The insets only exist when the page asks to draw under the notch:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+```
+
+## What the native shell handles (not this library)
+
+- Splash screen and app icon, per project.
+- Google sign-in: Google blocks it inside WebViews, so the shell opens it in the system browser and
+  hands the session to the WebView.
+- An offline or load-error screen instead of a blank WebView.
+- Android's back button going back in the web history.
+- External links in the system browser, deep links and, if a project needs them, push notifications.
+
+## Rules for new or changed components
+
+- **Pinned to an edge** (`fixed`/`sticky` at the top, bottom or a side): add the matching
+  `env(safe-area-inset-*)` to its padding or offset, on top of the normal spacing
+  (`pb-[calc(1.5rem_+_env(safe-area-inset-bottom))]`).
+- **Scrolls inside an overlay**: `overscroll-contain`.
+- **Sized to the screen**: `dvh`, never `vh` or `h-screen`.
+- **Gestures**: always with a button or key that does the same; `touch-none` only on the drag area,
+  never on scrolling content.
+- **Hover**: decoration only; whatever it reveals must also be reachable by tap and focus.
+- **Motion and weight**: transitions honor `motion-reduce`; avoid heavy blurs and stacked shadows,
+  which are slow in WebViews.
+- **No browser sniffing**: no user-agent checks; the same component works everywhere.

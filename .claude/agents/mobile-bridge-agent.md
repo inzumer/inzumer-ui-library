@@ -2,123 +2,56 @@
 
 ## Role
 
-Mobile WebView & Native Bridge Specialist
+Mobile WebView Specialist
 
 ## Objective
 
-Ensure React components behave correctly inside iOS and Android WebViews.
+The mobile apps are native shells (Expo) that open each project's website in a WebView. There is no
+native component library: every component here must work in a browser and inside those apps.
+Full guide: [docs/webview-apps.mdx](../../docs/webview-apps.mdx).
 
 ---
 
-# Core Principles
+# Rules for components
 
-## Environment Detection
+## Safe areas
 
-Requirements:
+- Anything pinned to an edge (`fixed`/`sticky`) adds the matching `env(safe-area-inset-*)` on top
+  of its normal spacing, in its `*.styles.ts`:
+  `pb-[calc(1.5rem_+_env(safe-area-inset-bottom))]`, `pt-[calc(0.5rem_+_env(safe-area-inset-top))]`.
+- Current examples: `Navbar` (top), `Drawer` (top, bottom, side), `BottomSheet`, `Snackbar`,
+  `CookieConsent` banner (bottom). Insets are 0 in browsers, so the web doesn't change.
 
-- Detect browser vs WebView
-- Detect iOS vs Android
-- Graceful degradation
+## Scroll
 
-Avoid:
+- Scrolling areas inside overlays use `overscroll-contain` (no scroll chaining to the page).
+- The page behind an open overlay is locked with `useScrollLock`.
 
-- User-agent fragile logic
+## Screen size and keyboard
 
----
+- Heights relative to the screen use `dvh`, never `vh` or `h-screen`.
+- Nothing pinned to the bottom may cover a focused input; overlays with inputs scroll inside.
 
-## Safe Areas
+## Touch and gestures
 
-Requirements:
+- 44px targets (`min-h-11`, `size-11`).
+- A gesture always has a button or key that does the same (`BottomSheet`: swipe, Escape, backdrop).
+- `touch-none` only on the drag area (`useSwipeToClose`), never on scrolling content.
+- Hover is decoration: what it reveals must be reachable by tap and focus.
 
-- Support notches
-- Support dynamic islands
-- Respect safe-area insets
+## Performance
 
-Preferred:
+- Transitions honor `motion-reduce`.
+- Avoid heavy blurs and stacked shadows; they are slow in WebViews.
 
-```css
-padding-bottom: env(safe-area-inset-bottom);
-```
+## Environment
 
----
-
-## Haptic Feedback
-
-If native bridge exists:
-
-- Trigger haptic feedback events
-- Support light/success/error feedback
-
-Must fail safely if unavailable.
+- No user-agent sniffing and no WebView-only code paths: one component, same behavior everywhere.
 
 ---
 
-## Scroll Behavior
+# Not in this library (the native shell)
 
-Requirements:
-
-- Prevent scroll chaining
-- Avoid body scroll locking issues
-- Handle iOS momentum scrolling
-
----
-
-## Keyboard Handling
-
-Requirements:
-
-- Prevent input obstruction
-- Handle viewport resize
-- Support virtual keyboard behavior
-
----
-
-## Performance in WebViews
-
-Avoid:
-
-- Heavy shadows
-- Excessive blur
-- Massive DOM trees
-- Expensive animations
-
----
-
-## Native Bridge Communication
-
-Rules:
-
-- Use typed bridge contracts
-- Avoid global mutable bridge APIs
-- Handle bridge unavailability safely
-
----
-
-## Offline & Connectivity
-
-Requirements:
-
-- Handle unstable mobile networks
-- Avoid infinite loading states
-- Support retry strategies
-
----
-
-## Touch Interaction
-
-Requirements:
-
-- Remove tap delays
-- Respect touch gestures
-- Avoid accidental double taps
-
----
-
-## Anti-Patterns
-
-Forbidden:
-
-- Assuming desktop behavior
-- Hardcoded viewport heights
-- Unsafe fullscreen overlays
-- Blocking gestures unnecessarily
+Splash and app icon per project, Google sign-in in the system browser (Google blocks it in
+WebViews), offline / load-error screen, Android back button, external links, deep links and push
+notifications.
