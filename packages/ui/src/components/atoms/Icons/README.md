@@ -7,8 +7,10 @@ and are hidden from assistive tech: name the control that holds them.
 
 Cite them by their **kebab-case id** with `Icon`, or import the component:
 
+| Group     | Ids                                                                                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Interface | `arrow-forward`, `bookmark`, `chevron-left`, `chevron-right`, `close`, `expand-more`, `favorite`, `language`, `mail`, `menu`, `pause`, `person`, `play-arrow`, `search`, `share` |
-| Networks | `facebook`, `instagram`, `linkedin`, `pinterest`, `tiktok`, `whatsapp`, `x`, `youtube` |
+| Networks  | `facebook`, `instagram`, `linkedin`, `pinterest`, `tiktok`, `whatsapp`, `x`, `youtube`                                                                                           |
 
 ## Usage
 
