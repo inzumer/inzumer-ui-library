@@ -1,6 +1,9 @@
+import { RichText } from '@components';
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, within } from '@storybook/test';
 import readme from './README.md?raw';
-import { ICONS, type IconName } from './registry';
+import { ICON_NAMES, ICONS, type IconName } from './registry';
+import * as social from './social';
 
 interface IconStoryArgs {
   name: IconName;
@@ -8,8 +11,15 @@ interface IconStoryArgs {
   color: string;
 }
 
+const SOCIAL = new Set<unknown>(Object.values(social));
+
+const GROUPS = [
+  { title: 'Interface', names: ICON_NAMES.filter((name) => !SOCIAL.has(ICONS[name])) },
+  { title: 'Networks', names: ICON_NAMES.filter((name) => SOCIAL.has(ICONS[name])) },
+];
+
 const meta = {
-  title: 'Icons',
+  title: 'Icons/All icons',
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -18,42 +28,63 @@ const meta = {
       },
     },
   },
-  args: { name: 'menu', size: 48, color: 'var(--text-primary)' },
+  args: { name: 'menu', size: 32, color: 'var(--text-primary)' },
   argTypes: {
-    name: { control: 'select', options: Object.keys(ICONS) },
+    name: { control: 'select', options: ICON_NAMES },
     size: { control: { type: 'range', min: 16, max: 96, step: 4 } },
     color: { control: 'color' },
   },
+} satisfies Meta<IconStoryArgs>;
+
+export default meta;
+type Story = StoryObj<IconStoryArgs>;
+
+/** Every icon with the id to cite it by; size and color come from the controls. */
+export const Gallery: Story = {
+  render: ({ size, color }) => (
+    <div className="flex flex-col gap-8">
+      {GROUPS.map(({ title, names }) => (
+        <section key={title} className="flex flex-col gap-3">
+          <RichText variant="h3" bold>
+            {title}
+          </RichText>
+          <ul className="grid grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] gap-3">
+            {names.map((name) => {
+              const Icon = ICONS[name];
+
+              return (
+                <li
+                  key={name}
+                  className="flex flex-col items-center gap-2 rounded-lg border border-(--border-default) p-4"
+                >
+                  <Icon width={size} height={size} style={{ color }} />
+                  <RichText
+                    as="code"
+                    variant="s4"
+                    className="whitespace-nowrap text-(--text-secondary)"
+                  >
+                    {name}
+                  </RichText>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getAllByRole('listitem')).toHaveLength(ICON_NAMES.length);
+  },
+};
+
+/** One icon at a time, to try sizes and colors. */
+export const Playground: Story = {
   render: ({ name, size, color }) => {
     const Icon = ICONS[name];
 
     return <Icon width={size} height={size} style={{ color }} />;
   },
-} satisfies Meta<IconStoryArgs>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const ArrowForward: Story = { name: 'arrow-forward', args: { name: 'arrow-forward' } };
-export const Bookmark: Story = { name: 'bookmark', args: { name: 'bookmark' } };
-export const ChevronLeft: Story = { name: 'chevron-left', args: { name: 'chevron-left' } };
-export const ChevronRight: Story = { name: 'chevron-right', args: { name: 'chevron-right' } };
-export const Close: Story = { name: 'close', args: { name: 'close' } };
-export const ExpandMore: Story = { name: 'expand-more', args: { name: 'expand-more' } };
-export const Favorite: Story = { name: 'favorite', args: { name: 'favorite' } };
-export const Language: Story = { name: 'language', args: { name: 'language' } };
-export const Mail: Story = { name: 'mail', args: { name: 'mail' } };
-export const Menu: Story = { name: 'menu', args: { name: 'menu' } };
-export const Pause: Story = { name: 'pause', args: { name: 'pause' } };
-export const Person: Story = { name: 'person', args: { name: 'person' } };
-export const PlayArrow: Story = { name: 'play-arrow', args: { name: 'play-arrow' } };
-export const Search: Story = { name: 'search', args: { name: 'search' } };
-export const Share: Story = { name: 'share', args: { name: 'share' } };
-export const Facebook: Story = { name: 'facebook', args: { name: 'facebook' } };
-export const Instagram: Story = { name: 'instagram', args: { name: 'instagram' } };
-export const Linkedin: Story = { name: 'linkedin', args: { name: 'linkedin' } };
-export const Pinterest: Story = { name: 'pinterest', args: { name: 'pinterest' } };
-export const Tiktok: Story = { name: 'tiktok', args: { name: 'tiktok' } };
-export const Whatsapp: Story = { name: 'whatsapp', args: { name: 'whatsapp' } };
-export const X: Story = { name: 'x', args: { name: 'x' } };
-export const Youtube: Story = { name: 'youtube', args: { name: 'youtube' } };
+};
