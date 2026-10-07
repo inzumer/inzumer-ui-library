@@ -9,7 +9,7 @@ interface IconStoryArgs {
 }
 
 const meta = {
-  title: 'Atoms/Icons',
+  title: 'Icons',
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -36,6 +36,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ArrowForward: Story = { name: 'arrow-forward', args: { name: 'arrow-forward' } };
 export const Bookmark: Story = { name: 'bookmark', args: { name: 'bookmark' } };
+export const ChevronLeft: Story = { name: 'chevron-left', args: { name: 'chevron-left' } };
 export const ChevronRight: Story = { name: 'chevron-right', args: { name: 'chevron-right' } };
 export const Close: Story = { name: 'close', args: { name: 'close' } };
 export const ExpandMore: Story = { name: 'expand-more', args: { name: 'expand-more' } };
@@ -43,7 +44,9 @@ export const Favorite: Story = { name: 'favorite', args: { name: 'favorite' } };
 export const Language: Story = { name: 'language', args: { name: 'language' } };
 export const Mail: Story = { name: 'mail', args: { name: 'mail' } };
 export const Menu: Story = { name: 'menu', args: { name: 'menu' } };
+export const Pause: Story = { name: 'pause', args: { name: 'pause' } };
 export const Person: Story = { name: 'person', args: { name: 'person' } };
+export const PlayArrow: Story = { name: 'play-arrow', args: { name: 'play-arrow' } };
 export const Search: Story = { name: 'search', args: { name: 'search' } };
 export const Share: Story = { name: 'share', args: { name: 'share' } };
 export const Facebook: Story = { name: 'facebook', args: { name: 'facebook' } };

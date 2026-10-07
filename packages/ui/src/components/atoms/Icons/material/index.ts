@@ -1,5 +1,6 @@
 export * from './ArrowForwardIcon';
 export * from './BookmarkIcon';
+export * from './ChevronLeftIcon';
 export * from './ChevronRightIcon';
 export * from './CloseIcon';
 export * from './ExpandMoreIcon';
@@ -7,6 +8,8 @@ export * from './FavoriteIcon';
 export * from './LanguageIcon';
 export * from './MailIcon';
 export * from './MenuIcon';
+export * from './PauseIcon';
 export * from './PersonIcon';
+export * from './PlayArrowIcon';
 export * from './SearchIcon';
 export * from './ShareIcon';

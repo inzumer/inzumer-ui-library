@@ -84,6 +84,7 @@ const preview: Preview = {
           'Molecules',
           'Organisms',
           'Templates',
+          'Icons',
         ],
       },
     },

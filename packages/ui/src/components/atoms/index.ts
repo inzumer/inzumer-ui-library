@@ -1,6 +1,5 @@
 export * from './Badge';
 export * from './Button';
-export * from './Chevron';
 export * from './Chip';
 export * from './Field';
 export * from './Icon';

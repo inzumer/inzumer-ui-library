@@ -3,6 +3,7 @@ export * from './useDialogLayer';
 export * from './useDismissableLayer';
 export * from './useFocusTrap';
 export * from './useHorizontalScroll';
+export * from './useMarquee';
 export * from './useMediaQuery';
 export * from './useRotatingMessage';
 export * from './useMergedRef';
