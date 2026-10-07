@@ -39,6 +39,52 @@ describe('Banner', () => {
     expect(backgroundImage).toContain('https://example.com/a.jpg');
   });
 
+  it('should tint the veil with a token and place the text on its solid side', () => {
+    render(
+      <Banner
+        title="Bottom"
+        appearance="image"
+        image="https://example.com/a.jpg"
+        overlayColor="primary"
+        overlayPosition="bottom"
+      />,
+    );
+
+    const region = screen.getByRole('region');
+
+    expect(region.style.backgroundImage).toContain('0deg');
+    expect(region).toHaveClass('justify-end', 'text-center', 'text-white');
+  });
+
+  it('should fade a radial veil around centered text', () => {
+    render(<Banner title="Center" appearance="image" image="a.jpg" overlayPosition="center" />);
+
+    expect(screen.getByRole('region').style.backgroundImage).toContain('radial-gradient');
+  });
+
+  it('should darken the text over a white veil and align it to the right side', () => {
+    render(
+      <Banner
+        title="Right"
+        appearance="image"
+        image="a.jpg"
+        overlayColor="white"
+        overlayPosition="right"
+      />,
+    );
+
+    const region = screen.getByRole('region');
+
+    expect(region.style.backgroundImage).toContain('270deg');
+    expect(region).toHaveClass('text-right', 'text-[rgb(var(--color-neutral-950))]');
+  });
+
+  it('should spread an even veil with full', () => {
+    render(<Banner title="Full" appearance="image" image="a.jpg" overlayPosition="full" />);
+
+    expect(screen.getByRole('region').style.backgroundImage).toMatch(/^linear-gradient\(rgb/);
+  });
+
   it('should use the surface tokens without inline backgrounds by default', () => {
     render(<Banner title="Subtle" className="custom" />);
 

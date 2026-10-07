@@ -4,14 +4,23 @@ import type { VariantProps } from 'class-variance-authority';
 import { forwardRef, useId, type CSSProperties, type HTMLAttributes, type ReactNode } from 'react';
 import {
   BANNER_BACKGROUNDS,
+  BANNER_IMAGE_ALIGN,
+  BANNER_IMAGE_PLACEMENT,
   bannerActionsStyles,
   bannerContentStyles,
   bannerDescriptionStyles,
   bannerImageBackground,
+  bannerImageContentStyles,
+  bannerImageStyles,
+  bannerImageTextStyles,
   bannerMediaStyles,
   bannerStyles,
   bannerTextStyles,
+  type BannerOverlayColor,
+  type BannerOverlayPosition,
 } from './Banner.styles';
+
+export type { BannerOverlayColor, BannerOverlayPosition } from './Banner.styles';
 
 export type BannerAppearance = NonNullable<VariantProps<typeof bannerStyles>['appearance']>;
 
@@ -25,12 +34,21 @@ export type BannerProps = Omit<HTMLAttributes<HTMLElement>, 'title'> &
     media?: ReactNode;
     /** Decorative photo behind the text, for `appearance="image"`. */
     image?: string;
+    /** Veil color over the photo: black, white or a token scale. */
+    overlayColor?: BannerOverlayColor;
+    /** Solid side of the veil, where the text sits. */
+    overlayPosition?: BannerOverlayPosition;
     titleVariant?: RichTextVariant;
   };
 
-const backgroundFor = (appearance: BannerAppearance, image?: string) => {
+const backgroundFor = (
+  appearance: BannerAppearance,
+  image: string | undefined,
+  color: BannerOverlayColor,
+  position: BannerOverlayPosition,
+) => {
   if (appearance === 'image' && image) {
-    return bannerImageBackground(image);
+    return bannerImageBackground(image, color, position);
   }
 
   return appearance === 'gradient' || appearance === 'aurora'
@@ -46,8 +64,10 @@ export const Banner = forwardRef<HTMLElement, BannerProps>(
       actions,
       media,
       image,
+      overlayColor = 'black',
+      overlayPosition = 'left',
       appearance = 'subtle',
-      align = 'start',
+      align,
       titleVariant = 'h2',
       className,
       style,
@@ -56,17 +76,33 @@ export const Banner = forwardRef<HTMLElement, BannerProps>(
     ref,
   ) => {
     const titleId = useId();
-    const background = backgroundFor(appearance ?? 'subtle', image);
+    const resolvedAppearance = appearance ?? 'subtle';
+    const isImage = resolvedAppearance === 'image';
+    const resolvedAlign = align ?? (isImage ? BANNER_IMAGE_ALIGN[overlayPosition] : 'start');
+    const background = backgroundFor(resolvedAppearance, image, overlayColor, overlayPosition);
 
     return (
       <section
         ref={ref}
         aria-labelledby={titleId}
-        className={cn(bannerStyles({ appearance, align }), className)}
+        className={cn(
+          bannerStyles({ appearance, align: resolvedAlign }),
+          isImage && [
+            bannerImageStyles,
+            BANNER_IMAGE_PLACEMENT[overlayPosition],
+            bannerImageTextStyles(overlayColor),
+          ],
+          className,
+        )}
         style={{ ...(background && { backgroundImage: background }), ...style } as CSSProperties}
         {...props}
       >
-        <div className={bannerContentStyles({ align })}>
+        <div
+          className={cn(
+            bannerContentStyles({ align: resolvedAlign }),
+            isImage && bannerImageContentStyles,
+          )}
+        >
           <RichText id={titleId} variant={titleVariant} bold className={bannerTextStyles}>
             {title}
           </RichText>

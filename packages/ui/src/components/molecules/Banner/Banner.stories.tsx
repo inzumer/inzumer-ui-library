@@ -21,7 +21,15 @@ const meta = {
       control: 'select',
       options: ['subtle', 'inverse', 'gradient', 'aurora', 'image'],
     },
-    align: { control: 'inline-radio', options: ['start', 'center'] },
+    align: { control: 'inline-radio', options: ['start', 'center', 'end'] },
+    overlayColor: {
+      control: 'select',
+      options: ['black', 'white', 'primary', 'info', 'success', 'warning', 'danger', 'neutral'],
+    },
+    overlayPosition: {
+      control: 'select',
+      options: ['left', 'right', 'top', 'bottom', 'center', 'full'],
+    },
   },
   args: {
     title: 'Bake something new this week',
@@ -56,7 +64,40 @@ export const Gradient: Story = { args: { appearance: 'gradient' } };
 
 export const Aurora: Story = { args: { appearance: 'aurora', align: 'center' } };
 
-export const WithImage: Story = { args: { appearance: 'image', image: photos.focaccia.src } };
+const image = { appearance: 'image', image: photos.focaccia.src } as const;
+
+export const ImageLeft: Story = { args: { ...image, overlayPosition: 'left' } };
+
+export const ImageRight: Story = { args: { ...image, overlayPosition: 'right' } };
+
+export const ImageTop: Story = { args: { ...image, overlayPosition: 'top' } };
+
+export const ImageBottom: Story = { args: { ...image, overlayPosition: 'bottom' } };
+
+export const ImageCenter: Story = { args: { ...image, overlayPosition: 'center' } };
+
+export const WhiteVeil: Story = {
+  args: { ...image, image: photos.mise.src, overlayColor: 'white', overlayPosition: 'left' },
+};
+
+/** Every token veil, from the side. */
+export const TokenVeils: Story = {
+  render: (args) => (
+    <div className="flex flex-col gap-6">
+      {(['primary', 'info', 'success', 'warning', 'danger', 'neutral'] as const).map((color) => (
+        <Banner
+          key={color}
+          {...args}
+          {...image}
+          image={photos.scones.src}
+          overlayColor={color}
+          title={`Veil: ${color}`}
+          actions={undefined}
+        />
+      ))}
+    </div>
+  ),
+};
 
 export const WithMedia: Story = {
   args: {
