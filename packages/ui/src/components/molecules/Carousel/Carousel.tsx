@@ -1,4 +1,4 @@
-import { Button, Icon } from '@components';
+import { Button, Icon, RichText } from '@components';
 import { useHorizontalScroll } from '@hooks';
 import { cn } from '@utils';
 import { Children, forwardRef, useRef, useState, type HTMLAttributes, type ReactNode } from 'react';
@@ -6,6 +6,8 @@ import {
   carouselButtonStyles,
   carouselChevronStyles,
   carouselControlsStyles,
+  carouselCounterCurrentStyles,
+  carouselCounterStyles,
   carouselDotStyles,
   carouselIndicatorsStyles,
   carouselIndicatorStyles,
@@ -18,6 +20,9 @@ import {
 
 /** Where a control sits under the cards. */
 export type CarouselControlPosition = 'start' | 'center' | 'end';
+
+/** Dots that jump to any slide, or a "03 / 10" counter for long sets. */
+export type CarouselIndicatorStyle = 'dots' | 'counter';
 
 export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   /** Accessible name of the carousel, e.g. "Featured recipes". */
@@ -34,6 +39,8 @@ export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   indicatorsLabel?: string;
   /** Show the indicators (default `true`). */
   indicators?: boolean;
+  /** `dots` (default) or a `counter` that fits any number of slides in one line. */
+  indicatorStyle?: CarouselIndicatorStyle;
   /** Side of the indicators (default `center`); next to the buttons when both share a side. */
   indicatorsPosition?: CarouselControlPosition;
   /** Show the previous/next buttons (default `true`); scrolling and indicators still work without them. */
@@ -60,6 +67,7 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
       goToLabel = (index) => `Go to slide ${index + 1}`,
       indicatorsLabel,
       indicators = true,
+      indicatorStyle = 'dots',
       indicatorsPosition = 'center',
       buttons = true,
       buttonsPosition = 'center',
@@ -124,22 +132,41 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
       </Button>
     );
 
-    const dots = (
-      <div role="group" aria-label={indicatorsLabel} className={carouselIndicatorsStyles}>
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            aria-label={goToLabel(index, slides.length)}
-            aria-current={index === active ? 'true' : undefined}
-            className={carouselIndicatorStyles}
-            onClick={() => goTo(index)}
-          >
-            <span aria-hidden="true" className={carouselDotStyles({ active: index === active })} />
-          </button>
-        ))}
-      </div>
+    /** Two digits, so the counter keeps its width: 3 → "03". */
+    const pad = (value: number) => String(value).padStart(2, '0');
+
+    const counter = (
+      <RichText as="p" variant="s4" aria-live="polite" className={carouselCounterStyles}>
+        <span aria-hidden="true">
+          <span className={carouselCounterCurrentStyles}>{pad(active + 1)}</span> /{' '}
+          {pad(slides.length)}
+        </span>
+        <span className="sr-only">{slideLabel(active, slides.length)}</span>
+      </RichText>
     );
+
+    const dots =
+      indicatorStyle === 'counter' ? (
+        counter
+      ) : (
+        <div role="group" aria-label={indicatorsLabel} className={carouselIndicatorsStyles}>
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={goToLabel(index, slides.length)}
+              aria-current={index === active ? 'true' : undefined}
+              className={carouselIndicatorStyles}
+              onClick={() => goTo(index)}
+            >
+              <span
+                aria-hidden="true"
+                className={carouselDotStyles({ active: index === active })}
+              />
+            </button>
+          ))}
+        </div>
+      );
 
     return (
       <section

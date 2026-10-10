@@ -48,6 +48,12 @@ export const carouselDotStyles = cva(
   },
 );
 
+/** `counter` indicator: thin and spaced, the current number in the text color. */
+export const carouselCounterStyles =
+  'flex h-11 items-center px-1 tracking-[0.2em] text-(--text-tertiary) tabular-nums';
+
+export const carouselCounterCurrentStyles = 'text-(--text-primary)';
+
 /** Round primary buttons with the components' shadow. */
 export const carouselButtonStyles = 'rounded-full shadow-md disabled:shadow-none';
 

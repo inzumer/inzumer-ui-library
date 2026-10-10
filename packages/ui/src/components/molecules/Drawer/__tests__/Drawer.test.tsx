@@ -98,6 +98,23 @@ describe('Drawer', () => {
     expect(screen.getByRole('heading', { name: 'Filters' })).toHaveClass('custom-title');
   });
 
+  it('takes 320px by default and the size it is given', () => {
+    const { rerender } = render(
+      <Drawer open onClose={vi.fn()} title="Menu">
+        Content
+      </Drawer>,
+    );
+    expect(screen.getByRole('dialog')).toHaveClass('max-w-[320px]');
+
+    rerender(
+      <Drawer open onClose={vi.fn()} title="Menu" size="full">
+        Content
+      </Drawer>,
+    );
+    expect(screen.getByRole('dialog')).toHaveClass('max-w-none', 'border-0');
+    expect(screen.getByRole('dialog')).not.toHaveClass('max-w-[320px]');
+  });
+
   it('has no header when there is neither a title nor a close label', () => {
     render(
       <Drawer open onClose={vi.fn()} aria-label="Plain">

@@ -29,6 +29,8 @@ import { Carousel, Showcase } from '@inzumer/ui-library';
 - `label` — accessible name of the carousel
 - `previousLabel`, `nextLabel` — accessible names of the buttons
 - `indicators` — show the indicators (default `true`; hidden with a single slide)
+- `indicatorStyle` — `dots` (default) or `counter`: "03 / 10" in one line, for long sets such as
+  a gallery; screen readers hear `slideLabel` for the current slide
 - `indicatorsPosition`, `buttonsPosition` — `start`, `center` (default) or `end`; when both share a side they go together (previous · indicators · next), otherwise each sits on its side of the same row
 - `buttons` — show the previous/next buttons (default `true`); without them people scroll or use the indicators
 - `indicatorsLabel`, `goToLabel(index, total)` — names of the indicators group and of each
