@@ -1,5 +1,13 @@
 # @inzumer/ui-library
 
+## 3.1.0
+
+### Minor Changes
+
+- a8f035d: Carousel: `indicatorStyle="counter"` shows "03 / 10" in one line for long sets. Drawer: `size` (`sm`, `md`, `lg` or `full`) sets how much of the screen it takes.
+- 286f9b5: Modal and BottomSheet: the body scrolls on the panel's edge, clear of the rounded corners, and `closeLabel` adds a close button in the top end corner. BottomSheet keeps its title in place, takes up to 80% of the screen by default and accepts `maxHeight="tall"` (90%).
+- 52bd647: Ready for the apps' WebViews: `Navbar`, `Drawer`, `BottomSheet`, `Snackbar` and the `CookieConsent` banner clear the notch and the home bar (`env(safe-area-inset-*)`, 0 in browsers); overlays scroll with `overscroll-contain`; `BottomSheet` closes with a swipe down on its handle (new `useSwipeToClose` hook) and scrolls inside up to 90dvh. New docs page: WebView Apps.
+
 ## 3.0.1
 
 ### Patch Changes
