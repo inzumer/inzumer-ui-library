@@ -1,5 +1,12 @@
 # @inzumer/ui-library
 
+## 3.3.0
+
+### Minor Changes
+
+- 1f73104: Modal, BottomSheet and Drawer: `closeId` gives the built-in close button a stable id, for analytics click triggers.
+- e92be61: Ids and test ids everywhere: an id given to `Button`, `Chip`, `Link`, `IconLink` and the form fields is also rendered as `data-testid`, and the elements components render themselves can take one: `Accordion` `summaryId`, `Carousel` `buttonIds.indicator`, and `id` on `Breadcrumbs` items (now rendered), `Language` options, `Navbar` and `SocialLinks` links. New `idAttributes` util and a docs page.
+
 ## 3.2.0
 
 ### Minor Changes
