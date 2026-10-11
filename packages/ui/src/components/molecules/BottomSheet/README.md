@@ -28,8 +28,8 @@ const [open, setOpen] = useState(false);
 
 ## Props
 
-Identical shape to `Modal`: `open`, `onClose`, `title`, `footer`, `children`,
-`closeOnBackdropClick` (defaults to `true`). See `Modal`'s README for the full prop rundown — the
+Identical shape to `Modal`: `open`, `onClose`, `title`, `footer`, `children`, `closeLabel`,
+`closeOnBackdropClick` (defaults to `true`) and `maxHeight` (`default` 80% of the screen, `tall` 90%). See `Modal`'s README for the full prop rundown — the
 only difference is the panel slides up from the bottom instead of fading + scaling from the
 center.
 
@@ -42,5 +42,6 @@ center.
   (`useScrollLock`). The title gets a unique id, so several can be on the same page.
 - Swiping the handle down closes it (`useSwipeToClose`, 80px); a shorter drag springs back. Escape,
   the backdrop and your own close button still work, so the gesture is never the only way out.
-- Ready for apps in a WebView: it clears the home bar (`safe-area-inset-bottom`), grows up to 90% of
-  the screen and scrolls inside without moving the page behind (`overscroll-contain`).
+- Ready for apps in a WebView: it clears the home bar (`safe-area-inset-bottom`), grows up to 80% of
+  the screen (90% with `maxHeight="tall"`) and only its body scrolls, below the handle and the title,
+  without moving the page behind (`overscroll-contain`).

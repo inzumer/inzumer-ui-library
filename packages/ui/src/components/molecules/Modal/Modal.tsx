@@ -1,7 +1,8 @@
-import { RichText } from '@components';
+import { Button, Icon, RichText } from '@components';
 import { useDialogLayer } from '@hooks';
 import { cn } from '@utils';
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { dialogCloseStyles, dialogTitleWithCloseStyles } from '@styles/overlay';
 import {
   modalBodyStyles,
   modalFooterStyles,
@@ -17,6 +18,8 @@ export type ModalProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   onClose: () => void;
   title?: ReactNode;
   footer?: ReactNode;
+  /** Accessible name of a close button in the top end corner; none without it. */
+  closeLabel?: string;
   closeOnBackdropClick?: boolean;
   /** Height limit before the body scrolls: 80% of the viewport (`default`) or 90% (`tall`). */
   maxHeight?: 'default' | 'tall';
@@ -29,6 +32,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       onClose,
       title,
       footer,
+      closeLabel,
       closeOnBackdropClick = true,
       maxHeight = 'default',
       className,
@@ -56,8 +60,24 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           className={cn(modalPanelStyles({ visible, maxHeight }), className)}
           {...props}
         >
+          {closeLabel && (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label={closeLabel}
+              onClick={onClose}
+              className={dialogCloseStyles}
+            >
+              <Icon name="close" />
+            </Button>
+          )}
           {title && (
-            <RichText as="h2" id={titleId} variant="s1" className={modalTitleStyles}>
+            <RichText
+              as="h2"
+              id={titleId}
+              variant="s1"
+              className={cn(modalTitleStyles, closeLabel && dialogTitleWithCloseStyles)}
+            >
               {title}
             </RichText>
           )}

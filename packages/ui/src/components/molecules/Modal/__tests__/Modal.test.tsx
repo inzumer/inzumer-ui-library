@@ -82,6 +82,40 @@ describe('Modal', () => {
     expect(screen.getByRole('button', { name: 'OK' }).parentElement).toHaveClass('shrink-0');
   });
 
+  it('scrolls its body on the panel edge, clear of the rounded corners', () => {
+    render(
+      <Modal open onClose={vi.fn()} title="Details">
+        Long content
+      </Modal>,
+    );
+    expect(screen.getByRole('dialog')).toHaveClass('relative', 'overflow-hidden');
+    expect(screen.getByText('Long content')).toHaveClass('-mx-6', 'px-6');
+  });
+
+  it('closes from an optional button in the top end corner', async () => {
+    const onClose = vi.fn();
+    render(
+      <Modal open onClose={onClose} title="A long title" closeLabel="Close">
+        Content
+      </Modal>,
+    );
+    const close = screen.getByRole('button', { name: 'Close' });
+    expect(close).toHaveClass('absolute', 'top-3', 'right-3', 'size-11');
+    expect(screen.getByRole('heading', { name: 'A long title' })).toHaveClass('pr-12');
+    await userEvent.click(close);
+    expect(onClose).toHaveBeenCalledOnce();
+  });
+
+  it('has no close button without a label', () => {
+    render(
+      <Modal open onClose={vi.fn()} title="Details">
+        Content
+      </Modal>,
+    );
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Details' })).not.toHaveClass('pr-12');
+  });
+
   it('allows up to 90% of the height with maxHeight="tall"', () => {
     render(
       <Modal open onClose={vi.fn()} maxHeight="tall">

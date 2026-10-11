@@ -70,3 +70,36 @@ export const Default: Story = {
     await waitForElementToBeRemoved(() => canvas.queryByRole('dialog'));
   },
 };
+
+/** Long content and a close button: the title stays, the body scrolls on the panel's edge. */
+export const LongWithClose: Story = {
+  args: { ...Default.args, title: 'Project details', closeLabel: 'Close' },
+  render: function Render(args) {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open long modal</Button>
+        <Modal {...args} open={open} onClose={() => setOpen(false)}>
+          <div className="flex flex-col gap-4">
+            {Array.from({ length: 12 }, (_, index) => (
+              <p key={index} className="text-sm text-(--text-secondary)">
+                Paragraph {index + 1}: enough text to make the body taller than the panel, so it
+                scrolls while the title and the close button stay in place.
+              </p>
+            ))}
+          </div>
+        </Modal>
+      </>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Open long modal' }));
+    await expect(await canvas.findByRole('dialog')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Close' }));
+    await waitForElementToBeRemoved(() => canvas.queryByRole('dialog'));
+  },
+};

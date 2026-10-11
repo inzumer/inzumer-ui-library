@@ -1,8 +1,10 @@
-import { RichText } from '@components';
+import { Button, Icon, RichText } from '@components';
 import { useDialogLayer, useSwipeToClose } from '@hooks';
 import { cn } from '@utils';
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { dialogCloseStyles, dialogTitleWithCloseStyles } from '@styles/overlay';
 import {
+  bottomSheetBodyStyles,
   bottomSheetFooterStyles,
   bottomSheetHandleAreaStyles,
   bottomSheetHandleStyles,
@@ -18,7 +20,11 @@ export type BottomSheetProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   onClose: () => void;
   title?: ReactNode;
   footer?: ReactNode;
+  /** Accessible name of a close button in the top end corner; none without it. */
+  closeLabel?: string;
   closeOnBackdropClick?: boolean;
+  /** Height limit before the body scrolls: 80% of the viewport (`default`) or 90% (`tall`). */
+  maxHeight?: 'default' | 'tall';
 };
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
@@ -28,7 +34,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
       onClose,
       title,
       footer,
+      closeLabel,
       closeOnBackdropClick = true,
+      maxHeight = 'default',
       className,
       style,
       children,
@@ -57,19 +65,35 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
       <div className={bottomSheetOverlayStyles({ visible })}>
         <div
           {...dialogProps(Boolean(title))}
-          className={cn(bottomSheetPanelStyles({ visible }), className)}
+          className={cn(bottomSheetPanelStyles({ visible, maxHeight }), className)}
           style={{ ...style, ...dragStyle }}
           {...props}
         >
           <div aria-hidden className={bottomSheetHandleAreaStyles} {...dragProps}>
             <div className={bottomSheetHandleStyles} />
           </div>
+          {closeLabel && (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label={closeLabel}
+              onClick={onClose}
+              className={dialogCloseStyles}
+            >
+              <Icon name="close" />
+            </Button>
+          )}
           {title && (
-            <RichText as="h2" id={titleId} variant="s1" className={bottomSheetTitleStyles}>
+            <RichText
+              as="h2"
+              id={titleId}
+              variant="s1"
+              className={cn(bottomSheetTitleStyles, closeLabel && dialogTitleWithCloseStyles)}
+            >
               {title}
             </RichText>
           )}
-          {children}
+          <div className={bottomSheetBodyStyles}>{children}</div>
           {footer && <div className={bottomSheetFooterStyles}>{footer}</div>}
         </div>
       </div>
