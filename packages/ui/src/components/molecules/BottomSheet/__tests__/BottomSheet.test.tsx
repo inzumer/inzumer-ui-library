@@ -69,6 +69,39 @@ describe('BottomSheet', () => {
     expect(screen.getByRole('dialog')).toHaveClass('custom-class', 'rounded-t-xl');
   });
 
+  it('takes up to 80% of the height and scrolls only its body', () => {
+    render(
+      <BottomSheet open onClose={vi.fn()} title="Filters">
+        Long content
+      </BottomSheet>,
+    );
+    expect(screen.getByRole('dialog')).toHaveClass('max-h-[80dvh]', 'overflow-hidden', 'flex-col');
+    expect(screen.getByRole('dialog')).not.toHaveClass('overflow-y-auto');
+    expect(screen.getByText('Long content')).toHaveClass('overflow-y-auto', 'flex-1', '-mx-6');
+    expect(screen.getByRole('heading', { name: 'Filters' })).toHaveClass('shrink-0');
+  });
+
+  it('allows up to 90% of the height with maxHeight="tall"', () => {
+    render(
+      <BottomSheet open onClose={vi.fn()} maxHeight="tall">
+        Content
+      </BottomSheet>,
+    );
+    expect(screen.getByRole('dialog')).toHaveClass('max-h-[90dvh]');
+  });
+
+  it('closes from an optional button in the top end corner', async () => {
+    const onClose = vi.fn();
+    render(
+      <BottomSheet open onClose={onClose} title="Filters" closeLabel="Close">
+        Content
+      </BottomSheet>,
+    );
+    expect(screen.getByRole('heading', { name: 'Filters' })).toHaveClass('pr-12');
+    await userEvent.click(screen.getByRole('button', { name: 'Close' }));
+    expect(onClose).toHaveBeenCalledOnce();
+  });
+
   it('should follow a swipe down on the handle and close past the threshold', () => {
     const onClose = vi.fn();
     render(

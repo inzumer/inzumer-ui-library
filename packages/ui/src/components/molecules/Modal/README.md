@@ -35,13 +35,15 @@ const [open, setOpen] = useState(false);
 
 - `open` / `onClose` — controlled; you own the boolean and decide how it's triggered
 - `title`, `footer` — optional `ReactNode`s
+- `closeLabel` — renders a close button in the top end corner with this accessible name
 - `closeOnBackdropClick` — defaults to `true`; set `false` for a dialog the user must dismiss
   explicitly (via a button, not by clicking outside)
 - Always closes on `Escape`, regardless of `closeOnBackdropClick`
 - `maxHeight` — `'default'` (80% of the viewport height) or `'tall'` (90%), for long content
 - Size: every dialog takes **90% of the viewport width, up to 768px**, and is **as tall as its
   content** up to the `maxHeight` limit, so all dialogs look alike. Title and footer stay in place
-  and the content scrolls when it doesn't fit. Use `className` only for exceptions
+  and the content scrolls when it doesn't fit, with its bar on the panel's edge and clear of the
+  rounded corners. Use `className` only for exceptions
 
 ## Notes
 
