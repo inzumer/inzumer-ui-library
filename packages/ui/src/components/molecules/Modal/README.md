@@ -36,6 +36,7 @@ const [open, setOpen] = useState(false);
 - `open` / `onClose` — controlled; you own the boolean and decide how it's triggered
 - `title`, `footer` — optional `ReactNode`s
 - `closeLabel` — renders a close button in the top end corner with this accessible name
+- `closeId` — stable id for that button (analytics click triggers)
 - `closeOnBackdropClick` — defaults to `true`; set `false` for a dialog the user must dismiss
   explicitly (via a button, not by clicking outside)
 - Always closes on `Escape`, regardless of `closeOnBackdropClick`

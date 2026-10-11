@@ -124,4 +124,22 @@ describe('Drawer', () => {
     expect(screen.queryByRole('heading')).not.toBeInTheDocument();
     expect(screen.getByRole('dialog', { name: 'Plain' })).toBeInTheDocument();
   });
+
+  it('gives the close button the id it is given', () => {
+    render(
+      <Drawer
+        open
+        onClose={vi.fn()}
+        title="Details"
+        closeLabel="Close"
+        closeId="dialog-button-close"
+      >
+        Content
+      </Drawer>,
+    );
+    expect(screen.getByRole('button', { name: 'Close' })).toHaveAttribute(
+      'id',
+      'dialog-button-close',
+    );
+  });
 });

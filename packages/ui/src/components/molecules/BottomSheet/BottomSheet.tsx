@@ -22,6 +22,8 @@ export type BottomSheetProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   footer?: ReactNode;
   /** Accessible name of a close button in the top end corner; none without it. */
   closeLabel?: string;
+  /** Stable id for the close button, e.g. for analytics click triggers. */
+  closeId?: string;
   closeOnBackdropClick?: boolean;
   /** Height limit before the body scrolls: 80% of the viewport (`default`) or 90% (`tall`). */
   maxHeight?: 'default' | 'tall';
@@ -35,6 +37,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
       title,
       footer,
       closeLabel,
+      closeId,
       closeOnBackdropClick = true,
       maxHeight = 'default',
       className,
@@ -76,6 +79,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             <Button
               variant="ghost"
               size="icon"
+              id={closeId}
               aria-label={closeLabel}
               onClick={onClose}
               className={dialogCloseStyles}
