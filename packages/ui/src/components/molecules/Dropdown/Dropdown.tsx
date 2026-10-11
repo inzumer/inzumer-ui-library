@@ -163,6 +163,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           <button
             ref={ref}
             id={id}
+            data-testid={idProp}
             type="button"
             role="combobox"
             aria-haspopup="listbox"
@@ -203,6 +204,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
                 <li
                   key={option.value}
                   id={`${id}-option-${index}`}
+                  data-testid={idProp && `${idProp}-option-${index}`}
                   role="option"
                   aria-selected={selected}
                   onPointerDown={(event) => event.preventDefault()}

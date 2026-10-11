@@ -28,3 +28,4 @@ import { Navbar } from '@inzumer/ui-library';
 - `align` — `start` (next to the brand), `center` or `end` (default)
 - `actions` — nodes on the end side
 - `label` — name of the navigation ("Main" by default)
+- `links[].id` — stable id (and `data-testid`) for each link, e.g. analytics click triggers

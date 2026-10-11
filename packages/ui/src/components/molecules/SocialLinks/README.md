@@ -24,3 +24,4 @@ import { InstagramIcon, LinkedInIcon, PinterestIcon, SocialLinks } from '@inzume
 - `align` — `start` (default), `center` or `end`
 - `size` and `variant` — as in `IconLink`
 - `label` — name of the list for screen readers ("Social networks" by default)
+- `links[].id` — stable id (and `data-testid`) for each link, e.g. analytics click triggers

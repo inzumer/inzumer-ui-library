@@ -31,6 +31,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           <input
             ref={ref}
             id={id}
+            data-testid={idProp}
             type="checkbox"
             role="switch"
             checked={checked}

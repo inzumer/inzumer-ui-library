@@ -24,6 +24,7 @@ export const IconLink = forwardRef<HTMLAnchorElement, IconLinkProps>(
       target={external ? '_blank' : target}
       rel={external ? 'noopener noreferrer' : rel}
       className={cn(iconLinkStyles({ size, variant }), className)}
+      data-testid={props.id}
       {...props}
     >
       {icon}

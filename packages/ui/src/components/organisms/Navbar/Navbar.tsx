@@ -1,9 +1,11 @@
-import { cn } from '@utils';
+import { cn, idAttributes } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 import { navbarLinkStyles, navbarListStyles, navbarStyles } from './Navbar.styles';
 
 export interface NavbarLink {
+  /** Stable id (and test id), e.g. for analytics click triggers. */
+  id?: string;
   href: string;
   label: string;
   /** Marks the current page (`aria-current="page"`). */
@@ -34,9 +36,14 @@ export const Navbar = ({
     {brand && <div className="shrink-0">{brand}</div>}
     <nav aria-label={label} className="min-w-0 flex-1">
       <ul className={navbarListStyles({ align })}>
-        {links.map(({ href, label: text, current }) => (
+        {links.map(({ id, href, label: text, current }) => (
           <li key={href}>
-            <a href={href} aria-current={current ? 'page' : undefined} className={navbarLinkStyles}>
+            <a
+              {...idAttributes(id)}
+              href={href}
+              aria-current={current ? 'page' : undefined}
+              className={navbarLinkStyles}
+            >
               {text}
             </a>
           </li>

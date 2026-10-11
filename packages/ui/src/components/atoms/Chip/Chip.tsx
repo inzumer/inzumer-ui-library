@@ -31,6 +31,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(
         className,
       )}
       style={badgeColorStyle({ colors, tone }, style)}
+      data-testid={props.id}
       {...props}
     >
       {icon && <BadgeIcon>{icon}</BadgeIcon>}

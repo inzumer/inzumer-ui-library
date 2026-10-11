@@ -1,6 +1,6 @@
 import { Button, Icon, RichText } from '@components';
 import { useHorizontalScroll } from '@hooks';
-import { cn } from '@utils';
+import { cn, idAttributes } from '@utils';
 import { Children, forwardRef, useRef, useState, type HTMLAttributes, type ReactNode } from 'react';
 import {
   carouselButtonStyles,
@@ -52,7 +52,8 @@ export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
   /** Width classes for each slide (defaults: 80% mobile, 45% tablet, 31% desktop). */
   slideClassName?: string;
   /** Stable ids for the buttons, e.g. for analytics click triggers. */
-  buttonIds?: { previous?: string; next?: string };
+  /** Stable ids (and test ids) for the buttons and each indicator, e.g. for analytics click triggers. */
+  buttonIds?: { previous?: string; next?: string; indicator?: (index: number) => string };
 };
 
 /** Carousel of cards with native snap scroll; optional buttons and indicators on any side. */
@@ -153,6 +154,7 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
           {slides.map((_, index) => (
             <button
               key={index}
+              {...idAttributes(buttonIds.indicator?.(index))}
               type="button"
               aria-label={goToLabel(index, slides.length)}
               aria-current={index === active ? 'true' : undefined}

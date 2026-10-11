@@ -75,6 +75,7 @@ Forbidden:
 - Hardcoded colors
 - One-off spacing values
 - Inconsistent radius values
+- Interactive elements that can't take an id, or an id without the same `data-testid` (analytics and tests read them; see docs/ids-and-test-ids.mdx)
 
 ## Token Architecture Strategy
 

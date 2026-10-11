@@ -28,7 +28,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
       <ol className={breadcrumbsListStyles}>
         {items.map((item, index) => (
           <li key={item.id ?? index} className={breadcrumbsItemStyles}>
-            <Link href={item.href} underline="none" className={breadcrumbsLinkStyles}>
+            <Link id={item.id} href={item.href} underline="none" className={breadcrumbsLinkStyles}>
               <RichText as="span" variant="s3">
                 {item.label}
               </RichText>

@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Ids and Test Ids" />
+
+# Ids and Test Ids
+
+Every project measures with **Google Tag Manager from the element ids**: click and visibility
+triggers read the id, so a new metric needs a trigger, not code. The same value goes in
+`data-testid` for tests. That only works if **every interactive element can get an id**, including
+the ones a component renders inside itself.
+
+## The rule
+
+- Every interactive element (button, link, field, switch, option, summary) accepts an id.
+- An element with an id also gets the **same value as `data-testid`**. An explicit `data-testid`
+  still wins.
+- Ids follow `<scope>-<kind>-<name>`, in kebab case: `cart-button-pay`, `menu-link-about`,
+  `contact-input-email`. Results the project wants to count (a form sent, an error) use the
+  `status` kind: `contact-status-success`.
+- Without an id, nothing is added: no generated `data-testid`.
+
+## How each component takes them
+
+| Component                                           | Prop                                                                 |
+| --------------------------------------------------- | -------------------------------------------------------------------- |
+| `Button`, `Chip`, `Link`, `IconLink`                | `id`                                                                 |
+| `Input`, `Textarea`, `Select`, `Switch`, `Dropdown` | `id` (`Dropdown` options get `<id>-option-<n>`)                      |
+| `Accordion`                                         | `summaryId`                                                          |
+| `Breadcrumbs`                                       | `id` on each item                                                    |
+| `Carousel`, `Filter`                                | `buttonIds` (`previous`, `next`; `Carousel` also `indicator(index)`) |
+| `Language`                                          | `id` on each option                                                  |
+| `Navbar`                                            | `id` on each link                                                    |
+| `SocialLinks`                                       | `id` on each link                                                    |
+| `Showcase`                                          | `linkId`                                                             |
+| `Marquee`                                           | `buttonId`                                                           |
+| `Modal`, `BottomSheet`, `Drawer`                    | `closeId` (the built-in close button)                                |
+| `CookieConsent`                                     | `getId(kind, name)` for its buttons and switches                     |
+
+## When you build a component
+
+- Raw elements: spread `idAttributes(id)` from `@utils`, which renders `id` and `data-testid`
+  together (and nothing without an id).
+- Atoms: render `data-testid={props.id}` before `{...props}`, so a given id doubles as the test id.
+- An element the component renders by itself needs its own id prop (`closeId`, `summaryId`) or an
+  id on the item that produces it (`items[].id`).
+- Cover it in `components/__tests__/ids-and-test-ids.test.tsx`.

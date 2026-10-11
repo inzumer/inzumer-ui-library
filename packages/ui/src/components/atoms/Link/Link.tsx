@@ -19,6 +19,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         target={isExternal ? '_blank' : target}
         rel={isExternal ? 'noopener noreferrer' : rel}
         className={cn(linkStyles({ underline }), className)}
+        data-testid={props.id}
         {...props}
       />
     );

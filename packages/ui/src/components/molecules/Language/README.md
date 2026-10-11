@@ -25,6 +25,7 @@ const [value, setValue] = useState('es');
 - `value` / `onChange` — controlled, same pattern as `Switch`
 - No i18n library wiring included — call your i18n library's language-change function from
   `onChange` yourself
+- `options[].id` — stable id (and `data-testid`) for each option, e.g. analytics click triggers
 
 ## Accessibility
 

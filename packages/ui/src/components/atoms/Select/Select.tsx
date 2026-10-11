@@ -24,6 +24,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           <select
             ref={ref}
             id={id}
+            data-testid={idProp}
             {...fieldAria(id, { hint, error })}
             className={cn(selectStyles({ state: error ? 'error' : state, inputSize }), className)}
             {...props}
