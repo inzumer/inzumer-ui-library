@@ -20,6 +20,7 @@ export const ICONS = {
   search: material.SearchIcon,
   share: material.ShareIcon,
   facebook: social.FacebookIcon,
+  github: social.GitHubIcon,
   instagram: social.InstagramIcon,
   linkedin: social.LinkedInIcon,
   pinterest: social.PinterestIcon,
