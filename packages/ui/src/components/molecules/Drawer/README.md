@@ -31,6 +31,8 @@ const [open, setOpen] = useState(false);
 
 - `open` / `onClose` — controlled
 - `side`: `right` (default) | `left`
+- `size`: how much of the screen it takes — `sm` (320px, default), `md` (480px), `lg` (640px) or
+  `full` (the whole screen, without border or shadow, for a full-screen menu)
 - `title` — `ReactNode` rendered as the dialog's labelled `<h2>`; `titleClassName` restyles it
 - `closeLabel` — accessible name of the built-in close button (omit it to render your own)
 - `footer` — pinned to the bottom of the panel

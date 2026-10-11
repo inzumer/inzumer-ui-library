@@ -14,7 +14,7 @@ import {
 const EXIT_DURATION_MS = 200;
 
 export type DrawerProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> &
-  Pick<VariantProps<typeof drawerPanelStyles>, 'side'> & {
+  Pick<VariantProps<typeof drawerPanelStyles>, 'side' | 'size'> & {
     open: boolean;
     onClose: () => void;
     title?: ReactNode;
@@ -34,6 +34,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       open,
       onClose,
       side,
+      size,
       title,
       titleClassName,
       closeLabel,
@@ -62,7 +63,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
         <div aria-hidden="true" className={drawerOverlayStyles({ visible })} />
         <div
           {...dialogProps(Boolean(title))}
-          className={cn(drawerPanelStyles({ side, visible }), className)}
+          className={cn(drawerPanelStyles({ side, size, visible }), className)}
           {...props}
         >
           {(title || closeLabel) && (

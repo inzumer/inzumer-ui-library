@@ -26,6 +26,7 @@ const meta = {
   },
   argTypes: {
     indicatorsPosition: { control: 'inline-radio', options: ['start', 'center', 'end'] },
+    indicatorStyle: { control: 'inline-radio', options: ['dots', 'counter'] },
     buttonsPosition: { control: 'inline-radio', options: ['start', 'center', 'end'] },
   },
 } satisfies Meta<typeof Carousel>;
@@ -61,6 +62,22 @@ export const Recipes: Story = {
       'true',
     );
     await userEvent.click(canvas.getByRole('button', { name: 'Next recipes' }));
+  },
+};
+
+/** For long sets (a gallery of screens): "01 / 05" on the left, the buttons on the right. */
+export const Counter: Story = {
+  args: {
+    ...Recipes.args,
+    indicatorStyle: 'counter',
+    indicatorsPosition: 'start',
+    buttonsPosition: 'end',
+    slideClassName: 'w-full sm:w-full lg:w-full',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('01')).toBeInTheDocument();
+    await expect(canvas.queryByRole('button', { name: 'Recipe 1 of 5' })).toBeNull();
   },
 };
 

@@ -115,6 +115,18 @@ describe('Carousel', () => {
     );
   });
 
+  it('counts the slides instead of dots and follows the scroll', () => {
+    setup({ indicatorStyle: 'counter' });
+
+    expect(screen.queryByRole('button', { name: 'Go to slide 1' })).not.toBeInTheDocument();
+    expect(screen.getByText('01')).toBeInTheDocument();
+    expect(screen.getByText('1 / 3', { selector: '.sr-only' })).toBeInTheDocument();
+
+    layout(600);
+    expect(screen.getByText('03')).toBeInTheDocument();
+    expect(screen.getByText('3 / 3', { selector: '.sr-only' })).toBeInTheDocument();
+  });
+
   it('can hide the indicators', () => {
     setup({ indicators: false });
     expect(screen.queryByRole('button', { name: 'Go to slide 1' })).not.toBeInTheDocument();

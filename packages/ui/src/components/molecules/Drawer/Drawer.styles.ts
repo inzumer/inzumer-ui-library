@@ -17,7 +17,7 @@ export const drawerOverlayStyles = cva(
 
 export const drawerPanelStyles = cva(
   [
-    'absolute inset-y-0 flex w-full max-w-80 flex-col gap-6 overflow-y-auto overscroll-contain',
+    'absolute inset-y-0 flex w-full flex-col gap-6 overflow-y-auto overscroll-contain',
     // Clear of the notch and the home bar in apps (0 in browsers).
     'pt-[calc(1.5rem_+_env(safe-area-inset-top))] pb-[calc(1.5rem_+_env(safe-area-inset-bottom))]',
     'border-(--border-default) bg-(--surface-primary) p-6 shadow-xl',
@@ -33,6 +33,13 @@ export const drawerPanelStyles = cva(
         true: 'translate-x-0',
         false: '',
       },
+      // Pixels, like Modal, so a site's root font size can't shrink it.
+      size: {
+        sm: 'max-w-[320px]',
+        md: 'max-w-[480px]',
+        lg: 'max-w-[640px]',
+        full: 'max-w-none border-0 shadow-none',
+      },
     },
     compoundVariants: [
       { side: 'left', visible: false, className: '-translate-x-full' },
@@ -41,6 +48,7 @@ export const drawerPanelStyles = cva(
     defaultVariants: {
       side: 'right',
       visible: false,
+      size: 'sm',
     },
   },
 );

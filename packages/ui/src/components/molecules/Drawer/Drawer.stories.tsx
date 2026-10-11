@@ -58,6 +58,12 @@ export const Default: Story = {
   },
 };
 
+/** The whole screen: a site menu with large links. */
+export const FullScreen: Story = {
+  ...Default,
+  args: { ...Default.args, size: 'full' },
+};
+
 export const FromTheLeft: Story = {
   ...(Default.render ? { render: Default.render } : {}),
   args: { ...Default.args, side: 'left', title: 'Filters', closeLabel: 'Close filters' },
