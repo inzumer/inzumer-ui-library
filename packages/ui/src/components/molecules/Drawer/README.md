@@ -35,6 +35,7 @@ const [open, setOpen] = useState(false);
   `full` (the whole screen, without border or shadow, for a full-screen menu)
 - `title` — `ReactNode` rendered as the dialog's labelled `<h2>`; `titleClassName` restyles it
 - `closeLabel` — accessible name of the built-in close button (omit it to render your own)
+- `closeId` — stable id for that button (analytics click triggers)
 - `footer` — pinned to the bottom of the panel
 - `closeOnBackdropClick` — defaults to `true`; `Escape` always closes
 

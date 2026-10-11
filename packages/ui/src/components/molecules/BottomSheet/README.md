@@ -28,7 +28,7 @@ const [open, setOpen] = useState(false);
 
 ## Props
 
-Identical shape to `Modal`: `open`, `onClose`, `title`, `footer`, `children`, `closeLabel`,
+Identical shape to `Modal`: `open`, `onClose`, `title`, `footer`, `children`, `closeLabel`, `closeId`,
 `closeOnBackdropClick` (defaults to `true`) and `maxHeight` (`default` 80% of the screen, `tall` 90%). See `Modal`'s README for the full prop rundown — the
 only difference is the panel slides up from the bottom instead of fading + scaling from the
 center.

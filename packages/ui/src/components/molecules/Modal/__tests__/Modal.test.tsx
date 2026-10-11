@@ -124,4 +124,22 @@ describe('Modal', () => {
     );
     expect(screen.getByRole('dialog')).toHaveClass('max-h-[90dvh]');
   });
+
+  it('gives the close button the id it is given', () => {
+    render(
+      <Modal
+        open
+        onClose={vi.fn()}
+        title="Details"
+        closeLabel="Close"
+        closeId="dialog-button-close"
+      >
+        Content
+      </Modal>,
+    );
+    expect(screen.getByRole('button', { name: 'Close' })).toHaveAttribute(
+      'id',
+      'dialog-button-close',
+    );
+  });
 });
