@@ -1,5 +1,11 @@
 # @inzumer/ui-library
 
+## 3.2.0
+
+### Minor Changes
+
+- d78eb1d: New `github` network icon (`GitHubIcon`), in the same outlined style as the other networks.
+
 ## 3.1.0
 
 ### Minor Changes
