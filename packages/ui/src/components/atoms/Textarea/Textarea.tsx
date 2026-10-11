@@ -22,6 +22,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           ref={ref}
           id={id}
+          data-testid={idProp}
           {...fieldAria(id, { hint, error })}
           className={cn(
             textareaStyles({ state: error ? 'error' : state, inputSize, resize }),

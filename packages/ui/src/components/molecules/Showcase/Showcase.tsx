@@ -1,5 +1,5 @@
 import { Image, RichText } from '@components';
-import { cn } from '@utils';
+import { cn, idAttributes } from '@utils';
 import { type VariantProps } from 'class-variance-authority';
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import { Badge } from '@components/atoms/Badge';
@@ -74,7 +74,7 @@ export const Showcase = forwardRef<HTMLElement, ShowcaseProps>(
           )}
           <RichText as={headingLevel} variant="s1" className={showcaseTitleStyles}>
             {href ? (
-              <a id={linkId} href={href} className={showcaseLinkStyles}>
+              <a {...idAttributes(linkId)} href={href} className={showcaseLinkStyles}>
                 {title}
               </a>
             ) : (

@@ -23,6 +23,7 @@ import { Breadcrumbs } from '@inzumer/ui-library';
 - `current` — the current page's label, rendered last as plain text (`aria-current="page"`), not a
   link
 - `separator` — defaults to `/`; pass any `ReactNode` (a string, an icon) to replace it
+- `items[].id` — stable id (and `data-testid`) for each link, e.g. analytics click triggers
 
 ## Notes
 

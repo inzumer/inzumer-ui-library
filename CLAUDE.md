@@ -12,6 +12,10 @@ Key commands: `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm test:coverage` (
 
 The mobile apps open each project's website in a WebView; there is no native component library. Every component must also work inside those apps: safe-area insets on anything pinned to an edge, `overscroll-contain` in overlays, `dvh` for screen heights, gestures with a button alternative, no hover-only actions. Follow [docs/webview-apps.mdx](./docs/webview-apps.mdx) and the `mobile-bridge` agent ([.claude/agents/mobile-bridge-agent.md](./.claude/agents/mobile-bridge-agent.md)).
 
+## Ids and test ids (analytics)
+
+Projects measure with Google Tag Manager from the element ids, without event code. **Every interactive element a component renders must accept an id, and an id always comes with the same `data-testid`** (`idAttributes(id)` from `@utils` for raw elements; atoms mirror `props.id`). Elements a component renders by itself get their own prop (`closeId`, `summaryId`, `buttonIds`) or an id on the item that produces them. Ids follow `<scope>-<kind>-<name>`. See [docs/ids-and-test-ids.mdx](./docs/ids-and-test-ids.mdx).
+
 ## Commit messages & PR titles
 
 This repo strictly follows [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) for every commit message and pull request title generated or suggested here.

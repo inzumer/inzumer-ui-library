@@ -20,6 +20,7 @@ import { Accordion } from '@inzumer/ui-library';
 - `summaryClassName` / `contentClassName` — restyle the header row or the content wrapper
 - Accepts every native `<details>` attribute (`onToggle`, `name` for exclusive groups…) and
   forwards its ref
+- `summaryId` — stable id (and `data-testid`) for the summary, e.g. analytics click triggers
 
 ## Notes
 

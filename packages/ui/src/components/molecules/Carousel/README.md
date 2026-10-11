@@ -38,7 +38,7 @@ import { Carousel, Showcase } from '@inzumer/ui-library';
 - `slideLabel(index, total)` — name of each slide, `"1 / 5"` by default
 - `header` — optional heading or "See all" link above the cards
 - `slideClassName` — slide widths; defaults to 80% on mobile, 45% on tablets and 31% on desktop
-- `buttonIds` — stable ids for `previous` and `next` (analytics click triggers)
+- `buttonIds` — stable ids (and test ids) for `previous`, `next` and each `indicator(index)` (analytics click triggers)
 
 ## Notes
 

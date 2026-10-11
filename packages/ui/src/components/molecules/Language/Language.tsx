@@ -1,4 +1,4 @@
-import { cn } from '@utils';
+import { cn, idAttributes } from '@utils';
 import {
   forwardRef,
   useLayoutEffect,
@@ -10,6 +10,8 @@ import {
 import { languageIndicatorStyles, languageOptionStyles, languageStyles } from './Language.styles';
 
 export interface LanguageOption {
+  /** Stable id (and test id), e.g. for analytics click triggers. */
+  id?: string;
   value: string;
   label: string;
 }
@@ -110,6 +112,7 @@ export const Language = forwardRef<HTMLDivElement, LanguageProps>(
                   buttonRefs.current.delete(option.value);
                 }
               }}
+              {...idAttributes(option.id)}
               type="button"
               role="radio"
               aria-checked={selected}

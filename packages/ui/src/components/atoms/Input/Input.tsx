@@ -21,6 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           id={id}
+          data-testid={idProp}
           {...fieldAria(id, { hint, error })}
           className={cn(inputStyles({ state: error ? 'error' : state, inputSize }), className)}
           {...props}
