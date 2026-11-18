@@ -1,4 +1,5 @@
 export * from './ArrowForwardIcon';
+export * from './CheckIcon';
 export * from './BookmarkIcon';
 export * from './ChevronLeftIcon';
 export * from './ChevronRightIcon';

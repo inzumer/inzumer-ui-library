@@ -5,6 +5,7 @@ import * as social from './social';
 export const ICONS = {
   'arrow-forward': material.ArrowForwardIcon,
   bookmark: material.BookmarkIcon,
+  check: material.CheckIcon,
   'chevron-left': material.ChevronLeftIcon,
   'chevron-right': material.ChevronRightIcon,
   close: material.CloseIcon,

@@ -3,6 +3,7 @@ import {
   Breadcrumbs,
   Button,
   Carousel,
+  Checkbox,
   Chip,
   Dropdown,
   IconLink,
@@ -43,6 +44,7 @@ describe('ids and test ids', () => {
           <option>M</option>
         </Select>
         <Switch id="a-switch-dark" label="Dark" checked={false} onCheckedChange={vi.fn()} />
+        <Checkbox id="a-checkbox-terms" label="Terms" checked={false} onCheckedChange={vi.fn()} />
       </>,
     );
 
@@ -54,6 +56,7 @@ describe('ids and test ids', () => {
     expectIds(screen.getByLabelText('Message'), 'a-input-message');
     expectIds(screen.getByLabelText('Size'), 'a-select-size');
     expectIds(screen.getByRole('switch', { name: 'Dark' }), 'a-switch-dark');
+    expectIds(screen.getByRole('checkbox', { name: 'Terms' }), 'a-checkbox-terms');
   });
 
   it('keeps an explicit data-testid and adds none without an id', () => {
