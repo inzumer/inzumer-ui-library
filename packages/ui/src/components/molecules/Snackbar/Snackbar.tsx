@@ -1,5 +1,5 @@
 import { useDelayedUnmount } from '@hooks';
-import { cn, STATUS_TONES, type StatusTone } from '@utils';
+import { cn, idAttributes, STATUS_TONES, type StatusTone } from '@utils';
 import type { VariantProps } from 'class-variance-authority';
 import {
   forwardRef,
@@ -8,9 +8,15 @@ import {
   type HTMLAttributes,
   type ReactNode,
 } from 'react';
-import { snackbarStyles, snackbarWrapperStyles } from './Snackbar.styles';
+import { snackbarActionStyles, snackbarStyles, snackbarWrapperStyles } from './Snackbar.styles';
 
 const EXIT_DURATION_MS = 200;
+
+export type SnackbarAction = {
+  label: string;
+  onClick: () => void;
+  id?: string;
+};
 
 export type SnackbarProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
   Omit<VariantProps<typeof snackbarStyles>, 'visible'> & {
@@ -19,11 +25,22 @@ export type SnackbarProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
     message: ReactNode;
     duration?: number;
     status?: StatusTone | undefined;
+    action?: SnackbarAction | undefined;
   };
 
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   (
-    { open, onClose, message, status = 'info', duration = 4000, className, style, ...props },
+    {
+      open,
+      onClose,
+      message,
+      status = 'info',
+      duration = 4000,
+      action,
+      className,
+      style,
+      ...props
+    },
     ref,
   ) => {
     const { mounted, visible } = useDelayedUnmount(open, EXIT_DURATION_MS);
@@ -60,6 +77,19 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
           {...props}
         >
           {message}
+          {action && (
+            <button
+              type="button"
+              {...idAttributes(action.id)}
+              className={snackbarActionStyles}
+              onClick={() => {
+                action.onClick();
+                onClose();
+              }}
+            >
+              {action.label}
+            </button>
+          )}
         </div>
       </div>
     );

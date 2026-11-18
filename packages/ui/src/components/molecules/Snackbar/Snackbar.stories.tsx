@@ -52,6 +52,48 @@ export const Default: Story = {
   },
 };
 
+export const WithAction: Story = {
+  args: {
+    open: true,
+    onClose: () => {},
+    message: 'Study deleted.',
+    status: 'info',
+    duration: 6000,
+    action: { id: 'snackbar-button-undo', label: 'Undo', onClick: () => {} },
+  },
+  render: function Render(args) {
+    const [open, setOpen] = useState(false);
+    const [restored, setRestored] = useState(false);
+
+    return (
+      <>
+        <Button
+          onClick={() => {
+            setRestored(false);
+            setOpen(true);
+          }}
+        >
+          Delete study
+        </Button>
+        {restored && <p>Study restored.</p>}
+        <Snackbar
+          {...args}
+          open={open}
+          onClose={() => setOpen(false)}
+          action={args.action && { ...args.action, onClick: () => setRestored(true) }}
+        />
+      </>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Delete study' }));
+    await userEvent.click(await canvas.findByRole('button', { name: 'Undo' }));
+    await expect(await canvas.findByText('Study restored.')).toBeInTheDocument();
+  },
+};
+
 const statuses = ['info', 'success', 'error', 'warning'] as const;
 
 export const Statuses: Story = {

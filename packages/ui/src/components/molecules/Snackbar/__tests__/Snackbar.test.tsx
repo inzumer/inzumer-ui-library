@@ -1,5 +1,5 @@
 import { Snackbar } from '@components';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 beforeEach(() => {
@@ -55,5 +55,28 @@ describe('Snackbar', () => {
       <Snackbar open onClose={vi.fn()} message="Saved!" duration={0} className="custom-class" />,
     );
     expect(screen.getByText('Saved!')).toHaveClass('custom-class', 'rounded-md');
+  });
+
+  it('renders no action button without an action', () => {
+    render(<Snackbar open onClose={vi.fn()} message="Saved!" duration={0} />);
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+  });
+
+  it('runs the action and closes when the action is pressed', () => {
+    const onClose = vi.fn();
+    const onClick = vi.fn();
+    render(
+      <Snackbar
+        open
+        onClose={onClose}
+        message="Study deleted"
+        duration={0}
+        action={{ label: 'Undo', onClick }}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Undo' }));
+    expect(onClick).toHaveBeenCalledOnce();
+    expect(onClose).toHaveBeenCalledOnce();
   });
 });

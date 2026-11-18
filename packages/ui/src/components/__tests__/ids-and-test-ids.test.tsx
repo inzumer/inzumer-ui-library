@@ -13,6 +13,7 @@ import {
   Navbar,
   Select,
   Showcase,
+  Snackbar,
   SocialLinks,
   Switch,
   Textarea,
@@ -104,6 +105,13 @@ describe('ids and test ids', () => {
           onChange={vi.fn()}
         />
         <Navbar links={[{ id: 'nav-link-about', href: '/about', label: 'About' }]} />
+        <Snackbar
+          open
+          onClose={vi.fn()}
+          message="Deleted"
+          duration={0}
+          action={{ id: 'toast-button-undo', label: 'Undo', onClick: vi.fn() }}
+        />
         <Showcase linkId="card-link-belo" href="/belo" title="Belo" src="/belo.png" alt="" />
         <SocialLinks
           links={[{ id: 'social-link-x', href: 'https://x.com', label: 'X', icon: <svg /> }]}
@@ -124,6 +132,7 @@ describe('ids and test ids', () => {
     expectIds(screen.getByRole('radio', { name: 'EN' }), 'lang-button-en');
     expectIds(screen.getByRole('link', { name: 'About' }), 'nav-link-about');
     expectIds(screen.getByRole('link', { name: 'Belo' }), 'card-link-belo');
+    expectIds(screen.getByRole('button', { name: 'Undo' }), 'toast-button-undo');
     expectIds(screen.getByRole('link', { name: 'X' }), 'social-link-x');
 
     const trigger = screen.getByRole('combobox');
