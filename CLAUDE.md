@@ -62,4 +62,4 @@ Versioning and publishing go through [Changesets](https://github.com/changesets/
 - If there are unreleased changesets, it opens/updates a "Version Packages" PR that bumps versions and updates CHANGELOGs (`changeset version`).
 - When that PR is merged (no changesets left pending), the same workflow publishes the bumped packages to npm (`changeset publish`).
 
-Publishing requires an `NPM_TOKEN` repo secret (an npm automation token) with publish rights for the `@inzumer` scope.
+Publishing uses npm trusted publishing (OIDC, with provenance): `@inzumer/ui-library` trusts this repo's `release.yml` on npmjs.com, so no `NPM_TOKEN` secret is needed.
