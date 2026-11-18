@@ -34,6 +34,8 @@ export default defineConfig({
     'components/molecules/Table/index': 'src/components/molecules/Table/index.ts',
     'components/molecules/Timeline/index': 'src/components/molecules/Timeline/index.ts',
     'components/organisms/CookieConsent/index': 'src/components/organisms/CookieConsent/index.ts',
+    'components/special/Odontogram/index': 'src/components/special/Odontogram/index.ts',
+    'components/special/ToothSurfaces/index': 'src/components/special/ToothSurfaces/index.ts',
     'hooks/useDelayedUnmount/index': 'src/hooks/useDelayedUnmount/index.ts',
     'hooks/useDialogLayer/index': 'src/hooks/useDialogLayer/index.ts',
     'hooks/useDismissableLayer/index': 'src/hooks/useDismissableLayer/index.ts',

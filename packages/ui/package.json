@@ -160,6 +160,14 @@
       "types": "./dist/components/molecules/Timeline/index.d.ts",
       "import": "./dist/components/molecules/Timeline/index.js"
     },
+    "./odontogram": {
+      "types": "./dist/components/special/Odontogram/index.d.ts",
+      "import": "./dist/components/special/Odontogram/index.js"
+    },
+    "./tooth-surfaces": {
+      "types": "./dist/components/special/ToothSurfaces/index.d.ts",
+      "import": "./dist/components/special/ToothSurfaces/index.js"
+    },
     "./use-delayed-unmount": {
       "types": "./dist/hooks/useDelayedUnmount/index.d.ts",
       "import": "./dist/hooks/useDelayedUnmount/index.js"
@@ -202,7 +210,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "THIRD-PARTY-NOTICES.md"
   ],
   "scripts": {
     "build": "tsup",

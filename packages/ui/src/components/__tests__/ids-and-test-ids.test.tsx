@@ -11,12 +11,14 @@ import {
   Language,
   Link,
   Navbar,
+  Odontogram,
   Select,
   Showcase,
   Snackbar,
   SocialLinks,
   Switch,
   Textarea,
+  ToothSurfaces,
 } from '@components';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
@@ -139,5 +141,18 @@ describe('ids and test ids', () => {
     expectIds(trigger, 'size-select');
     await userEvent.click(trigger);
     expectIds(screen.getByRole('option', { name: 'M' }), 'size-select-option-0');
+  });
+
+  it('gives ids to the teeth and surfaces of the special components', () => {
+    expect.hasAssertions();
+    render(
+      <>
+        <Odontogram id="dental" onToothPress={vi.fn()} legend={false} />
+        <ToothSurfaces id="detail" fdi="16" onSurfacePress={vi.fn()} />
+      </>,
+    );
+
+    expectIds(screen.getByRole('button', { name: /^Tooth 16,/ }), 'dental-tooth-16');
+    expectIds(screen.getByRole('button', { name: 'Occlusal, No records' }), 'detail-surface-O');
   });
 });
