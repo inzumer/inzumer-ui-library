@@ -1,5 +1,16 @@
 # @inzumer/ui-library
 
+## 3.4.0
+
+### Minor Changes
+
+- 8e9a563: Add `Checkbox` atom (controlled, same API as `Switch`) and the `check` icon.
+- cd001ed: Add an optional `action` to `Snackbar` (e.g. "Undo"), with its own id for analytics.
+
+### Patch Changes
+
+- 8c3a6c6: Remove code comments; JSDoc stays only on functions, so types and props no longer carry doc comments.
+
 ## 3.3.0
 
 ### Minor Changes
