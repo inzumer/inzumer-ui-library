@@ -86,6 +86,13 @@ per-component prop tables.
 Scaffolded (`organisms/index.ts`, `templates/index.ts`) but currently empty — reserved for more
 composite, page-section-level components as they're needed.
 
+## Special
+
+`special/` holds domain components that are not general purpose but are shared by more than one
+project, like `Odontogram` and `ToothSurfaces`. They follow every convention above, stay generic
+(they get their data already computed and their copy through `labels`) and have their own subpath,
+so a project that does not use them never loads them. Their stories live under `Special/`.
+
 ## Adding a new component
 
 1. Decide the atomic tier (atom: standalone, no sub-parts; molecule: composed of a few atoms;
