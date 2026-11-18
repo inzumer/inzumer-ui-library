@@ -8,11 +8,9 @@ export type IconProps = Omit<SVGProps<SVGSVGElement>, 'children' | 'name'> &
   VariantProps<typeof iconStyles> & {
     label?: string;
   } & (
-    | { /** A library icon by its kebab-case id. */ name: IconName; icon?: never }
+    | { name: IconName; icon?: never }
     | {
-        /** Any SVG component (a project's own icon). */ icon: ComponentType<
-          SVGProps<SVGSVGElement>
-        >;
+        icon: ComponentType<SVGProps<SVGSVGElement>>;
         name?: never;
       }
   );

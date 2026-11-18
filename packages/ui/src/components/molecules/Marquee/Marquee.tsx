@@ -11,16 +11,12 @@ import {
 } from './Marquee.styles';
 
 export type MarqueeProps = HTMLAttributes<HTMLDivElement> & {
-  /** Names the region for assistive tech. */
   label: string;
-  /** Seconds for one full loop. */
   duration?: number;
   direction?: 'left' | 'right';
-  /** Space between items, as any CSS length. */
   gap?: string;
   pauseLabel?: string;
   playLabel?: string;
-  /** Tracking id of the pause button. */
   buttonId?: string;
 };
 

@@ -18,13 +18,9 @@ export type DrawerProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> &
     open: boolean;
     onClose: () => void;
     title?: ReactNode;
-    /** Extra classes for the title (e.g. a display font). */
     titleClassName?: string;
-    /** Accessible name of the close button; the button is only rendered when this is set. */
     closeLabel?: string;
-    /** Stable id for the close button, e.g. for analytics click triggers. */
     closeId?: string;
-    /** Pinned to the bottom of the panel (preferences, actions). */
     footer?: ReactNode;
     closeOnBackdropClick?: boolean;
   };

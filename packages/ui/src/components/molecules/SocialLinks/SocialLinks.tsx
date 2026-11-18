@@ -5,10 +5,8 @@ import { IconLink, type IconLinkProps } from '@components/atoms/IconLink';
 import { socialLinksStyles } from './SocialLinks.styles';
 
 export interface SocialLink {
-  /** Stable id (and test id), e.g. for analytics click triggers. */
   id?: string;
   href: string;
-  /** Network name: the accessible name of the button. */
   label: string;
   icon: ReactNode;
 }
@@ -16,7 +14,6 @@ export interface SocialLink {
 export interface SocialLinksProps
   extends Pick<IconLinkProps, 'size' | 'variant'>, VariantProps<typeof socialLinksStyles> {
   links: SocialLink[];
-  /** Name of the list for screen readers. */
   label?: string;
   className?: string;
 }

@@ -1,4 +1,3 @@
-/** Solid status colors of the `Snackbar`, from the tokens. */
 export const STATUS_TONES = {
   info: { background: 'var(--surface-inverse)', text: 'var(--text-inverse)' },
   success: { background: 'rgb(var(--color-success-600))', text: 'rgb(255 255 255)' },
@@ -8,7 +7,6 @@ export const STATUS_TONES = {
 
 export type StatusTone = keyof typeof STATUS_TONES;
 
-/** The same statuses for pills (`Badge`, `Chip`), soft: a light background and strong text. */
 export const PILL_TONES = {
   neutral: { background: 'var(--surface-secondary)', text: 'var(--text-primary)' },
   info: { background: 'rgb(var(--color-info-100))', text: 'rgb(var(--color-info-800))' },

@@ -8,7 +8,6 @@ import { useId, useRef, type Ref } from 'react';
 export interface DialogLayerOptions<T extends HTMLElement> {
   open: boolean;
   onClose: () => void;
-  /** The component's forwarded ref, merged with the panel ref. */
   ref: Ref<T>;
   exitDurationMs: number;
   closeOnBackdropClick?: boolean;
@@ -31,7 +30,6 @@ export const useDialogLayer = <T extends HTMLElement>({
   useFocusTrap(open && mounted, panelRef);
   useScrollLock(open);
 
-  /** ARIA props of the panel; labelled by the title when there is one. */
   const dialogProps = (hasTitle: boolean) => ({
     ref: setPanelRef,
     role: 'dialog' as const,

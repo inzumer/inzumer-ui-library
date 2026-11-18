@@ -4,21 +4,16 @@ import type { ReactNode } from 'react';
 import { navbarLinkStyles, navbarListStyles, navbarStyles } from './Navbar.styles';
 
 export interface NavbarLink {
-  /** Stable id (and test id), e.g. for analytics click triggers. */
   id?: string;
   href: string;
   label: string;
-  /** Marks the current page (`aria-current="page"`). */
   current?: boolean;
 }
 
 export interface NavbarProps extends VariantProps<typeof navbarListStyles> {
-  /** Logo or brand name, on the start side. */
   brand?: ReactNode;
   links: NavbarLink[];
-  /** Buttons or menus on the end side (language, account, theme). */
   actions?: ReactNode;
-  /** Name of the navigation for screen readers. */
   label?: string;
   className?: string;
 }

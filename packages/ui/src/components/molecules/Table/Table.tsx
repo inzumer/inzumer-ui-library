@@ -18,10 +18,8 @@ import {
 } from './Table.styles';
 
 export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
-  /** Describes the table for everyone (or only for screen readers with `captionHidden`). */
   caption?: ReactNode;
   captionHidden?: boolean;
-  /** Extra classes for the scroll container. */
   containerClassName?: string;
 };
 

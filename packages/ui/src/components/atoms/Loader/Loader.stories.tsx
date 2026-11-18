@@ -59,7 +59,6 @@ export const WithMessages: Story = {
   args: { label: 'Saving', effect: 'pulse', size: 'lg', layout: 'stacked', messages: MESSAGES },
 };
 
-/** Full screen: the brand pulse over the Modal's backdrop, with rotating messages. */
 export const Screen: Story = {
   args: {
     label: 'Signing in',

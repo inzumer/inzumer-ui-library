@@ -2,7 +2,6 @@ import { cva } from 'class-variance-authority';
 
 const rgb = (token: string, alpha = 1) => `rgb(var(${token}) / ${alpha})`;
 
-/** Backgrounds built from the token scales; brand colors don't change with the theme. */
 export const BANNER_BACKGROUNDS = {
   gradient: `linear-gradient(120deg, ${rgb('--color-primary-900')}, ${rgb('--color-primary-600')})`,
   aurora: [
@@ -12,7 +11,6 @@ export const BANNER_BACKGROUNDS = {
   ].join(', '),
 } as const;
 
-/** Veil colors over a photo: black, white or the darkest step of a token scale. */
 export const BANNER_OVERLAY_COLORS = {
   black: '0 0 0',
   white: '255 255 255',
@@ -51,7 +49,6 @@ export const bannerImageBackground = (
   position: BannerOverlayPosition = 'left',
 ) => `${overlayGradient(position, BANNER_OVERLAY_COLORS[color])}, url("${src}")`;
 
-/** Where the content sits over the photo, matching the solid side of the veil. */
 export const BANNER_IMAGE_PLACEMENT: Record<BannerOverlayPosition, string> = {
   left: 'justify-center',
   right: 'justify-center',
@@ -113,7 +110,6 @@ export const bannerContentStyles = cva('flex flex-1 flex-col gap-3', {
   },
 });
 
-/** Over a photo the content keeps its height, so the placement can push it up or down. */
 export const bannerImageContentStyles = 'flex-none';
 
 export const bannerTextStyles = 'max-w-2xl text-inherit';

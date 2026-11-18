@@ -80,7 +80,6 @@ export const WhiteVeil: Story = {
   args: { ...image, image: photos.mise.src, overlayColor: 'white', overlayPosition: 'left' },
 };
 
-/** Every token veil, from the side. */
 export const TokenVeils: Story = {
   render: (args) => (
     <div className="flex flex-col gap-6">

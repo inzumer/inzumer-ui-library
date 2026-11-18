@@ -9,13 +9,9 @@ import {
 } from './Accordion.styles';
 
 export type AccordionProps = Omit<DetailsHTMLAttributes<HTMLDetailsElement>, 'title'> & {
-  /** Always-visible header that toggles the content. */
   summary: ReactNode;
-  /** Stable id (and test id) for the summary, e.g. for analytics click triggers. */
   summaryId?: string;
-  /** Extra classes for the summary row (e.g. to match a navigation link). */
   summaryClassName?: string;
-  /** Extra classes for the content wrapper. */
   contentClassName?: string;
 };
 

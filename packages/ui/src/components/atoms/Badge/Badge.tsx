@@ -29,10 +29,7 @@ export const BadgeIcon = ({ children }: { children: ReactNode }) => (
 
 export type BadgeProps = HTMLAttributes<HTMLSpanElement> &
   VariantProps<typeof badgeStyles> & {
-    /** Decorative icon before the label, from the consuming project's own icon family. */
     icon?: ReactNode | undefined;
-    /** Any CSS colors, ideally tokens (e.g. `var(--category-sweet-bg)`); neutral tokens when omitted. */
-    /** Preset colors: `neutral` (default) or the Snackbar's `info`, `success`, `error`, `warning`. */
     tone?: PillTone | undefined;
     colors?: BadgeColors | undefined;
   };

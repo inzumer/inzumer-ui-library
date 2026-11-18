@@ -4,10 +4,8 @@ import type { ReactNode } from 'react';
 import { fieldErrorStyles, fieldHintStyles, fieldLabelStyles, fieldStyles } from './Field.styles';
 
 export interface FieldProps {
-  /** Id of the control; the hint and error get `<id>-hint` and `<id>-error`. */
   id: string;
   label?: ReactNode | undefined;
-  /** Render the label as a span with this id (for controls named by `aria-labelledby`). */
   labelId?: string | undefined;
   hint?: ReactNode | undefined;
   error?: ReactNode | undefined;

@@ -7,13 +7,9 @@ import { chipIdleStyles, chipPressedStyles, chipStyles } from './Chip.styles';
 
 export type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> &
   Pick<VariantProps<typeof badgeStyles>, 'radius'> & {
-    /** Toggle state (`aria-pressed`); leave it out for a plain action chip. */
     pressed?: boolean | undefined;
-    /** Decorative icon before the label, from the consuming project's own icon family. */
     icon?: ReactNode | undefined;
-    /** Preset colors: `neutral` (default) or the Snackbar's `info`, `success`, `error`, `warning`. */
     tone?: PillTone | undefined;
-    /** Any CSS colors, ideally tokens (e.g. `var(--category-sweet-bg)`); they win over `tone`. */
     colors?: BadgeColors | undefined;
   };
 

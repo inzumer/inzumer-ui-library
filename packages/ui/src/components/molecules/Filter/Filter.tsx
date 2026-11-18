@@ -14,13 +14,9 @@ import {
 export interface FilterOption<T extends string = string> {
   value: T;
   label: ReactNode;
-  /** Decorative icon before the label, from the consuming project's own icon family. */
   icon?: ReactNode;
-  /** Stable id (e.g. for analytics). */
   id?: string;
-  /** Preset colors (as in `Chip`); `colors` wins over it. */
   tone?: PillTone;
-  /** Any CSS colors, ideally tokens; neutral tokens when omitted. */
   colors?: BadgeColors;
 }
 
@@ -29,15 +25,12 @@ export type FilterProps<T extends string = string> = Omit<
   'onChange'
 > &
   Pick<ChipProps, 'radius'> & {
-    /** Accessible name of the group, e.g. "Filter by category". */
     label: string;
     options: FilterOption<T>[];
     value: T;
     onChange: (value: T) => void;
-    /** Names of the arrows shown when the chips don't fit. */
     previousLabel: string;
     nextLabel: string;
-    /** Stable ids for the arrows, e.g. for analytics click triggers. */
     buttonIds?: { previous?: string; next?: string };
   };
 

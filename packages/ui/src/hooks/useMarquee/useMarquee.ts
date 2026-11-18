@@ -2,7 +2,6 @@ import { useEffect, useState, type RefObject } from 'react';
 import { useMediaQuery } from '../useMediaQuery';
 
 export interface UseMarqueeOptions {
-  /** Seconds for one full loop. */
   duration: number;
   direction: 'left' | 'right';
   paused: boolean;

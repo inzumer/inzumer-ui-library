@@ -71,7 +71,6 @@ export const Default: Story = {
   },
 };
 
-/** Long content and a close button: the title stays, the body scrolls on the panel's edge. */
 export const LongWithClose: Story = {
   args: { ...Default.args, title: 'Project details', closeLabel: 'Close' },
   render: function Render(args) {

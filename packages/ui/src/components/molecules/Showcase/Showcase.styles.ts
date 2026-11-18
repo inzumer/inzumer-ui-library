@@ -21,7 +21,6 @@ export const showcaseImageStyles = [
   'transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100',
 ].join(' ');
 
-/** Bottom scrim so light text reads on any photo; tune it with --showcase-scrim and --showcase-text. */
 export const showcaseScrimStyles = [
   'pointer-events-none absolute inset-0 -z-10',
   'bg-linear-to-t from-(--showcase-scrim,rgb(0_0_0/0.8)) via-(--showcase-scrim-mid,rgb(0_0_0/0.3)) via-45% to-transparent to-75%',
@@ -34,16 +33,13 @@ export const showcaseTitleStyles = 'text-lg font-bold leading-tight text-inherit
 
 export const showcaseSubtitleStyles = 'text-sm text-inherit opacity-90';
 
-/** Stretched link: its ::after covers the whole card, so the card is one link named by the title. */
 export const showcaseLinkStyles = [
   'text-inherit no-underline hover:text-inherit',
   'after:absolute after:inset-0 after:z-1 after:rounded-2xl after:content-[""]',
   'focus-visible:outline-hidden focus-visible:after:ring-4 focus-visible:after:ring-inset focus-visible:after:ring-(--border-focus)',
 ].join(' ');
 
-/** Above the title, in the text flow over the gradient. */
 export const showcaseBadgeStyles = 'mb-1 self-start';
 
-/** Floating actions: round, above the card link, so they stay clickable. */
 export const showcaseActionsStyles =
   'absolute right-3 top-3 z-2 flex gap-2 *:rounded-full *:shadow-md';

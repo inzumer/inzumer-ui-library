@@ -2,7 +2,6 @@ import { cva } from 'class-variance-authority';
 
 export const filterStyles = 'relative';
 
-/** One row that scrolls sideways, without a visible scrollbar. */
 export const filterTrackStyles = [
   'flex gap-2 overflow-x-auto scroll-px-1 px-1 py-1',
   'scrollbar-none [&::-webkit-scrollbar]:hidden',
@@ -10,7 +9,6 @@ export const filterTrackStyles = [
 
 export const filterChipStyles = 'shrink-0';
 
-/** Fades what doesn't fit into the page background (`--filter-fade`), with the arrow on top. */
 export const filterEdgeStyles = cva(
   'pointer-events-none absolute inset-y-0 flex w-16 items-center from-(--filter-fade,var(--surface-primary)) to-transparent',
   {

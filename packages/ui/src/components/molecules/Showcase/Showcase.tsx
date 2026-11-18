@@ -15,7 +15,6 @@ import {
   showcaseTitleStyles,
 } from './Showcase.styles';
 
-/** Light pill over the photo; each project can set `--showcase-badge-bg` / `--showcase-badge-text`. */
 const SHOWCASE_BADGE_COLORS = {
   background: 'var(--showcase-badge-bg, rgb(255 255 255 / 0.92))',
   text: 'var(--showcase-badge-text, rgb(31 31 31))',
@@ -23,22 +22,15 @@ const SHOWCASE_BADGE_COLORS = {
 
 export type ShowcaseProps = Omit<HTMLAttributes<HTMLElement>, 'title'> &
   VariantProps<typeof showcaseStyles> & {
-    /** Image URL; or pass your own element (e.g. an optimized `<picture>`) in `media`. */
     src?: string;
-    /** Describes the photo; use `''` if it is only decorative. */
     alt?: string;
     media?: ReactNode;
     title: ReactNode;
-    /** One short line under the title (time, category, cost per serving…). */
     subtitle?: ReactNode;
-    /** Heading level of the title in the page outline. */
     headingLevel?: 'h2' | 'h3' | 'h4';
-    /** Makes the whole card a link, named by the title. */
     href?: string;
     linkId?: string;
-    /** Small label right above the title ("New", "Featured"). */
     badge?: ReactNode;
-    /** Floating buttons on the top-right corner (save, share); they stay above the link. */
     actions?: ReactNode;
   };
 
@@ -95,7 +87,5 @@ export const Showcase = forwardRef<HTMLElement, ShowcaseProps>(
 
 Showcase.displayName = 'Showcase';
 
-/** @deprecated Renamed to `Showcase`; `MediaCard` will be removed in the next major version. */
 export const MediaCard = Showcase;
-/** @deprecated Renamed to `ShowcaseProps`. */
 export type MediaCardProps = ShowcaseProps;

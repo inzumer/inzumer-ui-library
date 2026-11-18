@@ -65,7 +65,6 @@ export const Recipes: Story = {
   },
 };
 
-/** For long sets (a gallery of screens): "01 / 05" on the left, the buttons on the right. */
 export const Counter: Story = {
   args: {
     ...Recipes.args,

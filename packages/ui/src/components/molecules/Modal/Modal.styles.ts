@@ -38,7 +38,6 @@ export const modalPanelStyles = cva(
 
 export const modalTitleStyles = 'mb-4 shrink-0 text-lg font-semibold text-(--text-primary)';
 
-/** Scrolls on the panel's edge, between the title and the footer, never under the rounded corners. */
 export const modalBodyStyles = 'min-h-0 flex-1 overflow-y-auto overscroll-contain -mx-6 px-6 py-1';
 
 export const modalFooterStyles = 'mt-6 flex shrink-0 flex-wrap items-center justify-end gap-2';
