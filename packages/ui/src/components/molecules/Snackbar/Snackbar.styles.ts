@@ -5,7 +5,7 @@ export const snackbarWrapperStyles =
 
 export const snackbarStyles = cva(
   [
-    'pointer-events-auto rounded-md border border-transparent px-4 py-3 text-sm shadow-lg',
+    'pointer-events-auto flex items-center gap-4 rounded-md border border-transparent px-4 py-3 text-sm shadow-lg',
     'bg-(--snackbar-bg) text-(--snackbar-text)',
     'transition-all duration-200 ease-out',
   ],
@@ -21,3 +21,9 @@ export const snackbarStyles = cva(
     },
   },
 );
+
+export const snackbarActionStyles = [
+  '-my-2 -mr-2 inline-flex min-h-11 shrink-0 items-center rounded-sm px-2',
+  'font-semibold text-(--snackbar-text) underline underline-offset-2',
+  'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--border-focus)',
+].join(' ');
