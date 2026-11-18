@@ -23,6 +23,16 @@ export type OdontogramLabels = {
   toothName: (type: string, quadrant: string) => string;
 };
 
+const VESTIBULAR_SURFACE_CODES: Record<SurfaceName, string> = {
+  occlusal: 'O',
+  incisal: 'I',
+  vestibular: 'V',
+  lingual: 'L',
+  palatal: 'P',
+  mesial: 'M',
+  distal: 'D',
+};
+
 export const ODONTOGRAM_LABELS: Record<OdontogramLocale, OdontogramLabels> = {
   en: {
     title: 'Odontogram',
@@ -106,15 +116,7 @@ export const ODONTOGRAM_LABELS: Record<OdontogramLocale, OdontogramLabels> = {
       mesial: 'Mesial',
       distal: 'Distal',
     },
-    surfaceCodes: {
-      occlusal: 'O',
-      incisal: 'I',
-      vestibular: 'V',
-      lingual: 'L',
-      palatal: 'P',
-      mesial: 'M',
-      distal: 'D',
-    },
+    surfaceCodes: VESTIBULAR_SURFACE_CODES,
     toothName: (type, quadrant) => `${type} ${quadrant}`,
   },
   it: {
@@ -155,15 +157,7 @@ export const ODONTOGRAM_LABELS: Record<OdontogramLocale, OdontogramLabels> = {
       mesial: 'Mesiale',
       distal: 'Distale',
     },
-    surfaceCodes: {
-      occlusal: 'O',
-      incisal: 'I',
-      vestibular: 'V',
-      lingual: 'L',
-      palatal: 'P',
-      mesial: 'M',
-      distal: 'D',
-    },
+    surfaceCodes: VESTIBULAR_SURFACE_CODES,
     toothName: (type, quadrant) => `${type} ${quadrant}`,
   },
 };
