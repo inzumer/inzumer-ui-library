@@ -8,7 +8,6 @@ import { useId, useRef, type Ref } from 'react';
 export interface DialogLayerOptions<T extends HTMLElement> {
   open: boolean;
   onClose: () => void;
-  /** The component's forwarded ref, merged with the panel ref. */
   ref: Ref<T>;
   exitDurationMs: number;
   closeOnBackdropClick?: boolean;
@@ -28,11 +27,9 @@ export const useDialogLayer = <T extends HTMLElement>({
   const { mounted, visible } = useDelayedUnmount(open, exitDurationMs);
 
   useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick);
-  // The panel mounts one render after `open` flips, so the trap starts once it exists.
   useFocusTrap(open && mounted, panelRef);
   useScrollLock(open);
 
-  /** ARIA props of the panel; labelled by the title when there is one. */
   const dialogProps = (hasTitle: boolean) => ({
     ref: setPanelRef,
     role: 'dialog' as const,

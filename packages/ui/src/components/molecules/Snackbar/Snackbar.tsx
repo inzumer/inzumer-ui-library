@@ -18,7 +18,6 @@ export type SnackbarProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
     onClose: () => void;
     message: ReactNode;
     duration?: number;
-    /** Colors from the shared status tones (also used by `Badge` and `Chip`). */
     status?: StatusTone | undefined;
   };
 

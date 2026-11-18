@@ -21,7 +21,6 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: (config) => {
-    // process.cwd() (repo root): __dirname and import.meta differ between config and viteFinal.
     const root = process.cwd();
     config.plugins = config.plugins ?? [];
     config.plugins.push(

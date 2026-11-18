@@ -18,41 +18,25 @@ import {
   carouselTrackStyles,
 } from './Carousel.styles';
 
-/** Where a control sits under the cards. */
 export type CarouselControlPosition = 'start' | 'center' | 'end';
 
-/** Dots that jump to any slide, or a "03 / 10" counter for long sets. */
 export type CarouselIndicatorStyle = 'dots' | 'counter';
 
 export type CarouselProps = Omit<HTMLAttributes<HTMLElement>, 'children'> & {
-  /** Accessible name of the carousel, e.g. "Featured recipes". */
   label: string;
-  /** One child per slide. */
   children: ReactNode;
   previousLabel: string;
   nextLabel: string;
-  /** Accessible name of each slide; defaults to "1 / 6". */
   slideLabel?: (index: number, total: number) => string;
-  /** Accessible name of each indicator; defaults to "Go to slide 3". */
   goToLabel?: (index: number, total: number) => string;
-  /** Accessible name of the indicators group, e.g. "Choose a recipe". */
   indicatorsLabel?: string;
-  /** Show the indicators (default `true`). */
   indicators?: boolean;
-  /** `dots` (default) or a `counter` that fits any number of slides in one line. */
   indicatorStyle?: CarouselIndicatorStyle;
-  /** Side of the indicators (default `center`); next to the buttons when both share a side. */
   indicatorsPosition?: CarouselControlPosition;
-  /** Show the previous/next buttons (default `true`); scrolling and indicators still work without them. */
   buttons?: boolean;
-  /** Side of the buttons (default `center`, around the indicators). */
   buttonsPosition?: CarouselControlPosition;
-  /** Optional visible heading or "See all" link above the cards. */
   header?: ReactNode;
-  /** Width classes for each slide (defaults: 80% mobile, 45% tablet, 31% desktop). */
   slideClassName?: string;
-  /** Stable ids for the buttons, e.g. for analytics click triggers. */
-  /** Stable ids (and test ids) for the buttons and each indicator, e.g. for analytics click triggers. */
   buttonIds?: { previous?: string; next?: string; indicator?: (index: number) => string };
 };
 
@@ -84,11 +68,9 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
     const [active, setActive] = useState(0);
     const slides = Children.toArray(children);
 
-    /** Offset of a slide from the start of the track's content. */
     const offsetOf = (index: number) =>
       (slideRefs.current[index]?.offsetLeft ?? 0) - (slideRefs.current[0]?.offsetLeft ?? 0);
 
-    /** The indicator follows the slide nearest to the scroll position (the last one at the end). */
     const {
       ref: trackRef,
       edges,
@@ -133,7 +115,6 @@ export const Carousel = forwardRef<HTMLElement, CarouselProps>(
       </Button>
     );
 
-    /** Two digits, so the counter keeps its width: 3 → "03". */
     const pad = (value: number) => String(value).padStart(2, '0');
 
     const counter = (

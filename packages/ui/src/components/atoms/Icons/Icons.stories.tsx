@@ -39,7 +39,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<IconStoryArgs>;
 
-/** Every icon with the id to cite it by; size and color come from the controls. */
 export const Gallery: Story = {
   render: ({ size, color }) => (
     <div className="flex flex-col gap-8">
@@ -80,7 +79,6 @@ export const Gallery: Story = {
   },
 };
 
-/** One icon at a time, to try sizes and colors. */
 export const Playground: Story = {
   render: ({ name, size, color }) => {
     const Icon = ICONS[name];

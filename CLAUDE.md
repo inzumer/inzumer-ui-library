@@ -12,6 +12,10 @@ Key commands: `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm test:coverage` (
 
 The mobile apps open each project's website in a WebView; there is no native component library. Every component must also work inside those apps: safe-area insets on anything pinned to an edge, `overscroll-contain` in overlays, `dvh` for screen heights, gestures with a button alternative, no hover-only actions. Follow [docs/webview-apps.mdx](./docs/webview-apps.mdx) and the `mobile-bridge` agent ([.claude/agents/mobile-bridge-agent.md](./.claude/agents/mobile-bridge-agent.md)).
 
+## No comments
+
+Code carries its own meaning through names and types. The only comment allowed is a JSDoc right above a top-level function (components, hooks, utils): never on types, interfaces, props or constants, and never inside a function body. Tool pragmas stay (`eslint-disable…`, `@ts-…`, `@vitest-environment`, `/// <reference>`). `pnpm lint` enforces it with `inzumer/no-comments`.
+
 ## Ids and test ids (analytics)
 
 Projects measure with Google Tag Manager from the element ids, without event code. **Every interactive element a component renders must accept an id, and an id always comes with the same `data-testid`** (`idAttributes(id)` from `@utils` for raw elements; atoms mirror `props.id`). Elements a component renders by itself get their own prop (`closeId`, `summaryId`, `buttonIds`) or an id on the item that produces them. Ids follow `<scope>-<kind>-<name>`. See [docs/ids-and-test-ids.mdx](./docs/ids-and-test-ids.mdx).
@@ -47,7 +51,7 @@ Every PR must use [.github/PULL_REQUEST_TEMPLATE.md](./.github/PULL_REQUEST_TEMP
 
 - Describe what changed and why, not just what files moved.
 - Check off the template's checklist items only once they're actually true (validation commands run, changeset added if a published package changed, stories/README/docs updated for component or hook changes).
-- Leave a clear trail in "Notas adicionales" for any non-obvious decision — the same bar as an inline comment: only worth writing if it wouldn't be obvious from reading the diff.
+- Leave a clear trail in "Notas adicionales" for any non-obvious decision — only worth writing if it wouldn't be obvious from reading the diff.
 
 ## Releases
 

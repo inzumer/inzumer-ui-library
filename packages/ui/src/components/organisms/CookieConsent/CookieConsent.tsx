@@ -20,20 +20,15 @@ export interface CookieCategory {
   id: string;
   title: string;
   description: ReactNode;
-  /** Strictly necessary cookies can't be turned off; they show `labels.required` instead of a switch. */
   required?: boolean;
 }
 
-/** Whether each optional category is allowed, by id. */
 export type CookieChoices = Record<string, boolean>;
 
-/** `banner` until answered, `modal` preferences opened from outside, or `inline` settings. */
 export type CookieConsentMode = 'banner' | 'modal' | 'inline';
 
 export interface CookieConsentLabels {
-  /** Banner title. */
   title: ReactNode;
-  /** Banner text; usually ends with a link to the privacy policy. */
   description: ReactNode;
   accept: string;
   reject: string;
@@ -42,22 +37,17 @@ export interface CookieConsentLabels {
   preferencesDescription?: ReactNode;
   save: string;
   cancel: string;
-  /** Shown instead of a switch on required categories, e.g. "Always on". */
   required: string;
 }
 
 export interface CookieConsentProps {
   mode: CookieConsentMode;
   categories: CookieCategory[];
-  /** The saved answer, or `null` while the person hasn't answered. */
   value: CookieChoices | null;
-  /** Called with the full answer: accept or reject all, the saved preferences, or a switch (inline). */
   onChange: (value: CookieChoices) => void;
   labels: CookieConsentLabels;
-  /** Preferences dialog visibility, to open it from outside (e.g. a footer link). Optional in `banner`. */
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  /** Stable ids for buttons and switches, e.g. for analytics click triggers. */
   getId?: (kind: 'button' | 'switch', name: string) => string;
   className?: string;
 }

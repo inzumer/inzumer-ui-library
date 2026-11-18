@@ -9,7 +9,6 @@ export const useDelayedUnmount = (open: boolean, exitDurationMs: number) => {
     if (open) {
       setMounted(true);
 
-      // Two rAFs: the closed styles must be painted before the open transition starts.
       let innerRafId = 0;
       const outerRafId = requestAnimationFrame(() => {
         innerRafId = requestAnimationFrame(() => setVisible(true));

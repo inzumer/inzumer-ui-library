@@ -6,9 +6,7 @@ import { Slot } from './Slot';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonStyles> & {
-    /** Render the single child (e.g. an `<a>`) with the button styles instead of a `<button>`. */
     asChild?: boolean;
-    /** Waiting for something (e.g. the API): disabled, `aria-busy` and pulsing. */
     loading?: boolean;
   };
 
@@ -17,7 +15,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(buttonStyles({ variant, size, fullWidth }), className);
 
     if (asChild) {
-      // The ref points at whatever element the child renders (usually an <a>), not a <button>.
       const slotRef = ref as unknown as Ref<HTMLElement>;
 
       return <Slot ref={slotRef} className={classes} data-testid={props.id} {...props} />;

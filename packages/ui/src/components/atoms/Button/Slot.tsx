@@ -42,10 +42,8 @@ const mergeProps = (slotProps: AnyProps, childProps: AnyProps): AnyProps => {
 /** Renders its single child with merged props (Radix-style `asChild`), e.g. a link as a button. */
 export const Slot = forwardRef<HTMLElement, SlotProps>(
   ({ children, ...slotProps }, forwardedRef) => {
-    // Text or several children can't receive props: render nothing rather than throwing.
     const child = Children.count(children) === 1 ? Children.toArray(children)[0] : null;
     const childProps = isValidElement<AnyProps>(child) ? child.props : {};
-    // React 19 exposes `ref` as a prop; React 18 keeps it on the element.
     const childRef = (childProps['ref'] ??
       (child as unknown as { ref?: Ref<HTMLElement> } | null)?.ref) as Ref<HTMLElement> | undefined;
     const ref = useMergedRef(forwardedRef, childRef);

@@ -93,7 +93,8 @@ composite, page-section-level components as they're needed.
    content) and create `packages/ui/src/components/<tier>/<Name>/` following the layout above —
    `ComponentName.styles.ts` for the `cva(...)`/class-string constants, `ComponentName.tsx` importing
    what it needs from it. Export every constant/type/component at its declaration, not in a block at
-   the end of the file. Skip doc comments on props — let the prop name and type carry the meaning.
+   the end of the file. Skip doc comments on props — let the prop name and type carry the meaning. The only comment
+   allowed is a JSDoc right above the component or function (`inzumer/no-comments` enforces it).
 2. Add it to that tier's barrel (`<tier>/index.ts`) — the root `components/index.ts` barrel and
    `@components` alias pick it up automatically. The component's own `index.ts` stays a single
    `export * from './ComponentName';`.

@@ -9,10 +9,8 @@ export const carouselTrackStyles = [
 
 export const carouselSlideStyles = 'shrink-0 snap-start';
 
-/** Default slide widths: most of the screen on mobile, two on tablets, three on desktop. */
 export const carouselSlideWidthStyles = 'w-[80%] sm:w-[45%] lg:w-[31%]';
 
-/** Three slots (start · center · end) so buttons and indicators can sit on different sides. */
 export const carouselControlsStyles = 'grid grid-cols-[1fr_auto_1fr] items-center gap-3';
 
 export const carouselSlotStyles = cva('row-start-1 flex min-w-0 items-center gap-3', {
@@ -27,7 +25,6 @@ export const carouselSlotStyles = cva('row-start-1 flex min-w-0 items-center gap
 
 export const carouselIndicatorsStyles = 'flex flex-wrap items-center justify-center gap-1';
 
-/** 24px hit area around a small dot, so the indicators are easy to tap. */
 export const carouselIndicatorStyles = [
   'flex h-6 min-w-6 items-center justify-center rounded-full',
   'focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-(--border-focus)',
@@ -48,13 +45,11 @@ export const carouselDotStyles = cva(
   },
 );
 
-/** `counter` indicator: thin and spaced, the current number in the text color. */
 export const carouselCounterStyles =
   'flex h-11 items-center px-1 tracking-[0.2em] text-(--text-tertiary) tabular-nums';
 
 export const carouselCounterCurrentStyles = 'text-(--text-primary)';
 
-/** Round primary buttons with the components' shadow. */
 export const carouselButtonStyles = 'rounded-full shadow-md disabled:shadow-none';
 
 export const carouselChevronStyles = 'h-5 w-5';

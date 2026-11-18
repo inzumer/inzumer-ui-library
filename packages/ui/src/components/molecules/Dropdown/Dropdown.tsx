@@ -199,7 +199,6 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
               const selected = index === selectedIndex;
 
               return (
-                // Options never take focus (APG select-only combobox): the trigger handles the keys.
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <li
                   key={option.value}

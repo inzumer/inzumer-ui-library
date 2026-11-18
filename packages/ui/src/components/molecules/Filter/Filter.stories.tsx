@@ -57,7 +57,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-/** A narrow container: the row scrolls and fades with arrows. */
 export const Overflowing: Story = {
   decorators: [
     (Story) => (

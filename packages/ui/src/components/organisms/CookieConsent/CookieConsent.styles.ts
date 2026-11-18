@@ -1,7 +1,6 @@
 export const cookieBannerStyles = [
   'fixed inset-x-0 bottom-0 z-40 border-t border-(--border-default)',
   'bg-(--surface-primary) shadow-lg',
-  // Clear of the home bar and the side notches in apps (0 in browsers).
   'pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]',
 ].join(' ');
 

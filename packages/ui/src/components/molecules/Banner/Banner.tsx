@@ -28,15 +28,10 @@ export type BannerProps = Omit<HTMLAttributes<HTMLElement>, 'title'> &
   VariantProps<typeof bannerStyles> & {
     title: ReactNode;
     description?: ReactNode;
-    /** Calls to action (`Button`, `Link`…), each with its own tracking `id`. */
     actions?: ReactNode;
-    /** Side content, such as an `Image`. */
     media?: ReactNode;
-    /** Decorative photo behind the text, for `appearance="image"`. */
     image?: string;
-    /** Veil color over the photo: black, white or a token scale. */
     overlayColor?: BannerOverlayColor;
-    /** Solid side of the veil, where the text sits. */
     overlayPosition?: BannerOverlayPosition;
     titleVariant?: RichTextVariant;
   };

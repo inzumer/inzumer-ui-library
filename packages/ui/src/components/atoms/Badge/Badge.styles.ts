@@ -1,6 +1,5 @@
 import { cva } from 'class-variance-authority';
 
-/** A pill; colors come from `--badge-bg` / `--badge-text` (the `colors` prop), neutral tokens otherwise. */
 export const badgeStyles = cva(
   [
     'inline-flex items-center',

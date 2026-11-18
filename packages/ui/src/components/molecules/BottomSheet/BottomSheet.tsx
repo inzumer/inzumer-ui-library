@@ -20,12 +20,9 @@ export type BottomSheetProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
   onClose: () => void;
   title?: ReactNode;
   footer?: ReactNode;
-  /** Accessible name of a close button in the top end corner; none without it. */
   closeLabel?: string;
-  /** Stable id for the close button, e.g. for analytics click triggers. */
   closeId?: string;
   closeOnBackdropClick?: boolean;
-  /** Height limit before the body scrolls: 80% of the viewport (`default`) or 90% (`tall`). */
   maxHeight?: 'default' | 'tall';
 };
 
@@ -60,7 +57,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
       return null;
     }
 
-    // While dragging, the panel follows the finger without the open/close transition.
     const dragStyle =
       offset > 0 ? { transform: `translateY(${offset}px)`, transition: 'none' } : {};
 

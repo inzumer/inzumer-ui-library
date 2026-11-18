@@ -58,7 +58,6 @@ export const Default: Story = {
   },
 };
 
-/** The whole screen: a site menu with large links. */
 export const FullScreen: Story = {
   ...Default,
   args: { ...Default.args, size: 'full' },

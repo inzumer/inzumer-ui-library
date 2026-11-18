@@ -3,8 +3,6 @@ import { expect, fn, userEvent, within } from '@storybook/test';
 import { Button } from './Button';
 import readme from './README.md?raw';
 
-// Explicit `Meta<typeof Button>` annotation (instead of `satisfies`) because `fn()`'s inferred
-// return type isn't portable across packages, which trips `tsc`'s declaration-emit check.
 const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,

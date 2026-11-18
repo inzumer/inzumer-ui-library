@@ -1,9 +1,7 @@
 import { create } from '@storybook/theming/create';
 
-/** Inter, like the titles of inzumer.com (loaded in manager-head.html and preview-head.html). */
 const FONT = "Inter, 'Helvetica Neue', Arial, sans-serif";
 
-/** Sidebar and docs pages: the uppercase wordmark of inzumer.com (#151515, Inter 700, no box). */
 export const theme = create({
   base: 'light',
   fontBase: FONT,

@@ -16,9 +16,7 @@ export interface TimelineItem {
   id?: string;
   title: ReactNode;
   description: ReactNode[];
-  /** Optional photo of the entry, shown under its text (lazy loaded). */
   image?: { src: string; alt: string };
-  /** Your own media element instead of `image` (e.g. an optimized `<picture>`). */
   media?: ReactNode;
 }
 

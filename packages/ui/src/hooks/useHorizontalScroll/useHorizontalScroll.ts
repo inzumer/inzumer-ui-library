@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 const EDGE_TOLERANCE_PX = 4;
 
-/** Share of the visible width scrolled by each button press. */
 const PAGE_RATIO = 0.9;
 
 export interface ScrollEdges {

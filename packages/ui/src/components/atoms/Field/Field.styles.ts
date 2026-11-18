@@ -1,4 +1,3 @@
-/** Base of every form control (input, textarea, select, dropdown trigger). */
 export const fieldControlBase = [
   'flex w-full rounded-md',
   'text-(--input-text) bg-(--input-bg)',
@@ -9,7 +8,6 @@ export const fieldControlBase = [
   'disabled:cursor-not-allowed disabled:opacity-50',
 ];
 
-/** Error state and sizes shared by the form controls. */
 export const fieldControlVariants = {
   variants: {
     state: {

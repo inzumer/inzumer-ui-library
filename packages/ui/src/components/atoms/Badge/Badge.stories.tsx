@@ -23,7 +23,6 @@ export const Default: Story = {};
 
 export const Uppercase: Story = { args: { children: 'Featured', uppercase: true } };
 
-/** The same modes as the Snackbar. */
 export const Tones: Story = {
   render: (args) => (
     <div style={{ display: 'flex', gap: 8 }}>

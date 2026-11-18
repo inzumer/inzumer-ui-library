@@ -2,7 +2,6 @@ import type { ComponentType, SVGProps } from 'react';
 import * as material from './material';
 import * as social from './social';
 
-/** Every icon by its kebab-case id, so it can be cited by name: `<Icon name="arrow-forward" />`. */
 export const ICONS = {
   'arrow-forward': material.ArrowForwardIcon,
   bookmark: material.BookmarkIcon,

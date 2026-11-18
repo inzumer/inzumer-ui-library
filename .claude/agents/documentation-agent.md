@@ -29,7 +29,7 @@ Requirements:
 - Clear controls
 - Realistic examples
 - Edge cases documented
-- `tags: ['autodocs']` must be set in the meta object so Storybook auto-generates a Docs page from JSDoc + argTypes
+- `tags: ['autodocs']` must be set in the meta object so Storybook auto-generates a Docs page from the README, the component's JSDoc + argTypes
 - Each component's `README.md` is surfaced in its Storybook Docs page by importing it with `?raw` and setting `parameters.docs.description.component` in the story file (see any existing `*.stories.tsx` for the pattern) — this is the actual convention, do not "fix" it back to a separate `.docs.mdx` file
 
 ---

@@ -10,7 +10,6 @@ import {
 import { languageIndicatorStyles, languageOptionStyles, languageStyles } from './Language.styles';
 
 export interface LanguageOption {
-  /** Stable id (and test id), e.g. for analytics click triggers. */
   id?: string;
   value: string;
   label: string;

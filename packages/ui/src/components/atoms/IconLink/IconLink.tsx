@@ -6,11 +6,8 @@ import { iconLinkStyles } from './IconLink.styles';
 export type IconLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> &
   VariantProps<typeof iconLinkStyles> & {
     href: string;
-    /** Accessible name: the link only shows the icon. */
     label: string;
-    /** An SVG; it takes half the button and the current text color. */
     icon: ReactNode;
-    /** Opens in a new tab with a safe `rel`. */
     external?: boolean;
   };
 

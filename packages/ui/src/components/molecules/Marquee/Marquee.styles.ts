@@ -6,7 +6,6 @@ export const marqueeViewportStyles = (animated: boolean) =>
 
 export const marqueeTrackStyles = 'flex w-max';
 
-/** The trailing padding equals the gap, so both copies join seamlessly. */
 export const marqueeGroupStyles =
   'flex shrink-0 items-center gap-(--marquee-gap) pr-(--marquee-gap)';
 

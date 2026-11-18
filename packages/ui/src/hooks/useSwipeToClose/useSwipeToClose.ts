@@ -2,7 +2,6 @@ import { useRef, useState, type PointerEvent } from 'react';
 
 export interface UseSwipeToCloseOptions {
   onClose: () => void;
-  /** Pixels dragged down that close it; less springs back. */
   threshold?: number;
 }
 

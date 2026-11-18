@@ -32,9 +32,6 @@ describe('useDelayedUnmount', () => {
     expect(result.current.mounted).toBe(true);
     expect(result.current.visible).toBe(false);
 
-    // A single rAF flush must NOT be enough — that's the bug that made the enter
-    // transition snap open instead of animating (a lone rAF can land in the same paint
-    // as the just-committed closed styles).
     act(() => {
       vi.runOnlyPendingTimers();
     });

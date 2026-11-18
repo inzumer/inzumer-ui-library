@@ -13,21 +13,16 @@ import {
   loaderStyles,
 } from './Loader.styles';
 
-/** How long each of `messages` stays before the next one. */
 const DEFAULT_MESSAGE_INTERVAL_MS = 3500;
 
 export type LoaderProps = Omit<HTMLAttributes<HTMLSpanElement>, 'children'> &
   VariantProps<typeof loaderStyles> &
   VariantProps<typeof loaderMarkStyles> & {
-    /** What is loading; read by screen readers, and shown with `showLabel`. */
     label: string;
     showLabel?: boolean;
-    /** Your own mark (a brand logo image or SVG); a ring by default. */
     mark?: ReactNode;
-    /** Visible texts under the mark: one at random, changing every `messageInterval` ms. */
     messages?: readonly string[] | undefined;
     messageInterval?: number;
-    /** Full screen over the Modal's backdrop, blocking clicks, scroll and keyboard while it's shown. */
     screen?: boolean;
   };
 
