@@ -63,7 +63,6 @@ TableRow.displayName = 'TableRow';
 
 type CellAlign = VariantProps<typeof tableCellStyles>;
 
-// The native (deprecated) `align` attribute is replaced by the `align` variant.
 export type TableHeaderCellProps = Omit<ThHTMLAttributes<HTMLTableCellElement>, 'align'> &
   CellAlign;
 

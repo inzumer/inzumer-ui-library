@@ -28,7 +28,6 @@ export const useDialogLayer = <T extends HTMLElement>({
   const { mounted, visible } = useDelayedUnmount(open, exitDurationMs);
 
   useDismissableLayer(open, onClose, panelRef, closeOnBackdropClick);
-  // The panel mounts one render after `open` flips, so the trap starts once it exists.
   useFocusTrap(open && mounted, panelRef);
   useScrollLock(open);
 

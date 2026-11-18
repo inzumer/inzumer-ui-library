@@ -15,10 +15,8 @@ export const bottomSheetOverlayStyles = cva([overlayBackdropStyles, 'items-end']
 
 export const bottomSheetPanelStyles = cva(
   [
-    // Full width up to 768px (pixels, like Modal), centered.
     'relative flex w-full max-w-[768px] flex-col overflow-hidden rounded-t-xl border border-b-0 border-(--border-default)',
     'bg-(--surface-secondary) p-6 shadow-lg',
-    // Clear of the home bar in apps; only the body scrolls (see below).
     'pb-[calc(1.5rem_+_env(safe-area-inset-bottom))]',
     'transition-transform duration-200 ease-out motion-reduce:transition-none',
   ],

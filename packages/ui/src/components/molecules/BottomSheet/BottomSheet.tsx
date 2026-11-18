@@ -60,7 +60,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
       return null;
     }
 
-    // While dragging, the panel follows the finger without the open/close transition.
     const dragStyle =
       offset > 0 ? { transform: `translateY(${offset}px)`, transition: 'none' } : {};
 

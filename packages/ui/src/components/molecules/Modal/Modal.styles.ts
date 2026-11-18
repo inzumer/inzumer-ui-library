@@ -15,8 +15,6 @@ export const modalOverlayStyles = cva([overlayBackdropStyles, 'items-center'], {
 
 export const modalPanelStyles = cva(
   [
-    // Every dialog: 90% of the viewport's width up to 768px, as tall as its content up to the
-    // `maxHeight` limit; beyond that the body scrolls. Pixels, so a site's root font size can't shrink it.
     'relative flex w-[90vw] max-w-[768px] flex-col overflow-hidden rounded-xl border border-(--border-default) bg-(--surface-secondary) p-6 shadow-lg',
     'transition-all duration-200 ease-out',
   ],
