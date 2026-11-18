@@ -40,6 +40,10 @@
       "types": "./dist/components/atoms/Button/index.d.ts",
       "import": "./dist/components/atoms/Button/index.js"
     },
+    "./checkbox": {
+      "types": "./dist/components/atoms/Checkbox/index.d.ts",
+      "import": "./dist/components/atoms/Checkbox/index.js"
+    },
     "./chip": {
       "types": "./dist/components/atoms/Chip/index.d.ts",
       "import": "./dist/components/atoms/Chip/index.js"

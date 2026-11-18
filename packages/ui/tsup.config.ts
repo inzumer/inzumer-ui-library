@@ -5,6 +5,7 @@ export default defineConfig({
     index: 'src/index.ts',
     'components/atoms/Badge/index': 'src/components/atoms/Badge/index.ts',
     'components/atoms/Button/index': 'src/components/atoms/Button/index.ts',
+    'components/atoms/Checkbox/index': 'src/components/atoms/Checkbox/index.ts',
     'components/atoms/Chip/index': 'src/components/atoms/Chip/index.ts',
     'components/atoms/Field/index': 'src/components/atoms/Field/index.ts',
     'components/atoms/Icon/index': 'src/components/atoms/Icon/index.ts',
