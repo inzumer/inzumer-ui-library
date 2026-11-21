@@ -153,6 +153,10 @@
       "types": "./dist/components/molecules/Snackbar/index.d.ts",
       "import": "./dist/components/molecules/Snackbar/index.js"
     },
+    "./stories": {
+      "types": "./dist/components/molecules/Stories/index.d.ts",
+      "import": "./dist/components/molecules/Stories/index.js"
+    },
     "./table": {
       "types": "./dist/components/molecules/Table/index.d.ts",
       "import": "./dist/components/molecules/Table/index.js"
