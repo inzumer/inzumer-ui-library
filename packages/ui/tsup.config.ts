@@ -31,6 +31,7 @@ export default defineConfig({
     'components/molecules/Showcase/index': 'src/components/molecules/Showcase/index.ts',
     'components/molecules/Marquee/index': 'src/components/molecules/Marquee/index.ts',
     'components/molecules/Snackbar/index': 'src/components/molecules/Snackbar/index.ts',
+    'components/molecules/Stories/index': 'src/components/molecules/Stories/index.ts',
     'components/molecules/Table/index': 'src/components/molecules/Table/index.ts',
     'components/molecules/Timeline/index': 'src/components/molecules/Timeline/index.ts',
     'components/organisms/CookieConsent/index': 'src/components/organisms/CookieConsent/index.ts',
