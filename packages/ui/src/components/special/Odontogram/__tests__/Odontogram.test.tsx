@@ -79,6 +79,9 @@ describe('Odontogram', () => {
     render(<Odontogram onToothPress={onToothPress} />);
     await user.tab();
     expect(screen.getByRole('button', { name: /^Tooth 11,/ })).toHaveFocus();
+    expect(screen.getByRole('button', { name: /^Tooth 11,/ })).toHaveClass(
+      'focus-visible:outline-solid',
+    );
     await user.keyboard('{Enter}');
     await user.keyboard(' ');
     await user.keyboard('a');

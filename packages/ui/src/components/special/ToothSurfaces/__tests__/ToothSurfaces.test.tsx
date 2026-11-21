@@ -43,6 +43,9 @@ describe('ToothSurfaces', () => {
     );
     await user.click(screen.getByRole('button', { name: 'Occlusal, No records' }));
     expect(onSurfacePress).toHaveBeenCalledWith('O');
+    expect(screen.getByRole('button', { name: 'Occlusal, No records' })).toHaveClass(
+      'focus-visible:outline-solid',
+    );
 
     await user.tab();
     await user.keyboard('{Enter}');
