@@ -28,7 +28,7 @@ export const toothStateStyles = cva('', {
 export const toothStyles = cva('transition-opacity duration-150 ease-in-out', {
   variants: {
     interactive: {
-      true: 'cursor-pointer outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-focus)',
+      true: 'cursor-pointer outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-(--border-focus)',
       false: '',
     },
     dimmed: {
