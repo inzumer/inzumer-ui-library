@@ -1,5 +1,11 @@
 # @inzumer/ui-library
 
+## 3.6.0
+
+### Minor Changes
+
+- afa5b27: Add `Stories`: full-screen stories with progress bars, tap to go back or forward, hold or a button to pause, arrow keys, reduced-motion support and ids for analytics.
+
 ## 3.5.1
 
 ### Patch Changes
