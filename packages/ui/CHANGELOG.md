@@ -1,5 +1,11 @@
 # @inzumer/ui-library
 
+## 3.5.1
+
+### Patch Changes
+
+- 453805d: Odontogram and ToothSurfaces show the keyboard focus ring again: `outline-none` reset the outline style, so the focus outline never painted.
+
 ## 3.5.0
 
 ### Minor Changes
